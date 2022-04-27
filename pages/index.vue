@@ -1,5 +1,8 @@
 <template>
-  <h1>{{ testText }}</h1>
+  <the-layout>
+    <h1>{{ testText }}</h1>
+    <nuxt-link to="/subpage">Subpage</nuxt-link>
+  </the-layout>
 </template>
 
 <script>
@@ -7,7 +10,7 @@ export default {
   name: 'IndexPage',
   data() {
     return {
-      testText: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+      testText: 'Below is a link for subpage',
     }
   },
 }
