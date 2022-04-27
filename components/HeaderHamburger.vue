@@ -1,10 +1,12 @@
 <template>
-  <div class="hamburger" @click="toggleMenu">
-    <div
-      class="hamburger__bar"
-      :class="{ 'hamburger__bar--cross': isHamburgerActive }"
-    ></div>
-  </div>
+  <span>
+    <div class="hamburger" @click="toggleMenu">
+      <div
+        class="hamburger__bar"
+        :class="{ 'hamburger__bar--cross': isHamburgerActive }"
+      ></div>
+    </div>
+  </span>
 </template>
 
 <script>
@@ -25,6 +27,7 @@ export default {
 
 <style lang="scss" scoped>
 .hamburger {
+  display: inline-block;
   justify-content: center;
   align-items: center;
   cursor: pointer;
@@ -42,7 +45,7 @@ export default {
 
   &__bar {
     position: relative;
-    top: 1.25rem;
+    top: 0.75rem;
 
     &,
     &::before,
