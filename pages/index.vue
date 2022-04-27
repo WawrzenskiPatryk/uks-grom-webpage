@@ -2,7 +2,6 @@
   <main>
     <p>{{ testText }}</p>
     <nuxt-link to="/subpage">Subpage</nuxt-link>
-    <header-hamburger></header-hamburger>
   </main>
 </template>
 
