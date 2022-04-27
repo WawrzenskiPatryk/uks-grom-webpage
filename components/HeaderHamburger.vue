@@ -1,5 +1,6 @@
 <template>
   <span>
+    <!-- ADD PROPER SCSS COLOR VARIABLES!!! -->
     <div class="hamburger" @click="toggleMenu">
       <div
         class="hamburger__bar"
