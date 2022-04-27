@@ -30,7 +30,7 @@ export default {
   cursor: pointer;
   width: 3.5rem;
   height: 3rem;
-  // background-color: greenyellow;
+  background-color: greenyellow;
 
   &:hover &__bar {
     &,
@@ -41,7 +41,9 @@ export default {
   }
 
   &__bar {
-    transform: translateY(1.25rem);
+    // transform: translateY(0.75rem);
+    position: relative;
+    top: 1.25rem;
 
     &,
     &::before,

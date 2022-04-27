@@ -1,5 +1,5 @@
 <template>
-  <the-layout>
+  <main>
     <nuxt-link to="/">Home</nuxt-link>
 
     <ul>
@@ -18,11 +18,12 @@
     </ul>
 
     <nuxt-link to="/">Home</nuxt-link>
-  </the-layout>
+  </main>
 </template>
 
 <script>
 export default {
+  layout: 'TheLayout',
   data() {
     return {
       posts: [],
