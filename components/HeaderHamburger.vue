@@ -41,7 +41,6 @@ export default {
   }
 
   &__bar {
-    // transform: translateY(0.75rem);
     position: relative;
     top: 1.25rem;
 
