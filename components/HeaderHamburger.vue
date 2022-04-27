@@ -1,6 +1,9 @@
 <template>
-  <div class="wrapper" @click="toggleMenu">
-    <div class="bar" :class="{ 'menu-opened': isMenuOpened }"></div>
+  <div class="hamburger" @click="toggleMenu">
+    <div
+      class="hamburger__bar"
+      :class="{ 'hamburger__bar--cross': isHamburgerActive }"
+    ></div>
   </div>
 </template>
 
@@ -8,68 +11,70 @@
 export default {
   data() {
     return {
-      isMenuOpened: false,
+      isHamburgerActive: false,
     }
   },
   methods: {
     toggleMenu() {
-      this.isMenuOpened = !this.isMenuOpened
+      this.isHamburgerActive = !this.isHamburgerActive
+      this.$emit('hamburgerToggle', this.isHamburgerActive)
     },
   },
 }
 </script>
 
-<style scoped>
-.wrapper {
+<style lang="scss" scoped>
+.hamburger {
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  width: 4rem;
+  width: 3.5rem;
   height: 3rem;
-  background-color: greenyellow;
-}
+  // background-color: greenyellow;
 
-.bar,
-.bar::after,
-.bar::before {
-  display: block;
-  height: 0.5rem;
-  margin: 0.5rem 0;
-  width: 4rem;
-  border-radius: 1rem;
-  background-color: black;
-  transition: all 200ms ease;
-}
+  &:hover &__bar {
+    &,
+    &::after,
+    &::before {
+      background-color: blue;
+    }
+  }
 
-.bar {
-  transform: translateY(1.2rem);
-}
+  &__bar {
+    transform: translateY(1.25rem);
 
-.bar::after,
-.bar::before {
-  content: '';
-  position: relative;
-}
+    &,
+    &::before,
+    &::after {
+      display: block;
+      height: 0.5rem;
+      margin: 0.5rem 0;
+      width: 3.5rem;
+      border-radius: 1rem;
+      background-color: black;
+      transition: all 200ms ease;
+    }
 
-.bar::before {
-  position: relative;
-  top: -1rem;
-}
+    &::before,
+    &::after {
+      content: '';
+    }
 
-.wrapper:hover .bar,
-.wrapper:hover .bar::after,
-.wrapper:hover .bar::before {
-  background-color: black;
-}
+    &::before {
+      position: relative;
+      top: -1rem;
+    }
 
-.menu-opened.bar {
-  width: 0;
-  transition: all 200ms ease;
-}
+    &--cross {
+      width: 0;
 
-.menu-opened.bar::after {
-  transform: translateY(-1rem) rotate(45deg);
-}
-
-.menu-opened.bar::before {
-  transform: translateY(1rem) rotate(-45deg);
+      &::after {
+        transform: translateY(-1rem) rotate(45deg);
+      }
+      &::before {
+        transform: translateY(1rem) rotate(-45deg);
+      }
+    }
+  }
 }
 </style>
