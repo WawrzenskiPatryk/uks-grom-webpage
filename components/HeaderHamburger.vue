@@ -34,13 +34,13 @@ export default {
   cursor: pointer;
   width: 3.5rem;
   height: 3rem;
-  background-color: greenyellow;
+  // background-color: greenyellow;
 
   &:hover &__bar {
     &,
     &::after,
     &::before {
-      background-color: blue;
+      background-color: $primary-color;
     }
   }
 
@@ -56,7 +56,7 @@ export default {
       margin: 0.5rem 0;
       width: 3.5rem;
       border-radius: 1rem;
-      background-color: black;
+      background-color: $the-text-color;
       transition: all 200ms ease;
     }
 
