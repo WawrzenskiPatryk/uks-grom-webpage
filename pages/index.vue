@@ -1,7 +1,9 @@
 <template>
   <the-layout>
-    <h1>{{ testText }}</h1>
+    <p>{{ testText }}</p>
     <nuxt-link to="/subpage">Subpage</nuxt-link>
+    
+    <header-hamburger></header-hamburger>
   </the-layout>
 </template>
 
