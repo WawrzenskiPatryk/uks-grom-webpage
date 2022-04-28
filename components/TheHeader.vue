@@ -23,10 +23,10 @@ export default {
     return {
       isNavVisible: false,
       navItems: [
-        { name: 'Strona Główna', href: '#', dropdown: null },
+        { name: 'Strona Główna', href: '/', dropdown: null },
         {
           name: 'O nas',
-          href: '#',
+          href: '/onas',
           dropdown: [
             { name: 'Trenerzy', href: '#' },
             { name: 'Wychowankowie', href: '#' },
