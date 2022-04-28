@@ -17,6 +17,11 @@ export default {
       isHamburgerActive: false,
     };
   },
+  watch: {
+    $route() {
+      if (this.isHamburgerActive) this.toggleMenu();
+    },
+  },
   methods: {
     toggleMenu() {
       this.isHamburgerActive = !this.isHamburgerActive;
