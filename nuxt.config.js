@@ -39,6 +39,6 @@ export default {
   build: {},
 
   styleResources: {
-    scss: ['./assets/scss/*.scss'],
+    scss: ['./assets/scss/main.scss'],
   },
 }
