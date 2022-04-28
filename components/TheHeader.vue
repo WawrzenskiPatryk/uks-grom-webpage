@@ -70,16 +70,18 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: fixed;
   background-color: $main-light;
   width: 100%;
+  min-height: 6rem;
   box-shadow: rgba(0, 0, 0, 0.25) 0 0 2rem;
-  top: 0;
-  padding: 0 3rem;
+  padding: 1rem 3rem;
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;
+    padding: 0 3rem;
+  }
+  @media screen and (min-width: 1024px) {
   }
 }
 </style>

@@ -15,15 +15,15 @@ export default {
   data() {
     return {
       isHamburgerActive: false,
-    }
+    };
   },
   methods: {
     toggleMenu() {
-      this.isHamburgerActive = !this.isHamburgerActive
-      this.$emit('hamburgerToggle', this.isHamburgerActive)
+      this.isHamburgerActive = !this.isHamburgerActive;
+      this.$emit('hamburgerToggle', this.isHamburgerActive);
     },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -33,7 +33,6 @@ export default {
   align-items: center;
   cursor: pointer;
   width: 3.5rem;
-  height: 3rem;
   // background-color: greenyellow;
   @media (hover: hover) {
     &:hover &__bar {
@@ -47,7 +46,7 @@ export default {
 
   &__bar {
     position: relative;
-    top: 0.75rem;
+    // top: 0.75rem;
 
     &,
     &::before,

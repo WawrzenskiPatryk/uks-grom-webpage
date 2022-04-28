@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <the-header :is-mobile="isMobile"></the-header>
+    <the-header :is-mobile="isMobile" class="layout__header"></the-header>
     <nuxt></nuxt>
   </div>
 </template>
@@ -8,7 +8,7 @@
 <script>
 export default {
   data() {
-    return { isMobile: null };
+    return { isMobile: true };
   },
   mounted() {
     this.setIsMobile();
@@ -29,7 +29,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 // devTools: 375, 768, 1024, 1440
 
 .layout {
@@ -39,9 +39,14 @@ export default {
   max-width: 100vw;
   padding-top: 10rem;
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 768px) {
     // TODO: Desktop navigation styling!
     padding-top: 6rem;
+  }
+
+  &__header {
+    position: fixed;
+    top: 0;
   }
 }
 </style>
