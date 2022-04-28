@@ -23,4 +23,15 @@ export default {
   text-align: center;
   padding: 1rem 0;
 }
+
+.nav {
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    // TODO: Desktop navigation styling!
+  }
+
+  &__item * {
+    color: $main-dark;
+  }
+}
 </style>

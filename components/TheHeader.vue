@@ -5,13 +5,20 @@
       <template #first>UKS</template>
       <template #second>GROM</template>
     </header-logo>
-    <header-hamburger @hamburgerToggle="toggleMenu"></header-hamburger>
-    <header-nav v-if="isNavVisible" :nav-elements="navElements"></header-nav>
+    <header-hamburger
+      v-if="isMobile"
+      @hamburgerToggle="toggleMenu"
+    ></header-hamburger>
+    <header-nav
+      v-if="isNavVisible || !isMobile"
+      :nav-elements="navElements"
+    ></header-nav>
   </header>
 </template>
 
 <script>
 export default {
+  props: { isMobile: Boolean },
   data() {
     return {
       isNavVisible: false,
@@ -68,5 +75,11 @@ export default {
   width: 100%;
   box-shadow: rgba(0, 0, 0, 0.25) 0 0 2rem;
   top: 0;
+  padding: 0 3rem;
+
+  @media screen and (min-width: 1024px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 </style>
