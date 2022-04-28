@@ -1,0 +1,9 @@
+// Light Theme
+$the-text-color: $main-dark;
+$the-background-color: $main-light;
+
+// Dark Theme Colors
+.dark-mode {
+  $the-text-color: $main-light;
+  $the-background-color: $secondary-dark;
+}
