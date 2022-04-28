@@ -13,7 +13,7 @@
           </li>
         </ol>
         <p>{{ post.continent }}</p>
-        <img :src="post.image" :alt="post.title" />
+        <!-- <img :src="post.image" :alt="post.title" /> -->
       </li>
     </ul>
 
