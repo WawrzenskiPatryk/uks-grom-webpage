@@ -10,5 +10,6 @@
 body {
   color: $the-text-color;
   background-color: $the-background-color;
+  transition: background-color 0.3s;
 }
 </style>
