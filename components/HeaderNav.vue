@@ -1,8 +1,8 @@
 <template>
   <nav class="header__nav">
     <ul class="nav">
-      <li v-for="btn in navElements" :key="btn.name" class="nav__item">
-        <nuxt-link :to="btn.link">{{ btn.name }}</nuxt-link>
+      <li v-for="item in navItems" :key="item.name" class="nav__item">
+        <nuxt-link :to="item.href">{{ item.name }}</nuxt-link>
       </li>
     </ul>
   </nav>
@@ -11,7 +11,7 @@
 <script>
 export default {
   // eslint-disable-next-line vue/require-prop-types
-  props: ['navElements'],
+  props: ['navItems'],
 };
 </script>
 

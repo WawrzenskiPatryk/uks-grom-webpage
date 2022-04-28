@@ -11,7 +11,7 @@
     ></header-hamburger>
     <header-nav
       v-if="isNavVisible || !isMobile"
-      :nav-elements="navElements"
+      :nav-items="navItems"
     ></header-nav>
   </header>
 </template>
@@ -22,36 +22,36 @@ export default {
   data() {
     return {
       isNavVisible: false,
-      navElements: [
-        { name: 'Strona Główna', link: '#', dropdown: null },
+      navItems: [
+        { name: 'Strona Główna', href: '#', dropdown: null },
         {
           name: 'O nas',
-          link: '#',
+          href: '#',
           dropdown: [
-            { name: 'Trenerzy', link: '#' },
-            { name: 'Wychowankowie', link: '#' },
-            { name: 'Kadra', link: '#' },
-            { name: 'Cele', link: '#' },
-            { name: 'Inne', link: '#' },
+            { name: 'Trenerzy', href: '#' },
+            { name: 'Wychowankowie', href: '#' },
+            { name: 'Kadra', href: '#' },
+            { name: 'Cele', href: '#' },
+            { name: 'Inne', href: '#' },
           ],
         },
-        { name: 'Treningi', link: '#', dropdown: null },
+        { name: 'Treningi', href: '#', dropdown: null },
         {
           name: 'Aktualności',
-          link: '#',
+          href: '#',
           dropdown: [
-            { name: 'Wakacje 2022', link: '#' },
-            { name: 'Ferie 2022', link: '#' },
-            { name: 'Wakacje 2021', link: '#' },
-            { name: 'Ferie 2021', link: '#' },
-            { name: 'Wakacje 2020', link: '#' },
-            { name: 'Ferie 2020', link: '#' },
+            { name: 'Wakacje 2022', href: '#' },
+            { name: 'Ferie 2022', href: '#' },
+            { name: 'Wakacje 2021', href: '#' },
+            { name: 'Ferie 2021', href: '#' },
+            { name: 'Wakacje 2020', href: '#' },
+            { name: 'Ferie 2020', href: '#' },
           ],
         },
-        { name: 'Galeria', link: '#', dropdown: null },
+        { name: 'Galeria', href: '#', dropdown: null },
         {
           name: 'Kontakt',
-          link: '#',
+          href: '#',
           dropdown: null,
         },
       ],
