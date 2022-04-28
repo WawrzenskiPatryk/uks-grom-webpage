@@ -35,12 +35,13 @@ export default {
   width: 3.5rem;
   height: 3rem;
   // background-color: greenyellow;
-
-  &:hover &__bar {
-    &,
-    &::after,
-    &::before {
-      background-color: $primary-color;
+  @media (hover: hover) {
+    &:hover &__bar {
+      &,
+      &::after,
+      &::before {
+        background-color: $primary-color;
+      }
     }
   }
 
