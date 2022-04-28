@@ -8,7 +8,7 @@
 <script>
 export default {
   data() {
-    return { isMobile: true };
+    return { isMobile: null };
   },
   mounted() {
     this.setIsMobile();
