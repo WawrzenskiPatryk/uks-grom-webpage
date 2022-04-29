@@ -104,6 +104,7 @@ export default {
     @media screen and (max-width: 767px) {
       height: calc(100vh - 6rem);
       width: 100%;
+      padding-top: 6rem;
     }
     @media screen and (min-width: 768px) {
       // box-shadow: $main-shadow -1rem 1rem 1rem -1rem;
