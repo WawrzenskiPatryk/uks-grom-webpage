@@ -11,11 +11,13 @@
       :nav-visible="isNavVisible"
       @hamburgerToggle="toggleMenu"
     ></header-hamburger>
-    <header-nav
-      v-if="isNavVisible || !isMobile"
-      class="header__nav"
-      :nav-items="navItems"
-    ></header-nav>
+    <transition name="header__nav">
+      <header-nav
+        v-if="isNavVisible || !isMobile"
+        class="header__nav"
+        :nav-items="navItems"
+      ></header-nav>
+    </transition>
   </header>
 </template>
 
@@ -98,24 +100,32 @@ export default {
     right: 0;
     // border: 1px $main-dark solid;
     background-color: inherit;
-    transition: transform 0.3s ease;
     z-index: -1;
+
+    &-enter-active,
+    &-leave-active {
+      transition: transform 0.3s ease;
+    }
 
     @media screen and (max-width: 767px) {
       height: calc(100vh - 6rem);
       width: 100%;
       padding-top: 3rem;
 
-      // MOBILE TRANSITION Vertical
-      // transform: translateY(-90vh);
+      &-enter,
+      &-leave-to {
+        transform: translateY(-90vh);
+      }
     }
     @media screen and (min-width: 768px) {
       box-shadow: $main-shadow -1rem 1rem 1rem -1rem;
       text-align: right;
       padding: 0.5rem 1rem 2rem 4rem;
 
-      // TABLET TRANSITION Horizontal
-      // transform: translateX(20rem);
+      &-enter,
+      &-leave-to {
+        transform: translateX(20rem);
+      }
     }
     @media screen and (min-width: 1024px) {
       position: static;
