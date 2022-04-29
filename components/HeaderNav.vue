@@ -54,7 +54,7 @@ export default {
       }
     }
 
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 767px) {
       font-size: 2rem;
     }
 
