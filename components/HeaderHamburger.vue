@@ -1,5 +1,5 @@
 <template>
-  <span class="header__hamburger">
+  <span >
     <!-- ADD PROPER SCSS COLOR VARIABLES!!! -->
     <div class="hamburger" @click="toggleMenu">
       <div

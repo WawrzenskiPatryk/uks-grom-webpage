@@ -1,5 +1,5 @@
 <template>
-  <div class="header__logo">
+  <div>
     <slot>
       <h1 class="logo-placeholder">
         <nuxt-link to="/">

@@ -1,5 +1,5 @@
 <template>
-  <nav class="header__nav">
+  <nav>
     <ul class="nav">
       <li v-for="item in navItems" :key="item.name" class="nav__item">
         <nuxt-link :to="item.href" class="nav__link">{{ item.name }}</nuxt-link>
@@ -16,24 +16,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// .header__nav {
-//   // bottom: 0;
-//   height: 100%;
-//   text-align: center;
-//   position: absolute;
-//   top: 5rem;
-//   right: 0;
-//   // border: 1px red solid;
-//   // @media screen and (min-width: 768px) {}
-//   @media screen and (min-width: 1024px) {
-//     position: static;
-//     display: flex;
-//     justify-content: flex-end;
-//     align-items: center;
-//     // width: 100%;
-//   }
-// }
-
 .nav {
   @media screen and (min-width: 1024px) {
     display: flex;
