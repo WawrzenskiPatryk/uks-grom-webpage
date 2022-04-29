@@ -1,7 +1,7 @@
 <template>
   <main>
     <p>{{ testText }}</p>
-    <nuxt-link to="/subpage">Subpage</nuxt-link>
+    <nuxt-link to="/onas">O Nas</nuxt-link>
   </main>
 </template>
 
@@ -12,7 +12,7 @@ export default {
   data() {
     return {
       testText: 'Below is a link for subpage',
-    }
+    };
   },
-}
+};
 </script>
