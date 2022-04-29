@@ -26,7 +26,7 @@ export default {
   },
   mounted() {
     this.isHamburgerActive = this.navVisible;
-    this.closeMenu();
+    // this.closeMenu();
   },
   methods: {
     toggleMenu() {
