@@ -21,16 +21,20 @@ export default {
   },
   watch: {
     $route() {
-      if (this.isHamburgerActive) this.toggleMenu();
+      this.closeMenu();
     },
   },
   mounted() {
     this.isHamburgerActive = this.navVisible;
+    this.closeMenu();
   },
   methods: {
     toggleMenu() {
       this.isHamburgerActive = !this.isHamburgerActive;
       this.$emit('hamburgerToggle', this.isHamburgerActive);
+    },
+    closeMenu() {
+      if (this.isHamburgerActive) this.toggleMenu();
     },
   },
 };
