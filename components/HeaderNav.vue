@@ -53,7 +53,11 @@ export default {
         color: $primary-color;
       }
     }
-    
+
+    @media screen and (max-width: 1024px) {
+      font-size: 2rem;
+    }
+
     @media screen and (min-width: 1024px) {
       display: flex;
       @media (hover: hover) {

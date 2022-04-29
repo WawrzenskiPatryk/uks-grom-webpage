@@ -76,7 +76,7 @@ export default {
   background-color: $main-light;
   width: 100%;
   min-height: 6rem;
-  box-shadow: rgba(0, 0, 0, 0.25) 0 0 2rem;
+  box-shadow: $main-shadow 0 0 1rem;
   // padding: 1rem 3rem;
   padding: 0 3rem;
 
@@ -87,20 +87,30 @@ export default {
   // &__hamburger {}
 
   &__nav {
-    // bottom: 0;
-    height: 100%;
-    text-align: center;
     position: absolute;
-    top: 5rem;
+    text-align: center;
+    // height: calc(100vh - 6rem);
+    top: 6rem;
     right: 0;
-    // border: 1px red solid;
-    // @media screen and (min-width: 768px) {}
+    // border: 1px $main-dark solid;
+    background-color: inherit;
+    padding: 0 1rem;
+
+    @media screen and (max-width: 767px) {
+      height: calc(100vh - 6rem);
+      width: 100%;
+    }
+    @media screen and (min-width: 768px) {
+      // box-shadow: $main-shadow -1rem 1rem 1rem -1rem;
+      text-align: right;
+    }
     @media screen and (min-width: 1024px) {
       position: static;
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      // width: 100%;
+      height: 100%;
+      box-shadow: none;
     }
   }
 
