@@ -1,7 +1,7 @@
 <template>
   <div class="header__logo">
     <slot>
-      <h1 class="logo__placeholder">
+      <h1 class="logo-placeholder">
         <nuxt-link to="/">
           <span><slot name="first">Logo</slot></span>
           <span><slot name="second">Test</slot></span>
@@ -12,10 +12,7 @@
 </template>
 
 <style lang="scss" scoped>
-.header__logo {
-  display: inline-block;
-}
-.logo__placeholder {
+.logo-placeholder {
   a {
     font-family: 'Jost';
     color: $primary-color;
