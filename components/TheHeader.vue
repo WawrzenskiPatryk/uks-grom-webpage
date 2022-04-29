@@ -74,7 +74,6 @@ export default {
   user-select: none;
 
   display: flex;
-  // flex-direction: column;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -82,7 +81,6 @@ export default {
   width: 100%;
   min-height: 6rem;
   box-shadow: $main-shadow 0 0 1rem;
-  // padding: 1rem 3rem;
   padding: 0 3rem;
 
   &__logo {
@@ -94,21 +92,20 @@ export default {
   &__nav {
     position: absolute;
     text-align: center;
-    // height: calc(100vh - 6rem);
     top: 6rem;
     right: 0;
     // border: 1px $main-dark solid;
     background-color: inherit;
-    padding: 0 1rem;
 
     @media screen and (max-width: 767px) {
       height: calc(100vh - 6rem);
       width: 100%;
-      padding-top: 6rem;
+      padding-top: 3rem;
     }
     @media screen and (min-width: 768px) {
-      // box-shadow: $main-shadow -1rem 1rem 1rem -1rem;
+      box-shadow: $main-shadow -1rem 1rem 1rem -1rem;
       text-align: right;
+      padding: 0.5rem 1rem 2rem 4rem;
     }
     @media screen and (min-width: 1024px) {
       position: static;
@@ -117,6 +114,7 @@ export default {
       align-items: center;
       height: 100%;
       box-shadow: none;
+      padding: 0 1rem;
     }
   }
 
