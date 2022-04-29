@@ -68,6 +68,11 @@ export default {
 
 <style lang="scss" scoped>
 .header {
+  -webkit-user-select: none; /* Chrome all / Safari all */
+  -moz-user-select: none; /* Firefox all */
+  -ms-user-select: none;
+  user-select: none;
+
   display: flex;
   // flex-direction: column;
   flex-direction: row;
