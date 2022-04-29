@@ -7,6 +7,7 @@
     </header-logo>
     <header-hamburger
       v-if="isMobile"
+      :nav-visible="isNavVisible"
       @hamburgerToggle="toggleMenu"
     ></header-hamburger>
     <header-nav

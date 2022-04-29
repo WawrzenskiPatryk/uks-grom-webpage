@@ -12,6 +12,8 @@
 
 <script>
 export default {
+  // eslint-disable-next-line vue/require-prop-types
+  props: ['navVisible'],
   data() {
     return {
       isHamburgerActive: false,
@@ -21,6 +23,9 @@ export default {
     $route() {
       if (this.isHamburgerActive) this.toggleMenu();
     },
+  },
+  mounted() {
+    this.isHamburgerActive = this.navVisible;
   },
   methods: {
     toggleMenu() {
