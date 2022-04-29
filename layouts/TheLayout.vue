@@ -37,16 +37,14 @@ export default {
   background-color: $main-light;
   transition: background-color 0.3s;
   max-width: 100vw;
-  padding-top: 10rem;
-
-  @media screen and (min-width: 768px) {
-    // TODO: Desktop navigation styling!
-    padding-top: 6rem;
-  }
+  // padding-top: 10rem;
+  padding-top: 6rem;
 
   &__header {
     position: fixed;
     top: 0;
   }
+  // @media screen and (min-width: 768px) {}
+  // @media screen and (min-width: 1024px) {}
 }
 </style>

@@ -68,20 +68,18 @@ export default {
 <style lang="scss" scoped>
 .header {
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   background-color: $main-light;
   width: 100%;
   min-height: 6rem;
   box-shadow: rgba(0, 0, 0, 0.25) 0 0 2rem;
-  padding: 1rem 3rem;
+  // padding: 1rem 3rem;
+  padding: 0 3rem;
 
-  @media screen and (min-width: 768px) {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0 3rem;
-  }
-  @media screen and (min-width: 1024px) {
-  }
+  // @media screen and (min-width: 768px) {}
+  // @media screen and (min-width: 1024px) {}
 }
 </style>

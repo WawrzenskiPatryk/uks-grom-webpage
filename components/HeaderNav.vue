@@ -17,15 +17,14 @@ export default {
 
 <style lang="scss" scoped>
 .header__nav {
-  bottom: 0;
+  // bottom: 0;
   height: 100%;
   text-align: center;
-  @media screen and (min-width: 768px) {
-    position: absolute;
-    top: 5rem;
-    right: 0;
-    // border: 1px red solid;
-  }
+  position: absolute;
+  top: 5rem;
+  right: 0;
+  // border: 1px red solid;
+  // @media screen and (min-width: 768px) {}
   @media screen and (min-width: 1024px) {
     position: static;
     display: flex;
