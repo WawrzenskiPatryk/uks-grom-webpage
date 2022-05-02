@@ -3,6 +3,7 @@
     <ul class="nav">
       <li v-for="item in navItems" :key="item.name" class="nav__item">
         <nuxt-link :to="item.href" class="nav__link">{{ item.name }}</nuxt-link>
+        <nav-submenu v-if="item.submenu" :submenu="item.submenu"></nav-submenu>
       </li>
     </ul>
   </nav>
