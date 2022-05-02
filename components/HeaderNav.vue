@@ -44,7 +44,6 @@ export default {
       display: flex;
       @media (hover: hover) {
         &:hover {
-          cursor: pointer;
           &::after {
             width: 100%;
           }
@@ -64,6 +63,17 @@ export default {
   }
   &__link {
     height: 100%;
+    cursor: pointer;
+  }
+}
+.nuxt-link {
+  &-exact-active {
+    color: $primary-color;
+    pointer-events: none;
+    cursor: default;
+    &::after {
+      content: none;
+    }
   }
 }
 </style>
