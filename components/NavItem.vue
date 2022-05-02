@@ -1,22 +1,41 @@
 <template>
-  <nav>
-    <ul class="nav">
-      <nav-item
-        v-for="item in navItems"
-        :key="item.name"
-        :name="item.name"
-        :href="item.href"
-        :submenu="item.submenu"
-        class="nav__item"
-      ></nav-item>
-    </ul>
-  </nav>
+  <li>
+    <nuxt-link v-if="!submenu" :to="href" class="nav__link">{{
+      name
+    }}</nuxt-link>
+    <span v-else class="nav__link" @click="toggleSubmenu">{{ name }}</span>
+    <transition name="nav__submenu">
+      <nav-submenu
+        v-if="submenu && isSubmenuVisible"
+        :submenu="submenu"
+        class="nav__submenu"
+        @mouseenter="openSubmenu"
+        @mouseleave="closeSubmenu"
+      ></nav-submenu>
+    </transition>
+  </li>
 </template>
 
 <script>
 export default {
   /* eslint-disable vue/require-prop-types */
-  props: ['navItems'],
+  props: ['name', 'href', 'submenu'],
+  data() {
+    return {
+      isSubmenuVisible: false,
+    };
+  },
+  methods: {
+    toggleSubmenu() {
+      this.isSubmenuVisible = !this.isSubmenuVisible;
+    },
+    openSubmenu() {
+      this.isSubmenuVisible = true;
+    },
+    closeSubmenu() {
+      this.isSubmenuVisible = false;
+    },
+  },
 };
 </script>
 
@@ -91,6 +110,10 @@ export default {
     background-color: $main-light;
     // border: 1px solid red;
 
+    &-enter-active {
+      transition: transform 0.3s ease;
+    }
+
     @media screen and (min-width: 768px) {
       padding-right: 2rem;
     }
@@ -98,6 +121,10 @@ export default {
       position: absolute;
       right: 0;
       padding: 0;
+
+      &-enter {
+        transform: translateY(-1rem);
+      }
     }
   }
 }
