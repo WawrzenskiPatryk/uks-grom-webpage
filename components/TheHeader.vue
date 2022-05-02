@@ -103,7 +103,6 @@ export default {
     right: 0;
     // border: 1px $main-dark solid;
     background-color: inherit;
-    z-index: -1;
 
     &-enter-active,
     &-leave-active {
@@ -113,11 +112,11 @@ export default {
     @media screen and (max-width: 767.9px) {
       height: calc(100vh - 6rem);
       width: 100%;
-      padding-top: 3rem;
+      // padding-top: 1rem;
 
       &-enter,
       &-leave-to {
-        transform: translateY(-90vh);
+        transform: translateX(-100%);
       }
     }
     @media screen and (min-width: 768px) {
@@ -127,7 +126,7 @@ export default {
 
       &-enter,
       &-leave-to {
-        transform: translateX(20rem);
+        transform: translateX(100%);
       }
     }
     @media screen and (min-width: 1024px) {
