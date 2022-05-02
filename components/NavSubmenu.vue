@@ -21,6 +21,13 @@ export default {
   }
   &__item {
     border: 1px solid greenyellow;
+    cursor: pointer;
+
+    @media (hover: hover) {
+      &:hover {
+        color: $primary-color;
+      }
+    }
   }
 }
 </style>
