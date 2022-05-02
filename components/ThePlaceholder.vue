@@ -34,4 +34,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+main {
+  padding: 2rem 5rem;
+}
+ul {
+  margin-top: 2rem;
+}
+</style>
