@@ -56,7 +56,7 @@ export default {
           height: 3px;
           bottom: 0;
           left: 0;
-          background-color: #efdb03;
+          background-color: $secondary-color;
           transition: width 150ms ease;
         }
       }
