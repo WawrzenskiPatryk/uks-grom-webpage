@@ -36,7 +36,7 @@ export default {
       }
     }
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 767.9px) {
       font-size: 2rem;
     }
 

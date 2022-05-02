@@ -107,7 +107,7 @@ export default {
       transition: transform 0.3s ease;
     }
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 767.9px) {
       height: calc(100vh - 6rem);
       width: 100%;
       padding-top: 3rem;
