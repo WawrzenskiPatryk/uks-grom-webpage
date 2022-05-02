@@ -1,7 +1,11 @@
 <template>
-  <ul>
-    <li v-for="item in submenu" :key="item.name">{{ item.name }}</li>
-  </ul>
+  <nav>
+    <ul class="submenu">
+      <li v-for="item in submenu" :key="item.name" class="submenu__item">
+        {{ item.name }}
+      </li>
+    </ul>
+  </nav>
 </template>
 
 <script>
@@ -11,4 +15,12 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.submenu {
+  @media screen and (min-width: 768px) {
+  }
+  &__item {
+    border: 1px solid greenyellow;
+  }
+}
+</style>

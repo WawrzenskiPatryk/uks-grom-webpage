@@ -3,7 +3,11 @@
     <ul class="nav">
       <li v-for="item in navItems" :key="item.name" class="nav__item">
         <nuxt-link :to="item.href" class="nav__link">{{ item.name }}</nuxt-link>
-        <nav-submenu v-if="item.submenu" :submenu="item.submenu"></nav-submenu>
+        <nav-submenu
+          v-if="item.submenu"
+          :submenu="item.submenu"
+          class="nav__submenu"
+        ></nav-submenu>
       </li>
     </ul>
   </nav>
@@ -18,26 +22,34 @@ export default {
 
 <style lang="scss" scoped>
 .nav {
+  position: relative;
+
   @media screen and (min-width: 1024px) {
     display: flex;
     height: 6rem;
   }
 
-  &__item * {
-    // display: flex;
+  &__item {
     position: relative;
-    align-items: center;
+    * {
+      color: $main-dark;
+    }
+  }
+
+  &__link {
     padding: 0 2rem;
-    color: $main-dark;
-    // background-color: aqua;
-    // border: 1px solid black;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    cursor: pointer;
+
     @media (hover: hover) {
       &:hover {
         color: $primary-color;
       }
     }
 
-    @media screen and (max-width: 767.9px) {
+    @media screen and (max-width: 1023.9px) {
       font-size: 2rem;
     }
 
@@ -61,10 +73,6 @@ export default {
         }
       }
     }
-  }
-  &__link {
-    height: 100%;
-    cursor: pointer;
 
     &.nuxt-link {
       &-exact-active {
@@ -75,6 +83,21 @@ export default {
           content: none;
         }
       }
+    }
+  }
+
+  &__submenu {
+    min-width: 100%;
+    background-color: $main-light;
+    // border: 1px solid red;
+
+    @media screen and (min-width: 768px) {
+      padding-right: 2rem;
+    }
+    @media screen and (min-width: 1024px) {
+      position: absolute;
+      right: 0;
+      padding: 0;
     }
   }
 }
