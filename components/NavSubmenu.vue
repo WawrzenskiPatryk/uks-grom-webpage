@@ -2,7 +2,7 @@
   <nav>
     <ul class="submenu">
       <li v-for="item in submenu" :key="item.name" class="submenu__item">
-        {{ item.name }}
+        <nuxt-link :to="item.href">{{item.name}}</nuxt-link>
       </li>
     </ul>
   </nav>

@@ -6,11 +6,10 @@
     <span v-else class="nav__link" @click="toggleSubmenu">{{ name }}</span>
     <transition name="nav__submenu">
       <nav-submenu
-        v-if="submenu && isSubmenuVisible"
+        v-if="submenu"
         :submenu="submenu"
         class="nav__submenu"
-        @mouseenter="openSubmenu"
-        @mouseleave="closeSubmenu"
+        :class="{ 'nav__submenu--visible': isSubmenuVisible }"
       ></nav-submenu>
     </transition>
   </li>
@@ -29,29 +28,25 @@ export default {
     toggleSubmenu() {
       this.isSubmenuVisible = !this.isSubmenuVisible;
     },
-    openSubmenu() {
-      this.isSubmenuVisible = true;
-    },
-    closeSubmenu() {
-      this.isSubmenuVisible = false;
-    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .nav {
-  position: relative;
-
-  @media screen and (min-width: 1024px) {
-    display: flex;
-    height: 6rem;
-  }
-
   &__item {
     position: relative;
     * {
       color: $main-dark;
+    }
+    @media (hover: hover) {
+      &:hover {
+        .nav__submenu {
+          @media screen and (min-width: 1024px) {
+            display: block;
+          }
+        }
+      }
     }
   }
 
@@ -106,13 +101,10 @@ export default {
   }
 
   &__submenu {
+    display: none;
     min-width: 100%;
     background-color: $main-light;
     // border: 1px solid red;
-
-    &-enter-active {
-      transition: transform 0.3s ease;
-    }
 
     @media screen and (min-width: 768px) {
       padding-right: 2rem;
@@ -121,9 +113,11 @@ export default {
       position: absolute;
       right: 0;
       padding: 0;
+    }
 
-      &-enter {
-        transform: translateY(-1rem);
+    &--visible {
+      @media screen and (max-width: 1023.9px) {
+        display: block;
       }
     }
   }
