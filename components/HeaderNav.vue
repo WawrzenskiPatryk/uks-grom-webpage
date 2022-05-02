@@ -64,15 +64,16 @@ export default {
   &__link {
     height: 100%;
     cursor: pointer;
-  }
-}
-.nuxt-link {
-  &-exact-active {
-    color: $primary-color;
-    pointer-events: none;
-    cursor: default;
-    &::after {
-      content: none;
+
+    &.nuxt-link {
+      &-exact-active {
+        color: $primary-color;
+        pointer-events: none;
+        cursor: default;
+        &::after {
+          content: none;
+        }
+      }
     }
   }
 }
