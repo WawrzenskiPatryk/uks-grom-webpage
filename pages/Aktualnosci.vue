@@ -1,12 +1,12 @@
 <template>
   <main>
-    <the-placeholder>Strona Główna</the-placeholder>
+    <the-placeholder>Aktualnosci</the-placeholder>
   </main>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage',
+  name: 'NewsPage',
   layout: 'TheLayout',
 };
 </script>

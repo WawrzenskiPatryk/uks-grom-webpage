@@ -1,12 +1,12 @@
 <template>
   <main>
-    <the-placeholder>Strona Główna</the-placeholder>
+    <the-placeholder>Treningi</the-placeholder>
   </main>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage',
+  name: 'TrainingsPage',
   layout: 'TheLayout',
 };
 </script>

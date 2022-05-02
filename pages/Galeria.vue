@@ -1,12 +1,12 @@
 <template>
   <main>
-    <the-placeholder>Strona Główna</the-placeholder>
+    <the-placeholder>Galeria</the-placeholder>
   </main>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage',
+  name: 'GalleryPage',
   layout: 'TheLayout',
 };
 </script>
