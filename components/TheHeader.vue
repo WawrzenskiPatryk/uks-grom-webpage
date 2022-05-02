@@ -27,12 +27,15 @@ export default {
   data() {
     return {
       isNavVisible: false,
+      // After implementing submenu components,
+      // check if it also works without "null" submenu property value.
+      // In other words "submenu: null" ==> no submenu property.
       navItems: [
-        { name: 'Strona Główna', href: '/', dropdown: null },
+        { name: 'Strona Główna', href: '/', submenu: null },
         {
           name: 'O nas',
           href: '/onas',
-          dropdown: [
+          submenu: [
             { name: 'Trenerzy', href: '#' },
             { name: 'Wychowankowie', href: '#' },
             { name: 'Kadra', href: '#' },
@@ -40,11 +43,11 @@ export default {
             { name: 'Inne', href: '#' },
           ],
         },
-        { name: 'Treningi', href: '#', dropdown: null },
+        { name: 'Treningi', href: '#', submenu: null },
         {
           name: 'Aktualności',
           href: '#',
-          dropdown: [
+          submenu: [
             { name: 'Wakacje 2022', href: '#' },
             { name: 'Ferie 2022', href: '#' },
             { name: 'Wakacje 2021', href: '#' },
@@ -53,11 +56,11 @@ export default {
             { name: 'Ferie 2020', href: '#' },
           ],
         },
-        { name: 'Galeria', href: '#', dropdown: null },
+        { name: 'Galeria', href: '#', submenu: null },
         {
           name: 'Kontakt',
           href: '#',
-          dropdown: null,
+          submenu: null,
         },
       ],
     };
