@@ -1,12 +1,12 @@
 <template>
   <main>
-    <the-placeholder>Aktualnosci</the-placeholder>
+    <the-placeholder>Wakacje 2022</the-placeholder>
   </main>
 </template>
 
 <script>
 export default {
-  name: 'NewsPage',
+  name: 'Wakacje2022Page',
   layout: 'TheLayout',
 };
 </script>
