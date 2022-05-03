@@ -3,7 +3,12 @@
     <nuxt-link v-if="!submenu" :to="href" class="nav__link">{{
       name
     }}</nuxt-link>
-    <span v-else class="nav__link" @click="toggleSubmenu">{{ name }}</span>
+    <span
+      v-else
+      class="nav__link nav__link--with-submenu"
+      @click="toggleSubmenu"
+      >{{ name }}</span
+    >
     <transition name="nav__submenu">
       <nav-submenu
         v-if="submenu"
@@ -41,6 +46,9 @@ export default {
     }
     @media (hover: hover) {
       &:hover {
+        * {
+          color: $primary-color;
+        }
         .nav__submenu {
           @media screen and (min-width: 1024px) {
             display: block;
@@ -57,11 +65,11 @@ export default {
     height: 100%;
     cursor: pointer;
 
-    @media (hover: hover) {
-      &:hover {
-        color: $primary-color;
-      }
-    }
+    // @media (hover: hover) {
+    //   &:hover {
+    //     color: $primary-color;
+    //   }
+    // }
 
     @media screen and (max-width: 1023.9px) {
       font-size: 2rem;
@@ -85,6 +93,12 @@ export default {
           background-color: $secondary-color;
           transition: width 150ms ease;
         }
+      }
+    }
+
+    &--with-submenu {
+      &::after {
+        content: none;
       }
     }
 
