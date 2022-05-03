@@ -7,8 +7,13 @@
       v-else
       class="nav__link nav__link--with-submenu"
       @click="toggleSubmenu"
-      >{{ name }}</span
     >
+      <span v-if="isSubmenuVisible && isMobile" class="nav__dropdown-icon"
+        >&#9652;</span
+      >
+      <span v-else-if="isMobile" class="nav__dropdown-icon">&#9662;</span>
+      {{ name }}
+    </span>
     <transition name="nav__submenu">
       <nav-submenu
         v-if="submenu"
@@ -23,7 +28,8 @@
 <script>
 export default {
   /* eslint-disable vue/require-prop-types */
-  props: ['name', 'href', 'submenu'],
+  inject: ['isMobile'],
+  props: ['name', 'href', 'submenu', 'isMobile'],
   data() {
     return {
       isSubmenuVisible: false,
@@ -134,6 +140,11 @@ export default {
         display: block;
       }
     }
+  }
+
+  &__dropdown-icon {
+    position: absolute;
+    left: 0;
   }
 }
 </style>

@@ -16,6 +16,7 @@
         v-if="isNavVisible || !isMobile"
         class="header__nav"
         :nav-items="navItems"
+        :is-mobile="isMobile"
       ></header-nav>
     </transition>
   </header>

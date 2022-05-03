@@ -7,6 +7,7 @@
         :name="item.name"
         :href="item.href"
         :submenu="item.submenu"
+        :is-mobile="isMobile"
         class="nav__item"
       ></nav-item>
     </ul>
@@ -16,7 +17,7 @@
 <script>
 export default {
   /* eslint-disable vue/require-prop-types */
-  props: ['navItems'],
+  props: ['navItems', 'isMobile'],
 };
 </script>
 
