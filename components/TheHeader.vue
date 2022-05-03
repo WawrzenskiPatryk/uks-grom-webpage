@@ -1,10 +1,10 @@
 <template>
   <header class="header">
-    <header-logo class="header__logo">
+    <the-logo class="header__logo">
       <!-- Insert logo img instead of the placeholder template code -->
       <template #first>UKS</template>
       <template #second>GROM</template>
-    </header-logo>
+    </the-logo>
     <header-hamburger
       v-if="isMobile"
       class="header__hamburger"

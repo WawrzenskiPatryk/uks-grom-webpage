@@ -49,6 +49,7 @@ export default {
     position: relative;
     * {
       color: $main-dark;
+      transition: color 0.2s ease;
     }
     @media (hover: hover) {
       &:hover {
