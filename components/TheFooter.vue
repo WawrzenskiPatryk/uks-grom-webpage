@@ -2,30 +2,32 @@
   <footer class="footer">
     <div class="footer__columns-wrapper">
       <div class="footer__column">
-        <the-logo class="footer__logo">
-          <!-- Insert logo img instead of the placeholder template code -->
-          <template #first>UKS</template>
-          <template #second>GROM</template>
-        </the-logo>
-        <p>Uczniowski Klub Sportowy</p>
-        <p>GROM Lublin</p>
+        <div class="footer__details">
+          <the-logo class="footer__logo">
+            <!-- Insert logo img instead of the placeholder template code -->
+            <template #first>UKS</template>
+            <template #second>GROM</template>
+          </the-logo>
+          <p>{{ titleTop }}</p>
+          <p>{{ titleBottom }}</p>
+        </div>
       </div>
 
       <div class="footer__column">
-        <span class="footer__details">
-          <h4>Dane do przelewu:</h4>
-          <p>testBank</p>
-          <p>00 0000 0000 0000 0000 0000 0000</p>
-        </span>
+        <div class="footer__details">
+          <h4>{{ bankData.title }}</h4>
+          <p>{{ bankData.bankName }}</p>
+          <p>{{ bankData.accountNum }}</p>
+        </div>
       </div>
 
       <div class="footer__column">
-        <span class="footer__details">
-          <p>ul. Adama Mickiewicza 24</p>
-          <p>20-433 Lublin</p>
-          <p>&#9993; info@uksgrom.lublin.pl</p>
-          <p>&#9742; 500-500-500</p>
-        </span>
+        <div class="footer__details">
+          <p>{{ address.firstLine }}</p>
+          <p>{{ address.secondLine }}</p>
+          <p>&#9993; {{ email }}</p>
+          <p>&#9742; {{ phone }}</p>
+        </div>
       </div>
     </div>
 
@@ -43,6 +45,28 @@
   </footer>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      titleTop: 'Uczniowski Klub Sportowy',
+      titleBottom: 'GROM Lublin',
+      bankData: {
+        title: 'Dane do przelewu',
+        bankName: 'mBank',
+        accountNum: '00 0000 0000 0000 0000 0000 0000',
+      },
+      address: {
+        firstLine: 'ul. Adama Mickiewicza 24',
+        secondLine: '20-433 Lublin',
+      },
+      email: 'info@uksgrom.lublin.pl',
+      phone: '500-500-500',
+    };
+  },
+};
+</script>
+
 <style lang="scss" scoped>
 .footer {
   color: $main-light;
@@ -52,23 +76,33 @@
   &__columns-wrapper {
     display: flex;
     margin: 2rem 0;
+    // border: 2px solid green;
   }
 
   &__column {
     display: flex;
-    flex-direction: column;
-    padding-left: 10rem;
-    padding-bottom: 2rem;
+    justify-content: center;
+    padding: 0 4rem;
+    width: 100%;
 
     &:not(:last-of-type) {
       border-right: 1px solid $main-light;
     }
-    width: 100%;
+
+    // border: 1px solid red;
   }
 
   &__logo {
-    // border: 1px solid red;
     display: inline-block;
+    // border: 1px solid red;
+  }
+
+  &__details {
+    * {
+      padding: 0.5rem 0;
+      // border: 2px solid green;
+    }
+    // border: 1px solid red;
   }
 
   &__copyrights {
@@ -76,12 +110,7 @@
     font-size: 1.2rem;
     font-family: Arial, sans-serif;
     margin-top: 5rem;
-  }
-
-  &__details {
-    * {
-      padding: 0.5rem 0;
-    }
+    // border: 1px solid red;
   }
 
   &__author-link {
