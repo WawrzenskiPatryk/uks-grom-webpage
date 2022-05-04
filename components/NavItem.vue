@@ -28,7 +28,6 @@
 <script>
 export default {
   /* eslint-disable vue/require-prop-types */
-  inject: ['isMobile'],
   props: ['name', 'href', 'submenu', 'isMobile'],
   data() {
     return {
