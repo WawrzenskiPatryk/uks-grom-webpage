@@ -106,7 +106,6 @@ export default {
     text-align: center;
     top: 6rem;
     right: 0;
-    // border: 1px $main-dark solid;
     background-color: inherit;
 
     &-enter-active,
@@ -117,7 +116,6 @@ export default {
     @media screen and (max-width: 767.9px) {
       height: calc(100vh - 6rem);
       width: 100%;
-      // padding-top: 1rem;
 
       &-enter,
       &-leave-to {
@@ -136,13 +134,9 @@ export default {
     }
     @media screen and (min-width: 1024px) {
       position: static;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      height: 100%;
       box-shadow: none;
       padding: 0 1rem;
-      transform: none;
+      // transform: none; --> actually this animation on resize is kinda cool ;)
     }
   }
 

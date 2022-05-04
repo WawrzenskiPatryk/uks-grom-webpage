@@ -24,7 +24,10 @@ export default {
 <style lang="scss" scoped>
 .nav {
   position: relative;
-
+  top: 15%;
+  @media screen and (min-width: 768px) {
+    top: 0;
+  }
   @media screen and (min-width: 1024px) {
     display: flex;
     height: 6rem;
