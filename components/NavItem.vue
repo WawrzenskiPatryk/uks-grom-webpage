@@ -1,8 +1,11 @@
 <template>
   <li>
-    <nuxt-link v-if="!submenu" :to="href" class="nav__link">{{
-      name
-    }}</nuxt-link>
+    <nuxt-link
+      v-if="!submenu || submenu.length === 0"
+      :to="href"
+      class="nav__link"
+      >{{ name }}</nuxt-link
+    >
     <span
       v-else
       class="nav__link nav__link--with-submenu"
@@ -16,7 +19,7 @@
     </span>
     <!-- <transition name="nav__submenu"> -->
     <nav-submenu
-      v-if="submenu"
+      v-if="submenu && submenu.length !== 0"
       :submenu="submenu"
       class="nav__submenu"
       :class="{ 'nav__submenu--visible': isSubmenuVisible }"
