@@ -73,38 +73,50 @@ export default {
 .footer {
   color: $main-light;
   background-color: $main-dark;
-  padding: 4rem 0 2rem 0;
+  padding: 2rem 0;
+  text-align: center;
+
+  @media screen and (min-width: 1024px) {
+    text-align: left;
+  }
 
   &__columns-wrapper {
     display: flex;
+    flex-direction: column;
     margin: 2rem 0;
-    // border: 2px solid green;
+    padding: 0 10vw;
+    @media screen and (min-width: 1024px) {
+      padding: 0;
+      flex-direction: row;
+    }
   }
 
   &__column {
     display: flex;
     justify-content: center;
-    padding: 0 4rem;
     width: 100%;
-
+    padding: 1rem 0;
     &:not(:last-of-type) {
-      border-right: 1px solid $main-light;
+      border-bottom: 1px solid $main-light;
     }
 
-    // border: 1px solid red;
+    @media screen and (min-width: 1024px) {
+      padding: 0 4rem;
+      &:not(:last-of-type) {
+        border-bottom: none;
+        border-right: 1px solid $main-light;
+      }
+    }
   }
 
   &__logo {
     display: inline-block;
-    // border: 1px solid red;
   }
 
   &__details {
     * {
       padding: 0.5rem 0;
-      // border: 2px solid green;
     }
-    // border: 1px solid red;
   }
 
   &__copyrights {
@@ -112,7 +124,6 @@ export default {
     font-size: 1.2rem;
     font-family: Arial, sans-serif;
     margin-top: 5rem;
-    // border: 1px solid red;
   }
 
   &__author-link {
