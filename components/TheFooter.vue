@@ -23,15 +23,10 @@
 
       <div class="footer__column">
         <div class="footer__details">
-<<<<<<< HEAD
-          <p>{{ address.firstLine }}</p>
-          <p>{{ address.secondLine }}</p>
-=======
           <p>
             {{ address.firstLine }} <br />
             {{ address.secondLine }}
           </p>
->>>>>>> layout-footer-dev
           <p>&#9993; {{ email }}</p>
           <p>&#9742; {{ phone }}</p>
         </div>
