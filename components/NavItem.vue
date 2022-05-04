@@ -1,8 +1,11 @@
 <template>
   <li>
-    <nuxt-link v-if="!submenu" :to="href" class="nav__link">{{
-      name
-    }}</nuxt-link>
+    <nuxt-link
+      v-if="!submenu || submenu.length === 0"
+      :to="href"
+      class="nav__link"
+      >{{ name }}</nuxt-link
+    >
     <span
       v-else
       class="nav__link nav__link--with-submenu"
@@ -14,21 +17,20 @@
       <span v-else-if="isMobile" class="nav__dropdown-icon">&#9662;</span>
       {{ name }}
     </span>
-    <transition name="nav__submenu">
-      <nav-submenu
-        v-if="submenu"
-        :submenu="submenu"
-        class="nav__submenu"
-        :class="{ 'nav__submenu--visible': isSubmenuVisible }"
-      ></nav-submenu>
-    </transition>
+    <!-- <transition name="nav__submenu"> -->
+    <nav-submenu
+      v-if="submenu && submenu.length !== 0"
+      :submenu="submenu"
+      class="nav__submenu"
+      :class="{ 'nav__submenu--visible': isSubmenuVisible }"
+    ></nav-submenu>
+    <!-- </transition> -->
   </li>
 </template>
 
 <script>
 export default {
   /* eslint-disable vue/require-prop-types */
-  inject: ['isMobile'],
   props: ['name', 'href', 'submenu', 'isMobile'],
   data() {
     return {
@@ -49,6 +51,7 @@ export default {
     position: relative;
     * {
       color: $main-dark;
+      transition: color 0.2s ease;
     }
     @media (hover: hover) {
       &:hover {
@@ -133,6 +136,7 @@ export default {
       position: absolute;
       right: 0;
       padding: 0;
+      min-width: 110%;
     }
 
     &--visible {

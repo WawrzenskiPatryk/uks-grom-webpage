@@ -1,12 +1,12 @@
 <template>
   <main>
-    <the-placeholder>O nas</the-placeholder>
+    <the-placeholder>Trenerzy</the-placeholder>
   </main>
 </template>
 
 <script>
 export default {
-  name: 'AboutPage',
+  name: 'TrenerzyPage',
   layout: 'TheLayout',
 };
 </script>

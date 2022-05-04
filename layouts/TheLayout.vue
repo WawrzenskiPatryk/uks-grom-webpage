@@ -2,6 +2,7 @@
   <div class="layout">
     <the-header :is-mobile="isMobile" class="layout__header"></the-header>
     <nuxt></nuxt>
+    <the-footer></the-footer>
   </div>
 </template>
 

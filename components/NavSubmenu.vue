@@ -37,6 +37,7 @@ export default {
     * {
       display: inline-block;
       color: $main-dark;
+      transition: color 0.2s ease;
     }
 
     @media screen and (min-width: 1024px) {

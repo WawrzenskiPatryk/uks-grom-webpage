@@ -1,10 +1,10 @@
 <template>
   <header class="header">
-    <header-logo class="header__logo">
+    <the-logo class="header__logo">
       <!-- Insert logo img instead of the placeholder template code -->
       <template #first>UKS</template>
       <template #second>GROM</template>
-    </header-logo>
+    </the-logo>
     <header-hamburger
       v-if="isMobile"
       class="header__hamburger"
@@ -28,40 +28,44 @@ export default {
   data() {
     return {
       isNavVisible: false,
-      // After implementing submenu components,
-      // check if it also works without "null" submenu property value.
-      // In other words "submenu: null" ==> no submenu property.
       navItems: [
-        { name: 'Strona Główna', href: '/', submenu: null },
+        {
+          name: 'Strona Główna',
+          href: '/',
+          submenu: [],
+        },
         {
           name: 'O nas',
-          href: '/onas',
+          href: '/onas/',
           submenu: [
-            { name: 'Trenerzy', href: '/onas/trenerzy' },
-            { name: 'Wychowankowie', href: '/onas/wychowankowie' },
-            { name: 'Kadra', href: '/onas/kadra' },
-            { name: 'Cele', href: '/onas/cele' },
-            { name: 'Inne', href: '/onas/inne' },
+            { name: 'Trenerzy', href: '/onas/trenerzy/' },
+            { name: 'Wychowankowie', href: '/onas/wychowankowie/' },
+            { name: 'Kadra', href: '/onas/kadra/' },
+            { name: 'Cele', href: '/onas/cele/' },
           ],
         },
-        { name: 'Treningi', href: '/treningi', submenu: null },
+        {
+          name: 'Treningi',
+          href: '/treningi/',
+          submenu: [],
+        },
         {
           name: 'Aktualności',
-          href: '/aktualnosci',
+          href: '/aktualnosci/',
           submenu: [
-            { name: 'Wakacje 2022', href: '/aktualnosci/wakacje2022' },
-            { name: 'Ferie 2022', href: '/aktualnosci/ferie2022' },
-            { name: 'Wakacje 2021', href: '/aktualnosci/wakacje2021' },
-            { name: 'Ferie 2021', href: '/aktualnosci/ferie2021' },
-            { name: 'Wakacje 2020', href: '/aktualnosci/wakacje2020' },
-            { name: 'Ferie 2020', href: '/aktualnosci/ferie2020' },
+            { name: 'Wakacje 2022', href: '/aktualnosci/wakacje2022/' },
+            { name: 'Ferie 2022', href: '/aktualnosci/ferie2022/' },
           ],
         },
-        { name: 'Galeria', href: '/galeria', submenu: null },
+        {
+          name: 'Galeria',
+          href: '/galeria/',
+          submenu: [],
+        },
         {
           name: 'Kontakt',
-          href: '/kontakt',
-          submenu: null,
+          href: '/kontakt/',
+          submenu: [],
         },
       ],
     };
