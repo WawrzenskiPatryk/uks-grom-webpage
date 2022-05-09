@@ -7,7 +7,6 @@
         :name="item.name"
         :path="item.path"
         :submenu="item.submenu"
-        :is-mobile="isMobile"
         class="nav__item"
       ></nav-item>
     </ul>
@@ -16,10 +15,8 @@
 
 <script>
 export default {
-  // props: ['navItems', 'isMobile'],
   props: {
     navItems: { type: Array, required: true },
-    isMobile: { type: Boolean },
   },
 };
 </script>

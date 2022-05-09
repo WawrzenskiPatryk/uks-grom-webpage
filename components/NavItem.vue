@@ -11,10 +11,8 @@
       class="nav__link nav__link--with-submenu"
       @click="toggleSubmenu"
     >
-      <span v-if="isSubmenuVisible && isMobile" class="nav__dropdown-icon"
-        >&#9652;</span
-      >
-      <span v-else-if="isMobile" class="nav__dropdown-icon">&#9662;</span>
+      <span v-if="isSubmenuVisible" class="nav__dropdown-icon">&#9652;</span>
+      <span v-else class="nav__dropdown-icon">&#9662;</span>
       {{ name }}
     </span>
     <nav-submenu
@@ -75,12 +73,6 @@ export default {
     height: 100%;
     cursor: pointer;
 
-    // @media (hover: hover) {
-    //   &:hover {
-    //     color: $primary-color;
-    //   }
-    // }
-
     @media screen and (max-width: 1023.9px) {
       font-size: 2rem;
     }
@@ -128,7 +120,6 @@ export default {
     display: none;
     min-width: 100%;
     background-color: $primary-light;
-    // border: 1px solid red;
 
     @media screen and (min-width: 768px) {
       padding-right: 2rem;
@@ -150,6 +141,9 @@ export default {
   &__dropdown-icon {
     position: absolute;
     left: 0;
+    @media screen and (min-width: 1024px) {
+      display: none;
+    }
   }
 }
 </style>

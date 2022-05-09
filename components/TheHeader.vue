@@ -6,25 +6,20 @@
       <template #second>GROM</template>
     </the-logo>
     <header-hamburger
-      v-if="isMobile"
       class="header__hamburger"
       :is-nav-visible="isNavVisible"
       @hamburgerToggle="toggleMenu"
     ></header-hamburger>
-    <transition name="header__nav">
-      <header-nav
-        v-if="isNavVisible || !isMobile"
-        class="header__nav"
-        :nav-items="navItems"
-        :is-mobile="isMobile"
-      ></header-nav>
-    </transition>
+    <header-nav
+      class="header__nav"
+      :class="{ 'header__nav--visible': isNavVisible }"
+      :nav-items="navItems"
+    ></header-nav>
   </header>
 </template>
 
 <script>
 export default {
-  props: { isMobile: Boolean },
   data() {
     return {
       isNavVisible: false,
@@ -99,48 +94,47 @@ export default {
     display: inline-block;
   }
 
-  // &__hamburger {}
+  &__hamburger {
+    @media screen and (min-width: 1024px) {
+      display: none;
+    }
+  }
 
   &__nav {
+    display: none;
     position: absolute;
     text-align: center;
     top: 6rem;
     right: 0;
     background-color: inherit;
 
-    &-enter-active,
-    &-leave-active {
-      transition: transform 0.3s ease;
-    }
+    transition: transform 0.3s ease;
 
     @media screen and (max-width: 767.9px) {
       height: calc(100vh - 6rem);
       width: 100%;
 
-      &-enter,
-      &-leave-to {
-        transform: translateX(-100%);
-      }
+      transform: translateX(-100%);
     }
     @media screen and (min-width: 768px) {
       box-shadow: $primary-shadow -1rem 1rem 1rem -1rem;
       text-align: right;
       padding: 0.5rem 1rem 2rem 4rem;
 
-      &-enter,
-      &-leave-to {
-        transform: translateX(100%);
-      }
+      transform: translateX(100%);
     }
     @media screen and (min-width: 1024px) {
+      display: block;
       position: static;
       box-shadow: none;
       padding: 0 1rem;
-      // transform: none; --> actually this animation on resize is kinda cool ;)
+      transform: none;
+    }
+
+    &--visible {
+      display: block;
+      transform: translateX(0);
     }
   }
-
-  // @media screen and (min-width: 768px) {}
-  // @media screen and (min-width: 1024px) {}
 }
 </style>
