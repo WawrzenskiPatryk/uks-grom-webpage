@@ -70,7 +70,7 @@ export default {
       margin: 0.5rem 0;
       width: 3.5rem;
       border-radius: 1rem;
-      background-color: $main-dark;
+      background-color: $primary-dark;
       transition: all 200ms ease;
     }
 

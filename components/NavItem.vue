@@ -50,7 +50,7 @@ export default {
   &__item {
     position: relative;
     * {
-      color: $main-dark;
+      color: $primary-dark;
       transition: color 0.2s ease;
     }
     @media (hover: hover) {
@@ -126,7 +126,7 @@ export default {
   &__submenu {
     display: none;
     min-width: 100%;
-    background-color: $main-light;
+    background-color: $primary-light;
     // border: 1px solid red;
 
     @media screen and (min-width: 768px) {

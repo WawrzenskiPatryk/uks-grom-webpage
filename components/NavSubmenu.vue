@@ -17,8 +17,8 @@ export default {
 
 <style lang="scss" scoped>
 .submenu {
-  box-shadow: $weak-shadow 0rem 1rem 1rem -1rem inset,
-    $weak-shadow 0rem -1rem 1rem -1rem inset;
+  box-shadow: $secondary-shadow 0rem 1rem 1rem -1rem inset,
+    $secondary-shadow 0rem -1rem 1rem -1rem inset;
   border-top: 1px solid $secondary-color;
   border-bottom: 1px solid $primary-color;
 
@@ -26,8 +26,8 @@ export default {
     box-shadow: none;
   }
   @media screen and (min-width: 1024px) {
-    box-shadow: $main-shadow 0 1rem 1rem -1rem,
-      $main-shadow 1rem 0rem 1rem -1rem, $main-shadow -1rem 0rem 1rem -1rem;
+    box-shadow: $primary-shadow 0 1rem 1rem -1rem,
+      $primary-shadow 1rem 0rem 1rem -1rem, $primary-shadow -1rem 0rem 1rem -1rem;
 
     border-top: none;
     border-bottom: $secondary-color 3px solid;
@@ -36,7 +36,7 @@ export default {
   &__item {
     * {
       display: inline-block;
-      color: $main-dark;
+      color: $primary-dark;
       transition: color 0.2s ease;
     }
 

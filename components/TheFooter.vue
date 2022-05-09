@@ -71,8 +71,8 @@ export default {
 
 <style lang="scss" scoped>
 .footer {
-  color: $main-light;
-  background-color: $main-dark;
+  color: $primary-light;
+  background-color: $primary-dark;
   padding: 2rem 0;
   text-align: center;
 
@@ -97,14 +97,14 @@ export default {
     width: 100%;
     padding: 1rem 0;
     &:not(:last-of-type) {
-      border-bottom: 1px solid $main-light;
+      border-bottom: 1px solid $primary-light;
     }
 
     @media screen and (min-width: 1024px) {
       padding: 0 4rem;
       &:not(:last-of-type) {
         border-bottom: none;
-        border-right: 1px solid $main-light;
+        border-right: 1px solid $primary-light;
       }
     }
   }

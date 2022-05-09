@@ -89,10 +89,10 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: $main-light;
+  background-color: $primary-light;
   width: 100%;
   min-height: 6rem;
-  box-shadow: $main-shadow 0 0 1rem;
+  box-shadow: $primary-shadow 0 0 1rem;
   padding: 0 3rem;
 
   &__logo {
@@ -123,7 +123,7 @@ export default {
       }
     }
     @media screen and (min-width: 768px) {
-      box-shadow: $main-shadow -1rem 1rem 1rem -1rem;
+      box-shadow: $primary-shadow -1rem 1rem 1rem -1rem;
       text-align: right;
       padding: 0.5rem 1rem 2rem 4rem;
 
