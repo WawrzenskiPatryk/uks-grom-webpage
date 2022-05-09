@@ -1,6 +1,5 @@
 <template>
-  <span >
-    <!-- ADD PROPER SCSS COLOR VARIABLES!!! -->
+  <span>
     <div class="hamburger" @click="toggleMenu">
       <div
         class="hamburger__bar"
@@ -12,8 +11,12 @@
 
 <script>
 export default {
-  // eslint-disable-next-line vue/require-prop-types
-  props: ['navVisible'],
+  props: {
+    isNavVisible: {
+      type: Boolean,
+      required: true,
+    },
+  },
   data() {
     return {
       isHamburgerActive: false,
@@ -25,7 +28,7 @@ export default {
     },
   },
   mounted() {
-    this.isHamburgerActive = this.navVisible;
+    this.isHamburgerActive = this.isNavVisible;
     // this.closeMenu();
   },
   methods: {

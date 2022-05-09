@@ -8,7 +8,7 @@
     <header-hamburger
       v-if="isMobile"
       class="header__hamburger"
-      :nav-visible="isNavVisible"
+      :is-nav-visible="isNavVisible"
       @hamburgerToggle="toggleMenu"
     ></header-hamburger>
     <transition name="header__nav">
