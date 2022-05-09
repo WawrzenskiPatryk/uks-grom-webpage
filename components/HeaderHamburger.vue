@@ -1,12 +1,10 @@
 <template>
-  <span>
-    <div class="hamburger" @click="toggleMenu">
-      <div
-        class="hamburger__bar"
-        :class="{ 'hamburger__bar--cross': isHamburgerActive }"
-      ></div>
-    </div>
-  </span>
+  <div class="hamburger" @click="toggleMenu">
+    <div
+      class="hamburger__bar"
+      :class="{ 'hamburger__bar--cross': isHamburgerActive }"
+    ></div>
+  </div>
 </template>
 
 <script>
