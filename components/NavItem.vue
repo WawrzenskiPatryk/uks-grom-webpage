@@ -31,8 +31,7 @@ export default {
   props: {
     name: { type: String, required: true },
     path: { type: String, required: true },
-    submenu: { type: Array, required: false, default: null },
-    isMobile: { type: Boolean, required: true },
+    submenu: { type: Array, default: null },
   },
   data() {
     return {
