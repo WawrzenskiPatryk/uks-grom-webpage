@@ -2,7 +2,7 @@
   <li>
     <nuxt-link
       v-if="!submenu || submenu.length === 0"
-      :to="href"
+      :to="path"
       class="nav__link"
       >{{ name }}</nuxt-link
     >
@@ -17,21 +17,23 @@
       <span v-else-if="isMobile" class="nav__dropdown-icon">&#9662;</span>
       {{ name }}
     </span>
-    <!-- <transition name="nav__submenu"> -->
     <nav-submenu
       v-if="submenu && submenu.length !== 0"
       :submenu="submenu"
       class="nav__submenu"
       :class="{ 'nav__submenu--visible': isSubmenuVisible }"
     ></nav-submenu>
-    <!-- </transition> -->
   </li>
 </template>
 
 <script>
 export default {
-  /* eslint-disable vue/require-prop-types */
-  props: ['name', 'href', 'submenu', 'isMobile'],
+  props: {
+    name: { type: String, required: true },
+    path: { type: String, required: true },
+    submenu: { type: Array, required: false, default: null },
+    isMobile: { type: Boolean, required: true },
+  },
   data() {
     return {
       isSubmenuVisible: false,

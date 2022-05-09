@@ -5,7 +5,7 @@
         v-for="item in navItems"
         :key="item.name"
         :name="item.name"
-        :href="item.href"
+        :path="item.path"
         :submenu="item.submenu"
         :is-mobile="isMobile"
         class="nav__item"
@@ -16,8 +16,11 @@
 
 <script>
 export default {
-  /* eslint-disable vue/require-prop-types */
-  props: ['navItems', 'isMobile'],
+  // props: ['navItems', 'isMobile'],
+  props: {
+    navItems: { type: Array, required: true },
+    isMobile: { type: Boolean },
+  },
 };
 </script>
 

@@ -2,7 +2,7 @@
   <nav>
     <ul class="submenu">
       <li v-for="item in submenu" :key="item.name" class="submenu__item">
-        <nuxt-link :to="item.href">{{ item.name }}</nuxt-link>
+        <nuxt-link :to="item.path">{{ item.name }}</nuxt-link>
       </li>
     </ul>
   </nav>
@@ -10,8 +10,9 @@
 
 <script>
 export default {
-  // eslint-disable-next-line vue/require-prop-types
-  props: ['submenu'],
+  props: {
+    submenu: { type: Array, required: true },
+  },
 };
 </script>
 
@@ -27,7 +28,8 @@ export default {
   }
   @media screen and (min-width: 1024px) {
     box-shadow: $primary-shadow 0 1rem 1rem -1rem,
-      $primary-shadow 1rem 0rem 1rem -1rem, $primary-shadow -1rem 0rem 1rem -1rem;
+      $primary-shadow 1rem 0rem 1rem -1rem,
+      $primary-shadow -1rem 0rem 1rem -1rem;
 
     border-top: none;
     border-bottom: $secondary-color 3px solid;
