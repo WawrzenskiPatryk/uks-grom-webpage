@@ -17,6 +17,7 @@
         'header__nav--visible': isNavVisible,
       }"
       :nav-items="navItems"
+      :is-nav-visible="isNavVisible"
     ></header-nav>
   </header>
 </template>

@@ -30,15 +30,24 @@ export default {
     name: { type: String, required: true },
     path: { type: String, required: true },
     submenu: { type: Array, default: null },
+    isNavVisible: { type: Boolean, required: true },
   },
   data() {
     return {
       isSubmenuVisible: false,
     };
   },
+  watch: {
+    isNavVisible() {
+      this.closeSubmenu();
+    },
+  },
   methods: {
     toggleSubmenu() {
       this.isSubmenuVisible = !this.isSubmenuVisible;
+    },
+    closeSubmenu() {
+      this.isSubmenuVisible = false;
     },
   },
 };

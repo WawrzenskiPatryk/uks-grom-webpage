@@ -7,6 +7,7 @@
         :name="item.name"
         :path="item.path"
         :submenu="item.submenu"
+        :is-nav-visible="isNavVisible"
         class="nav__item"
       ></nav-item>
     </ul>
@@ -17,6 +18,7 @@
 export default {
   props: {
     navItems: { type: Array, required: true },
+    isNavVisible: { type: Boolean, required: true },
   },
 };
 </script>
