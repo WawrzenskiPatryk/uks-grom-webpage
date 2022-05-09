@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  name: 'HeaderHamburger',
   props: {
     isNavVisible: {
       type: Boolean,
@@ -27,7 +28,6 @@ export default {
   },
   mounted() {
     this.isHamburgerActive = this.isNavVisible;
-    // this.closeMenu();
   },
   methods: {
     toggleMenu() {

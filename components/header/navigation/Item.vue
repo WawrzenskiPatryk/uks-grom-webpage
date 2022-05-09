@@ -1,10 +1,10 @@
 <template>
   <li>
-    <nuxt-link
+    <NuxtLink
       v-if="!submenu || submenu.length === 0"
       :to="path"
       class="nav__link"
-      >{{ name }}</nuxt-link
+      >{{ name }}</NuxtLink
     >
     <span
       v-else
@@ -15,17 +15,18 @@
       <span v-else class="nav__dropdown-icon">&#9662;</span>
       {{ name }}
     </span>
-    <nav-submenu
+    <HeaderNavigationSubmenu
       v-if="submenu && submenu.length !== 0"
       :submenu="submenu"
       class="nav__submenu"
       :class="{ 'nav__submenu--visible': isSubmenuVisible }"
-    ></nav-submenu>
+    ></HeaderNavigationSubmenu>
   </li>
 </template>
 
 <script>
 export default {
+  name: 'HeaderNavigationItem',
   props: {
     name: { type: String, required: true },
     path: { type: String, required: true },

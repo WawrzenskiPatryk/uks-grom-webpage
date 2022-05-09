@@ -1,16 +1,16 @@
 <template>
   <header class="header">
-    <the-logo class="header__logo">
+    <TheLogo class="header__logo">
       <!-- Insert logo img instead of the placeholder template code -->
       <template #first>UKS</template>
       <template #second>GROM</template>
-    </the-logo>
-    <header-hamburger
+    </TheLogo>
+    <HeaderHamburger
       class="header__hamburger"
       :is-nav-visible="isNavVisible"
       @hamburgerToggle="toggleMenu"
-    ></header-hamburger>
-    <header-nav
+    ></HeaderHamburger>
+    <HeaderNavigation
       class="header__nav"
       :class="{
         'header__nav--displayed': isNavDisplayed,
@@ -18,12 +18,13 @@
       }"
       :nav-items="navItems"
       :is-nav-visible="isNavVisible"
-    ></header-nav>
+    ></HeaderNavigation>
   </header>
 </template>
 
 <script>
 export default {
+  name: 'TheHeader',
   data() {
     return {
       isNavDisplayed: false,

@@ -11,6 +11,12 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: 'TheLogo',
+};
+</script>
+
 <style lang="scss" scoped>
 .logo-placeholder {
   a {

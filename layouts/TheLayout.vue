@@ -1,8 +1,8 @@
 <template>
   <div class="layout">
-    <the-header class="layout__header"></the-header>
-    <nuxt></nuxt>
-    <the-footer></the-footer>
+    <TheHeader class="layout__header" />
+    <Nuxt />
+    <TheFooter />
   </div>
 </template>
 

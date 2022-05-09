@@ -1,7 +1,7 @@
 <template>
   <nav>
     <ul class="nav">
-      <nav-item
+      <HeaderNavigationItem
         v-for="item in navItems"
         :key="item.name"
         :name="item.name"
@@ -9,13 +9,14 @@
         :submenu="item.submenu"
         :is-nav-visible="isNavVisible"
         class="nav__item"
-      ></nav-item>
+      ></HeaderNavigationItem>
     </ul>
   </nav>
 </template>
 
 <script>
 export default {
+  name: 'HeaderNavigation',
   props: {
     navItems: { type: Array, required: true },
     isNavVisible: { type: Boolean, required: true },

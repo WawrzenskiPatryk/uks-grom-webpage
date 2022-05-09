@@ -49,6 +49,7 @@
 
 <script>
 export default {
+  name: 'TheFooter',
   data() {
     return {
       titleTop: 'Uczniowski Klub Sportowy',

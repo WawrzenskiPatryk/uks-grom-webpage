@@ -2,7 +2,7 @@
   <nav>
     <ul class="submenu">
       <li v-for="item in submenu" :key="item.name" class="submenu__item">
-        <nuxt-link :to="item.path">{{ item.name }}</nuxt-link>
+        <NuxtLink :to="item.path">{{ item.name }}</NuxtLink>
       </li>
     </ul>
   </nav>
@@ -10,6 +10,7 @@
 
 <script>
 export default {
+  name: 'HeaderNavigationSubmenu',
   props: {
     submenu: { type: Array, required: true },
   },

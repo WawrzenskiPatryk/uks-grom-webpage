@@ -19,8 +19,8 @@
 </template>
 
 <script>
-/* eslint-disable vue/require-prop-types */
 export default {
+  name: 'ThePlaceholder',
   data() {
     return {
       posts: [],
