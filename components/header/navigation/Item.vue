@@ -1,13 +1,7 @@
 <template>
   <li>
-    <NuxtLink
-      v-if="!submenu || submenu.length === 0"
-      :to="path"
-      class="nav__link"
-      >{{ name }}</NuxtLink
-    >
     <span
-      v-else
+      v-if="submenu && submenu.length"
       class="nav__link nav__link--with-submenu"
       @click="toggleSubmenu"
     >
@@ -15,6 +9,7 @@
       <span v-else class="nav__dropdown-icon">&#9662;</span>
       {{ name }}
     </span>
+    <NuxtLink v-else :to="path" class="nav__link">{{ name }}</NuxtLink>
     <HeaderNavigationSubmenu
       v-if="submenu && submenu.length !== 0"
       :submenu="submenu"
