@@ -12,7 +12,10 @@
     ></header-hamburger>
     <header-nav
       class="header__nav"
-      :class="{ 'header__nav--visible': isNavVisible }"
+      :class="{
+        'header__nav--displayed': isNavDisplayed,
+        'header__nav--visible': isNavVisible,
+      }"
       :nav-items="navItems"
     ></header-nav>
   </header>
@@ -22,6 +25,7 @@
 export default {
   data() {
     return {
+      isNavDisplayed: false,
       isNavVisible: false,
       navItems: [
         {
@@ -66,8 +70,24 @@ export default {
     };
   },
   methods: {
-    toggleMenu(isActive) {
-      this.isNavVisible = isActive;
+    toggleMenu(isButtonActive) {
+      if (isButtonActive) {
+        this.animateMenuShowing();
+      } else {
+        this.animateMenuHiding();
+      }
+    },
+    animateMenuShowing() {
+      this.isNavDisplayed = true;
+      setTimeout(() => {
+        this.isNavVisible = true;
+      }, 1);
+    },
+    animateMenuHiding() {
+      this.isNavVisible = false;
+      setTimeout(() => {
+        this.isNavDisplayed = false;
+      }, 300);
     },
   },
 };
@@ -90,10 +110,6 @@ export default {
   box-shadow: $primary-shadow 0 0 1rem;
   padding: 0 3rem;
 
-  &__logo {
-    display: inline-block;
-  }
-
   &__hamburger {
     @media screen and (min-width: 1024px) {
       display: none;
@@ -113,15 +129,11 @@ export default {
     @media screen and (max-width: 767.9px) {
       height: calc(100vh - 6rem);
       width: 100%;
-
-      transform: translateX(-100%);
     }
     @media screen and (min-width: 768px) {
       box-shadow: $primary-shadow -1rem 1rem 1rem -1rem;
       text-align: right;
       padding: 0.5rem 1rem 2rem 4rem;
-
-      transform: translateX(100%);
     }
     @media screen and (min-width: 1024px) {
       display: block;
@@ -131,8 +143,17 @@ export default {
       transform: none;
     }
 
-    &--visible {
+    &--displayed {
       display: block;
+      @media screen and (max-width: 767.9px) {
+        transform: translateX(-100%);
+      }
+      @media screen and (min-width: 768px) {
+        transform: translateX(100%);
+      }
+    }
+
+    &--visible {
       transform: translateX(0);
     }
   }
