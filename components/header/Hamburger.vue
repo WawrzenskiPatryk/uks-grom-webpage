@@ -43,12 +43,10 @@ export default {
 
 <style lang="scss" scoped>
 .hamburger {
-  display: inline-block;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   width: 3.5rem;
-  // background-color: greenyellow;
   @media (hover: hover) {
     &:hover &__bar {
       &,
@@ -61,7 +59,6 @@ export default {
 
   &__bar {
     position: relative;
-    // top: 0.75rem;
 
     &,
     &::before,
