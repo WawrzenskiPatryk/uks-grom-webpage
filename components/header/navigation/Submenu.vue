@@ -45,7 +45,6 @@ export default {
     @media screen and (min-width: 1024px) {
       padding: 0.5rem 1rem 0.5rem 2rem;
     }
-    // border: 1px solid greenyellow;
     cursor: pointer;
 
     @media (hover: hover) {
