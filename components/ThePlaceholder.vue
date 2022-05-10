@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style>
-main {
+section {
   padding: 2rem 5rem;
 }
 ul {
