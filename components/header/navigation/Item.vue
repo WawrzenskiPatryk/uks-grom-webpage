@@ -15,7 +15,7 @@
       :submenu="submenu"
       class="nav__submenu"
       :class="{ 'nav__submenu--visible': isSubmenuVisible }"
-    ></HeaderNavigationSubmenu>
+    />
   </li>
 </template>
 

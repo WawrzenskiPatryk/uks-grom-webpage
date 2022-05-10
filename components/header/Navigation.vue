@@ -9,7 +9,7 @@
         :submenu="item.submenu"
         :is-nav-visible="isNavVisible"
         class="nav__item"
-      ></HeaderNavigationItem>
+      />
     </ul>
   </nav>
 </template>

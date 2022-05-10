@@ -5,7 +5,7 @@
       class="header__hamburger"
       :is-nav-visible="isNavVisible"
       @hamburgerToggle="toggleMenu"
-    ></HeaderHamburger>
+    />
     <HeaderNavigation
       class="header__nav"
       :class="{
@@ -14,7 +14,7 @@
       }"
       :nav-items="navItems"
       :is-nav-visible="isNavVisible"
-    ></HeaderNavigation>
+    />
   </header>
 </template>
 
