@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <div class="footer__columns-wrapper">
+    <div class="footer__sections-wrapper">
       <div class="footer__section">
         <div class="footer__details">
           <LogoPlaceholder
@@ -81,7 +81,7 @@ export default {
     text-align: left;
   }
 
-  &__columns-wrapper {
+  &__sections-wrapper {
     display: flex;
     flex-direction: column;
     margin: 2rem 0;

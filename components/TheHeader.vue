@@ -7,10 +7,10 @@
       @hamburgerToggle="toggleMenu"
     />
     <HeaderNavigation
-      class="header__nav"
+      class="header__navigation"
       :class="{
-        'header__nav--displayed': isNavDisplayed,
-        'header__nav--visible': isNavVisible,
+        'header__navigation--displayed': isNavDisplayed,
+        'header__navigation--visible': isNavVisible,
       }"
       :nav-items="navItems"
       :is-nav-visible="isNavVisible"
@@ -104,7 +104,7 @@ export default {
   align-items: center;
   background-color: $primary-light;
   width: 100%;
-  min-height: 6rem;
+  height: $header-height;
   box-shadow: $primary-shadow 0 0 1rem;
   padding: 0 3rem;
 
@@ -114,31 +114,19 @@ export default {
     }
   }
 
-  &__nav {
+  &__navigation {
     display: none;
     position: absolute;
-    text-align: center;
-    top: 6rem;
+    top: $header-height;
     right: 0;
-    background-color: inherit;
 
     transition: transform 0.3s ease;
 
-    @media screen and (max-width: 767.9px) {
-      height: calc(100vh - 6rem);
-      width: 100%;
-    }
     @media screen and (min-width: 768px) {
-      box-shadow: $primary-shadow -1rem 1rem 1rem -1rem;
-      text-align: right;
-      padding: 0.5rem 1rem 2rem 4rem;
     }
     @media screen and (min-width: 1024px) {
       display: block;
       position: static;
-      box-shadow: none;
-      padding: 0 1rem;
-      transform: none;
     }
 
     &--displayed {

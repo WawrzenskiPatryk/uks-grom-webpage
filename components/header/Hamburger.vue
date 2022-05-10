@@ -43,8 +43,6 @@ export default {
 
 <style lang="scss" scoped>
 .hamburger {
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
   width: 3.5rem;
   @media (hover: hover) {

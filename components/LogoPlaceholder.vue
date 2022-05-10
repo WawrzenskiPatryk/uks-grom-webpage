@@ -1,9 +1,9 @@
 <template>
   <h1 class="logo-placeholder">
-    <nuxt-link to="/">
-      <span>{{ firstWord }}</span>
-      <span>{{ secondWord }}</span>
-    </nuxt-link>
+    <NuxtLink to="/" class="logo-placeholder__link">
+      <span>{{ firstWord }}</span
+      ><span>{{ secondWord }}</span>
+    </NuxtLink>
   </h1>
 </template>
 
@@ -19,7 +19,7 @@ export default {
 
 <style lang="scss" scoped>
 .logo-placeholder {
-  a {
+  &__link {
     font-family: 'Jost';
     color: $primary-color;
     display: flex;

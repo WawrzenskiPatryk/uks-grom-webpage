@@ -1,6 +1,6 @@
 <template>
-  <nav>
-    <ul class="nav">
+  <nav class="navigation">
+    <ul class="navigation__list">
       <HeaderNavigationItem
         v-for="item in navItems"
         :key="item.name"
@@ -8,7 +8,6 @@
         :path="item.path"
         :submenu="item.submenu"
         :is-nav-visible="isNavVisible"
-        class="nav__item"
       />
     </ul>
   </nav>
@@ -25,15 +24,36 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.nav {
-  position: relative;
-  top: 15%;
+.navigation {
+  text-align: center;
+  background-color: $primary-light;
+
+  @media screen and (max-width: 767.9px) {
+    height: calc(100vh - $header-height);
+    width: 100%;
+  }
   @media screen and (min-width: 768px) {
-    top: 0;
+    box-shadow: $primary-shadow -1rem 1rem 1rem -1rem;
+    text-align: right;
+    padding: 0.5rem 1rem 2rem 4rem;
   }
   @media screen and (min-width: 1024px) {
-    display: flex;
-    height: 6rem;
+    box-shadow: none;
+    padding: 0 1rem;
+  }
+
+  &__list {
+    position: relative;
+    top: 15%;
+
+    @media screen and (min-width: 768px) {
+      top: 0;
+    }
+
+    @media screen and (min-width: 1024px) {
+      display: flex;
+      height: $header-height;
+    }
   }
 }
 </style>

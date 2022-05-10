@@ -2,7 +2,7 @@
   <div class="layout">
     <TheHeader class="layout__header" />
     <Nuxt />
-    <TheFooter />
+    <TheFooter class="layout__footer" />
   </div>
 </template>
 
@@ -14,7 +14,7 @@
   background-color: $primary-light;
   transition: background-color 0.3s;
   max-width: 100vw;
-  padding-top: 6rem;
+  padding-top: $header-height;
 
   &__header {
     position: fixed;

@@ -1,20 +1,24 @@
 <template>
-  <li>
+  <li class="navigation-item">
     <span
       v-if="submenu && submenu.length"
-      class="nav__link nav__link--with-submenu"
+      class="navigation-item__link navigation-item__link--submenu"
       @click="toggleSubmenu"
     >
-      <span v-if="isSubmenuVisible" class="nav__dropdown-icon">&#9652;</span>
-      <span v-else class="nav__dropdown-icon">&#9662;</span>
+      <span v-if="isSubmenuVisible" class="navigation-item__dropdown-icon"
+        >&#9652;</span
+      >
+      <span v-else class="navigation-item__dropdown-icon">&#9662;</span>
       {{ name }}
     </span>
-    <NuxtLink v-else :to="path" class="nav__link">{{ name }}</NuxtLink>
+    <NuxtLink v-else :to="path" class="navigation-item__link">{{
+      name
+    }}</NuxtLink>
     <HeaderNavigationSubmenu
       v-if="submenu && submenu.length !== 0"
       :submenu="submenu"
-      class="nav__submenu"
-      :class="{ 'nav__submenu--visible': isSubmenuVisible }"
+      class="navigation-item__submenu"
+      :class="{ 'navigation-item__submenu--visible': isSubmenuVisible }"
     />
   </li>
 </template>
@@ -50,23 +54,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.nav {
-  &__item {
-    position: relative;
-    * {
-      color: $primary-dark;
-      transition: color 0.2s ease;
-    }
-    @media (hover: hover) {
-      &:hover {
-        * {
-          color: $primary-color;
-        }
-        .nav__submenu {
-          @media screen and (min-width: 1024px) {
-            display: block;
-          }
-        }
+.navigation-item {
+  position: relative;
+  * {
+    color: $primary-dark;
+    transition: color 0.2s ease;
+  }
+  @media (hover: hover) {
+    &:hover {
+      * {
+        color: $primary-color;
       }
     }
   }
@@ -103,7 +100,7 @@ export default {
       }
     }
 
-    &--with-submenu {
+    &--submenu {
       &::after {
         content: none;
       }
@@ -123,8 +120,6 @@ export default {
 
   &__submenu {
     display: none;
-    min-width: 100%;
-    background-color: $primary-light;
 
     @media screen and (min-width: 768px) {
       padding-right: 2rem;
@@ -138,6 +133,13 @@ export default {
 
     &--visible {
       @media screen and (max-width: 1023.9px) {
+        display: block;
+      }
+    }
+  }
+  @media (hover: hover) {
+    &:hover &__submenu {
+      @media screen and (min-width: 1024px) {
         display: block;
       }
     }

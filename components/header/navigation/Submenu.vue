@@ -1,11 +1,9 @@
 <template>
-  <nav>
-    <ul class="submenu">
-      <li v-for="item in submenu" :key="item.name" class="submenu__item">
-        <NuxtLink :to="item.path">{{ item.name }}</NuxtLink>
-      </li>
-    </ul>
-  </nav>
+  <ul class="submenu">
+    <li v-for="item in submenu" :key="item.name" class="submenu__item">
+      <NuxtLink :to="item.path">{{ item.name }}</NuxtLink>
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -19,6 +17,7 @@ export default {
 
 <style lang="scss" scoped>
 .submenu {
+  background-color: $primary-light;
   box-shadow: $secondary-shadow 0rem 1rem 1rem -1rem inset,
     $secondary-shadow 0rem -1rem 1rem -1rem inset;
   border-top: 1px solid $secondary-color;
