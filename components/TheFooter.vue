@@ -8,27 +8,27 @@
             first-word="UKS"
             second-word="GROM"
           />
-          <p>{{ titleTop }}</p>
-          <p>{{ titleBottom }}</p>
+          <p>Uczniowski Klub Sportowy</p>
+          <p>GROM Lublin</p>
         </div>
       </div>
 
       <div class="footer__section">
         <div class="footer__details">
-          <h4>{{ bankData.title }}</h4>
-          <p>{{ bankData.bankName }}</p>
-          <p>{{ bankData.accountNum }}</p>
+          <h4>Dane do przelewu</h4>
+          <p>mBank</p>
+          <p>00 0000 0000 0000 0000 0000 0000</p>
         </div>
       </div>
 
       <div class="footer__section">
         <div class="footer__details">
           <p>
-            {{ address.firstLine }} <br />
-            {{ address.secondLine }}
+            ul. Adama Mickiewicza 24 <br />
+            20-433 Lublin
           </p>
-          <p>&#9993; {{ email }}</p>
-          <p>&#9742; {{ phone }}</p>
+          <p>&#9993; info@uksgrom.lublin.pl</p>
+          <p>&#9742; 500-500-500</p>
         </div>
       </div>
     </div>
@@ -50,23 +50,6 @@
 <script>
 export default {
   name: 'TheFooter',
-  data() {
-    return {
-      titleTop: 'Uczniowski Klub Sportowy',
-      titleBottom: 'GROM Lublin',
-      bankData: {
-        title: 'Dane do przelewu',
-        bankName: 'mBank',
-        accountNum: '00 0000 0000 0000 0000 0000 0000',
-      },
-      address: {
-        firstLine: 'ul. Adama Mickiewicza 24',
-        secondLine: '20-433 Lublin',
-      },
-      email: 'info@uksgrom.lublin.pl',
-      phone: '500-500-500',
-    };
-  },
 };
 </script>
 
