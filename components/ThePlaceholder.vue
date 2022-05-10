@@ -1,8 +1,8 @@
 <template>
-  <section>
+  <section class="placeholder">
     <h1>{{ pageTitle }}</h1>
     <hr />
-    <ul>
+    <ul class="placeholder__list">
       <li v-for="post in posts" :key="post.id">
         <h3>{{ post.title }}</h3>
         <p>{{ post.description }}</p>
@@ -37,11 +37,11 @@ export default {
 };
 </script>
 
-<style>
-section {
+<style lang="scss" scoped>
+.placeholder {
   padding: 2rem 5rem;
-}
-ul {
-  margin-top: 2rem;
+  &__list {
+    margin-top: 2rem;
+  }
 }
 </style>
