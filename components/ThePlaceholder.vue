@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <section>
     <h1><slot></slot></h1>
     <hr />
     <ul>
@@ -15,7 +15,7 @@
         <p>{{ post.continent }}</p>
       </li>
     </ul>
-  </main>
+  </section>
 </template>
 
 <script>
