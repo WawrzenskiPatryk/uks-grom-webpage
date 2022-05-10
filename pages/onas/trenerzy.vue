@@ -1,6 +1,6 @@
 <template>
   <main>
-    <the-placeholder>Trenerzy</the-placeholder>
+    <ThePlaceholder page-title="Trenerzy" />
   </main>
 </template>
 

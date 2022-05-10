@@ -1,6 +1,6 @@
 <template>
   <main>
-    <the-placeholder>Galeria</the-placeholder>
+    <ThePlaceholder page-title="Galeria" />
   </main>
 </template>
 

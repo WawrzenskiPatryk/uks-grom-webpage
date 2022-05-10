@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1><slot></slot></h1>
+    <h1>{{ pageTitle }}</h1>
     <hr />
     <ul>
       <li v-for="post in posts" :key="post.id">
@@ -21,6 +21,9 @@
 <script>
 export default {
   name: 'ThePlaceholder',
+  props: {
+    pageTitle: { type: String, default: 'Page Title' },
+  },
   data() {
     return {
       posts: [],

@@ -1,6 +1,6 @@
 <template>
   <main>
-    <the-placeholder>Treningi</the-placeholder>
+    <ThePlaceholder page-title="Treningi" />
   </main>
 </template>
 

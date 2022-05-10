@@ -1,6 +1,6 @@
 <template>
   <main>
-    <the-placeholder>Kontakt</the-placeholder>
+    <ThePlaceholder page-title="Kontakt" />
   </main>
 </template>
 
