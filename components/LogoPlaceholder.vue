@@ -1,19 +1,19 @@
 <template>
-  <div>
-    <slot>
-      <h1 class="logo-placeholder">
-        <nuxt-link to="/">
-          <span><slot name="first">Logo</slot></span>
-          <span><slot name="second">Test</slot></span>
-        </nuxt-link>
-      </h1>
-    </slot>
-  </div>
+  <h1 class="logo-placeholder">
+    <nuxt-link to="/">
+      <span>{{ firstWord }}</span>
+      <span>{{ secondWord }}</span>
+    </nuxt-link>
+  </h1>
 </template>
 
 <script>
 export default {
-  name: 'TheLogo',
+  name: 'LogoPlaceholder',
+  props: {
+    firstWord: { type: String, default: 'Logo' },
+    secondWord: { type: String, default: 'Test' },
+  },
 };
 </script>
 

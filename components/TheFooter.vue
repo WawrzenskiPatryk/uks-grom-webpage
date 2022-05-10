@@ -1,19 +1,19 @@
 <template>
   <footer class="footer">
     <div class="footer__columns-wrapper">
-      <div class="footer__column">
+      <div class="footer__section">
         <div class="footer__details">
-          <the-logo class="footer__logo">
-            <!-- Insert logo img instead of the placeholder template code -->
-            <template #first>UKS</template>
-            <template #second>GROM</template>
-          </the-logo>
+          <LogoPlaceholder
+            class="footer__logo"
+            first-word="UKS"
+            second-word="GROM"
+          />
           <p>{{ titleTop }}</p>
           <p>{{ titleBottom }}</p>
         </div>
       </div>
 
-      <div class="footer__column">
+      <div class="footer__section">
         <div class="footer__details">
           <h4>{{ bankData.title }}</h4>
           <p>{{ bankData.bankName }}</p>
@@ -21,7 +21,7 @@
         </div>
       </div>
 
-      <div class="footer__column">
+      <div class="footer__section">
         <div class="footer__details">
           <p>
             {{ address.firstLine }} <br />
@@ -92,7 +92,7 @@ export default {
     }
   }
 
-  &__column {
+  &__section {
     display: flex;
     justify-content: center;
     width: 100%;

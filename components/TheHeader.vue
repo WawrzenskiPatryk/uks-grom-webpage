@@ -1,10 +1,6 @@
 <template>
   <header class="header">
-    <TheLogo class="header__logo">
-      <!-- Insert logo img instead of the placeholder template code -->
-      <template #first>UKS</template>
-      <template #second>GROM</template>
-    </TheLogo>
+    <LogoPlaceholder class="header__logo" first-word="UKS" second-word="GROM" />
     <HeaderHamburger
       class="header__hamburger"
       :is-nav-visible="isNavVisible"
