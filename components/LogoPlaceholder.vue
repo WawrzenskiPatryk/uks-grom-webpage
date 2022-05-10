@@ -19,6 +19,8 @@ export default {
 
 <style lang="scss" scoped>
 .logo-placeholder {
+  user-select: none;
+
   &__link {
     font-family: 'Jost';
     color: $primary-color;
