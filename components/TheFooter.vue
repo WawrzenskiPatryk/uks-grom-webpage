@@ -60,7 +60,7 @@ export default {
   padding: 2rem 0;
   text-align: center;
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: $desktop-min-screen-width) {
     text-align: left;
   }
 
@@ -69,7 +69,7 @@ export default {
     flex-direction: column;
     margin: 2rem 0;
     padding: 0 10vw;
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: $desktop-min-screen-width) {
       padding: 0;
       flex-direction: row;
     }
@@ -84,7 +84,7 @@ export default {
       border-bottom: 1px solid $primary-light;
     }
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: $desktop-min-screen-width) {
       padding: 0 4rem;
       &:not(:last-of-type) {
         border-bottom: none;

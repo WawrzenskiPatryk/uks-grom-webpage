@@ -27,17 +27,17 @@ export default {
 .navigation {
   text-align: center;
   background-color: $primary-light;
+  height: calc(100vh - $header-height);
+  width: 100%;
 
-  @media screen and (max-width: 767.9px) {
-    height: calc(100vh - $header-height);
-    width: 100%;
-  }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet-min-screen-width) {
     box-shadow: $primary-shadow -1rem 1rem 1rem -1rem;
     text-align: right;
     padding: 0.5rem 1rem 2rem 4rem;
+    height: initial;
+    width: initial;
   }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: $desktop-min-screen-width) {
     box-shadow: none;
     padding: 0 1rem;
   }
@@ -46,11 +46,11 @@ export default {
     position: relative;
     top: 15%;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $tablet-min-screen-width) {
       top: 0;
     }
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: $desktop-min-screen-width) {
       display: flex;
       height: $header-height;
     }

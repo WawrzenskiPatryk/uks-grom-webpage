@@ -73,14 +73,12 @@ export default {
     align-items: center;
     position: relative;
     height: 100%;
+    font-size: 2rem;
     cursor: pointer;
 
-    @media screen and (max-width: 1023.9px) {
-      font-size: 2rem;
-    }
-
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: $desktop-min-screen-width) {
       display: flex;
+      font-size: initial;
       @media (hover: hover) {
         &:hover {
           &::after {
@@ -121,10 +119,10 @@ export default {
   &__submenu {
     display: none;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $tablet-min-screen-width) {
       padding-right: 2rem;
     }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: $desktop-min-screen-width) {
       position: absolute;
       right: 0;
       padding: 0;
@@ -132,14 +130,14 @@ export default {
     }
 
     &--visible {
-      @media screen and (max-width: 1023.9px) {
+      @media screen and (max-width: $desktop-min-screen-width) {
         display: block;
       }
     }
   }
   @media (hover: hover) {
     &:hover &__submenu {
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: $desktop-min-screen-width) {
         display: block;
       }
     }
@@ -148,7 +146,7 @@ export default {
   &__dropdown-icon {
     position: absolute;
     left: 0;
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: $desktop-min-screen-width) {
       display: none;
     }
   }

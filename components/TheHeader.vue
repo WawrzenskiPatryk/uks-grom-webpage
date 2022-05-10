@@ -105,7 +105,7 @@ export default {
   user-select: none;
 
   &__hamburger {
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: $desktop-min-screen-width) {
       display: none;
     }
   }
@@ -118,19 +118,17 @@ export default {
 
     transition: transform 0.3s ease;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $tablet-min-screen-width) {
     }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: $desktop-min-screen-width) {
       display: block;
       position: static;
     }
 
     &--displayed {
       display: block;
-      @media screen and (max-width: 767.9px) {
-        transform: translateX(-100%);
-      }
-      @media screen and (min-width: 768px) {
+      transform: translateX(-100%);
+      @media screen and (min-width: $tablet-min-screen-width) {
         transform: translateX(100%);
       }
     }

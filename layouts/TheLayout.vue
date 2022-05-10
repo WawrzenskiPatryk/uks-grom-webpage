@@ -7,8 +7,6 @@
 </template>
 
 <style lang="scss" scoped>
-// devTools: 375, 768, 1024, 1440
-
 .layout {
   color: $primary-dark;
   background-color: $primary-light;

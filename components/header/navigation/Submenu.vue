@@ -23,14 +23,14 @@ export default {
   border-top: 1px solid $secondary-color;
   border-bottom: 1px solid $primary-color;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet-min-screen-width) {
     box-shadow: none;
   }
-  @media screen and (min-width: 1024px) {
+  
+  @media screen and (min-width: $desktop-min-screen-width) {
     box-shadow: $primary-shadow 0 1rem 1rem -1rem,
       $primary-shadow 1rem 0rem 1rem -1rem,
       $primary-shadow -1rem 0rem 1rem -1rem;
-
     border-top: none;
     border-bottom: $secondary-color 3px solid;
   }
@@ -42,7 +42,7 @@ export default {
       transition: color 0.2s ease;
     }
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: $desktop-min-screen-width) {
       padding: 0.5rem 1rem 0.5rem 2rem;
     }
     cursor: pointer;
