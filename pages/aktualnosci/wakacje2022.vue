@@ -7,6 +7,5 @@
 <script>
 export default {
   name: 'Wakacje2022Page',
-  layout: 'TheLayout',
 };
 </script>
