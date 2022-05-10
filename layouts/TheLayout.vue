@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
     <TheHeader class="layout__header" />
-    <Nuxt />
+    <Nuxt class="layout__page" />
     <TheFooter class="layout__footer" />
   </div>
 </template>
@@ -17,6 +17,11 @@
   &__header {
     position: fixed;
     top: 0;
+  }
+
+  &__page {
+    max-width: $content-max-width;
+    margin: 0 auto;
   }
 }
 </style>
