@@ -1,8 +1,7 @@
 <template>
   <h1 class="logo-placeholder">
     <NuxtLink to="/" class="logo-placeholder__link">
-      <span>{{ firstWord }}</span
-      ><span>{{ secondWord }}</span>
+      <span>{{ firstWord }}</span> <span>{{ secondWord }}</span>
     </NuxtLink>
   </h1>
 </template>
