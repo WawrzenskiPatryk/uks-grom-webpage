@@ -50,8 +50,8 @@ export default {
           name: 'Aktualności',
           path: '/aktualnosci/',
           submenu: [
-            { name: 'Wakacje 2022', path: '/aktualnosci/wakacje2022/' },
-            { name: 'Ferie 2022', path: '/aktualnosci/ferie2022/' },
+            { name: 'Wakacje 2022', path: '/aktualnosci/wakacje-2022/' },
+            { name: 'Ferie 2022', path: '/aktualnosci/ferie-2022/' },
           ],
         },
         {

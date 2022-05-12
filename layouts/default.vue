@@ -1,10 +1,22 @@
 <template>
   <div class="layout">
     <TheHeader class="layout__header" />
+    <PageHeading v-if="!isIndex" class="layout__heading" />
     <Nuxt class="layout__page" />
     <TheFooter class="layout__footer" />
   </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    isIndex() {
+      if (this.$route.name === 'index') return true;
+      return false;
+    },
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 .layout {
@@ -19,8 +31,14 @@
     top: 0;
   }
 
+  &__heading {
+    height: 35vh;
+    min-height: 20rem;
+  }
+
   &__page {
     max-width: $content-max-width;
+    padding: 2rem 5rem;
     margin: 0 auto;
   }
 }
