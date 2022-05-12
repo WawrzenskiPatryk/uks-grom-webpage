@@ -103,6 +103,7 @@ export default {
   box-shadow: $primary-shadow 0 0 1rem;
   padding: 0 3rem;
   user-select: none;
+  z-index: 100;
 
   &__hamburger {
     @media screen and (min-width: $desktop-min-screen-width) {

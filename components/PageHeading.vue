@@ -1,7 +1,7 @@
 <template>
   <section class="heading">
-    <div class="heading__title">
-      <h2>{{ pageTitle }}</h2>
+    <div class="heading__content-wrapper">
+      <h2 class="heading__title">{{ pageTitle }}</h2>
     </div>
   </section>
 </template>
@@ -45,15 +45,21 @@ export default {
 
 <style lang="scss" scoped>
 .heading {
-  background-image: url(~/assets/images/white_red_shirt_kids_football_players.jpg);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-image: url('~/assets/images/white_red_shirt_kids_football_players.jpg');
+  height: 35vh;
+  min-height: 20rem;
+  color: $primary-light;
+  font-size: 5em;
+
+  &__content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(2, 30, 46, 0.6);
+    height: 100%;
+  }
 
   &__title {
-    // border: 1px solid red;
-    color: $primary-light;
-    font-size: 5rem;
     width: $content-max-width;
     padding: 2rem 5rem;
   }

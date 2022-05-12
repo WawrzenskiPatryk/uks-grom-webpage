@@ -1,7 +1,8 @@
 <template>
   <div class="layout">
     <TheHeader class="layout__header" />
-    <PageHeading v-if="!isIndex" class="layout__heading" />
+    <PageSlider v-if="isIndex" class="layout__slider" />
+    <PageHeading v-else class="layout__heading" />
     <Nuxt class="layout__page" />
     <TheFooter class="layout__footer" />
   </div>
@@ -29,11 +30,6 @@ export default {
   &__header {
     position: fixed;
     top: 0;
-  }
-
-  &__heading {
-    height: 35vh;
-    min-height: 20rem;
   }
 
   &__page {
