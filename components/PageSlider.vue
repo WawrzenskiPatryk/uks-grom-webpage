@@ -9,7 +9,7 @@
           doloribus deleniti enim nihil fuga voluptates quia porro dignissimos
           ducimus culpa? Nesciunt!
         </h2>
-        <button class="slider__button">Lorem ipsum!</button>
+        <button class="slider__button">Lorem ipsum</button>
       </div>
     </div>
   </section>
@@ -52,6 +52,7 @@
     margin-top: 3rem;
     font-size: 1.6rem;
     transition: background-color 300ms ease;
+    border-radius: 10rem;
 
     &:hover {
       background-color: $primary-color-darken;
