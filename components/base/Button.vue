@@ -1,6 +1,6 @@
 <template>
   <button class="base-button" :class="buttonType">
-    <slot>Button Text</slot>
+    <slot>Lorem Ipsum</slot>
   </button>
 </template>
 
@@ -8,13 +8,14 @@
 export default {
   name: 'BaseButton',
   props: {
-    styleType: { type: String, default: 'filled' },
+    type: { type: String, default: 'filled' },
   },
   computed: {
     buttonType() {
-      if (this.styleType === 'hollow-white' || this.styleType === 'hollow')
+      if (this.type === 'hollow-white' || this.type === 'hollow')
         return 'base-button--hollow-white';
-      if (this.styleType === 'hollow-blue') return 'base-button--hollow-blue';
+      if (this.type === 'hollow-blue') return 'base-button--hollow-blue';
+      if (this.type === 'hollow-dark') return 'base-button--hollow-dark';
       return 'base-button--filled';
     },
   },
@@ -37,15 +38,25 @@ export default {
     background-color: $primary-color;
     border: none;
   }
+
+  &--hollow-blue,
+  &--hollow-light,
+  &--hollow-dark {
+    background-color: transparent;
+  }
+
   &--hollow-blue {
     color: $primary-color;
-    background-color: transparent;
     border: 2px solid $primary-color;
   }
   &--hollow-white {
     color: $primary-light;
-    background-color: transparent;
     border: 2px solid $primary-light;
+  }
+
+  &--hollow-dark {
+    color: $primary-dark;
+    border: 2px solid $primary-dark;
   }
 
   @media (hover: hover) {
