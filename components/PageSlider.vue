@@ -2,7 +2,7 @@
   <section class="slider">
     <div class="slider__content-wrapper">
       <div class="slider__content">
-        <h1 class="slider__title">Lorem ipsum</h1>
+        <h1 class="slider__title">LOREM IPSUM</h1>
         <h2 class="slider__subtitle">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni
           perferendis itaque voluptas a illo iste possimus aliquam, asperiores,
@@ -27,22 +27,39 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     height: 100%;
     background-color: rgba(2, 30, 46, 0.6);
   }
   &__content {
     max-width: $content-max-width;
     padding: 0 5rem;
+    text-align: center;
+    @media screen and (min-width: $tablet-min-screen-width) {
+      text-align: left;
+    }
   }
   &__title {
-    font-size: 8rem;
-    font-family: 'Jost';
+    font-family: $title-font-family;
+    font-size: $small-title-font-size;
+
+    @media screen and (min-width: $tablet-min-screen-width) {
+      font-size: $medium-title-font-size;
+    }
+    @media screen and (min-width: $desktop-min-screen-width) {
+      font-size: $large-title-font-size;
+    }
   }
   &__subtitle {
-    font-size: 2rem;
-    width: 50%;
+    font-size: $default-font-size;
     font-weight: 100;
+    width: 100%;
+    @media screen and (min-width: $tablet-min-screen-width) {
+      width: 67%;
+    }
+    @media screen and (min-width: $desktop-min-screen-width) {
+      width: 50%;
+      font-size: $large-subtitle-font-size;
+    }
   }
   &__button {
     color: inherit;
@@ -54,9 +71,11 @@
     transition: background-color 300ms ease;
     border-radius: 10rem;
 
-    &:hover {
-      background-color: $primary-color-darken;
-      cursor: pointer;
+    @media (hover: hover) {
+      &:hover {
+        background-color: $primary-color-darken;
+        cursor: pointer;
+      }
     }
   }
 }
