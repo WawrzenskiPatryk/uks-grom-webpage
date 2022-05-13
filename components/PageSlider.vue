@@ -9,7 +9,7 @@
           doloribus deleniti enim nihil fuga voluptates quia porro dignissimos
           ducimus culpa? Nesciunt!
         </h2>
-        <button class="slider__button">Lorem ipsum</button>
+        <BaseButton class="slider__button">Lorem Ipsum</BaseButton>
       </div>
     </div>
   </section>
@@ -62,21 +62,7 @@
     }
   }
   &__button {
-    color: inherit;
-    background-color: $primary-color;
-    border: none;
-    padding: 2rem 3rem;
     margin-top: 3rem;
-    font-size: 1.6rem;
-    transition: background-color 300ms ease;
-    border-radius: 10rem;
-
-    @media (hover: hover) {
-      &:hover {
-        background-color: $primary-color-darken;
-        cursor: pointer;
-      }
-    }
   }
 }
 </style>
