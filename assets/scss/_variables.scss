@@ -23,3 +23,9 @@ $medium-title-font-size: 6rem;
 $small-title-font-size: 3rem;
 $large-subtitle-font-size: 2rem;
 $small-subtitle-font-size: $default-font-size;
+
+$heading-gradient: linear-gradient(
+  to right,
+  rgba(9, 72, 109, 0.6),
+  rgba(105, 96, 8, 0.6)
+);
