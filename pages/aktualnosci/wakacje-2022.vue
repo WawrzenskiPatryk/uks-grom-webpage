@@ -1,6 +1,6 @@
 <template>
   <main>
-    <ThePlaceholder page-title="Wakacje 2022" />
+    <ThePlaceholder />
   </main>
 </template>
 

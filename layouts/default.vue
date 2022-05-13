@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
     <TheHeader class="layout__header" />
-    <PageSlider v-if="isIndex" class="layout__slider" />
+    <PageSlider v-if="isIndex" class="layout__heading" />
     <PageHeading v-else class="layout__heading" />
     <Nuxt class="layout__page" />
     <TheFooter class="layout__footer" />
@@ -34,7 +34,7 @@ export default {
 
   &__page {
     max-width: $content-max-width;
-    padding: 2rem 5rem;
+    padding: 20rem 5rem;
     margin: 0 auto;
   }
 }

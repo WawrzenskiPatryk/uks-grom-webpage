@@ -1,6 +1,6 @@
 <template>
   <main>
-    <ThePlaceholder page-title="Wychowankowie" />
+    <ThePlaceholder />
   </main>
 </template>
 

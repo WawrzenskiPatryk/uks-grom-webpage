@@ -1,6 +1,6 @@
 <template>
   <main>
-    <ThePlaceholder page-title="Ferie 2022" />
+    <ThePlaceholder />
   </main>
 </template>
 

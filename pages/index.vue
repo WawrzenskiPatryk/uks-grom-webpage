@@ -1,6 +1,6 @@
 <template>
   <main>
-    <ThePlaceholder page-title="Strona Główna" />
+    <ThePlaceholder />
   </main>
 </template>
 
