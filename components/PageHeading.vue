@@ -72,12 +72,12 @@ export default {
   &__title {
     width: $content-max-width;
     padding: 2rem 5rem;
-    font-size: $small-heading-font-size;
+    font-size: $small-title-font-size;
     @media screen and (min-width: $tablet-min-screen-width) {
-      font-size: $medium-heading-font-size;
+      font-size: $medium-title-font-size;
     }
     @media screen and (min-width: $desktop-min-screen-width) {
-      font-size: $large-heading-font-size;
+      font-size: $large-title-font-size;
     }
   }
 }
