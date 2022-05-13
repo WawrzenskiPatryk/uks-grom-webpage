@@ -28,7 +28,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    background-color: rgba(2, 30, 46, 0.6);
+    background-image: $heading-gradient;
   }
   &__content {
     max-width: $content-max-width;
