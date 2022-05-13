@@ -73,12 +73,12 @@ export default {
     align-items: center;
     position: relative;
     height: 100%;
-    font-size: 2rem;
+    font-size: $large-subtitle-font-size;
     cursor: pointer;
 
     @media screen and (min-width: $desktop-min-screen-width) {
       display: flex;
-      font-size: initial;
+      font-size: $small-subtitle-font-size;
       @media (hover: hover) {
         &:hover {
           &::after {
