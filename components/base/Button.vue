@@ -25,11 +25,11 @@ export default {
 .base-button {
   font-size: $default-font-size;
   border-radius: 10rem;
-  transition: background-color 300ms ease;
+  transition: all 300ms ease;
   padding: 1.8rem 2.5rem;
 
   @media screen and (min-width: $desktop-min-screen-width) {
-    padding: 2rem 3rem;
+    padding: 2rem 3.2rem;
   }
 
   &--filled {
@@ -40,17 +40,17 @@ export default {
   &--hollow-blue {
     color: $primary-color;
     background-color: transparent;
-    border: 1px solid $primary-color;
+    border: 2px solid $primary-color;
   }
   &--hollow-white {
     color: $primary-light;
     background-color: transparent;
-    border: 1px solid $primary-light;
+    border: 2px solid $primary-light;
   }
 
   @media (hover: hover) {
     &:hover {
-      background-color: $primary-color-darken;
+      transform: translateY(-3px);
       cursor: pointer;
     }
   }
