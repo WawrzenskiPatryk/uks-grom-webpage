@@ -65,7 +65,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(2, 30, 46, 0.6);
+    background-image: $heading-gradient;
     height: 100%;
   }
 
