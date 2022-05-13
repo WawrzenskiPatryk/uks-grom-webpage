@@ -46,10 +46,20 @@ export default {
 <style lang="scss" scoped>
 .heading {
   background-image: url('~/assets/images/white_red_shirt_kids_football_players.jpg');
-  height: 35vh;
-  min-height: 20rem;
   color: $primary-light;
-  font-size: 5em;
+  min-height: 12rem;
+  height: 20vh;
+  background-position: 80% 5%;
+  background-size: cover;
+  @media screen and (min-width: $tablet-min-screen-width) {
+    height: 35vh;
+    min-height: 15rem;
+    background-position: 20% 35%;
+  }
+  @media screen and (min-width: $desktop-min-screen-width) {
+    min-height: 20rem;
+    background-position: 10% 50%;
+  }
 
   &__content-wrapper {
     display: flex;
@@ -62,6 +72,13 @@ export default {
   &__title {
     width: $content-max-width;
     padding: 2rem 5rem;
+    font-size: $small-heading-font-size;
+    @media screen and (min-width: $tablet-min-screen-width) {
+      font-size: $medium-heading-font-size;
+    }
+    @media screen and (min-width: $desktop-min-screen-width) {
+      font-size: $large-heading-font-size;
+    }
   }
 }
 </style>
