@@ -15,6 +15,12 @@
   </section>
 </template>
 
+<script>
+export default {
+  name: 'PageSlider',
+};
+</script>
+
 <style lang="scss" scoped>
 .slider {
   background-image: url('~/assets/images/white_red_shirt_kids_football_players.jpg');
