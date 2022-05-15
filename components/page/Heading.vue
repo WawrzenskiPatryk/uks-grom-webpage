@@ -11,9 +11,7 @@ export default {
   name: 'PageHeading',
   computed: {
     pageTitle() {
-      const title = this.getTitleFromRouteName();
-      const formattedTitle = this.capitalizeText(title);
-      return formattedTitle;
+      return this.getTitleFromRouteName();
     },
   },
   methods: {
@@ -34,10 +32,6 @@ export default {
         title = routeName;
       }
       return title;
-    },
-    capitalizeText(text) {
-      const newText = text[0].toUpperCase() + text.slice(1);
-      return newText;
     },
   },
 };
@@ -71,6 +65,7 @@ export default {
 
   &__title {
     width: $content-max-width;
+    text-transform: capitalize;
     padding: 2rem 5rem;
     font-size: $small-title-font-size;
     @media screen and (min-width: $tablet-min-screen-width) {
