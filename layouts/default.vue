@@ -35,7 +35,7 @@ export default {
   &__page {
     max-width: $content-max-width;
     padding: 0rem 10rem;
-    margin: 0 auto;
+    margin: 8rem auto;
   }
 }
 </style>

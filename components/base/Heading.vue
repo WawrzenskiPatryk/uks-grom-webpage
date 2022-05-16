@@ -6,8 +6,8 @@
         Consectetur adipisicing elit.
       </slot>
     </h3>
-    <p class="base-heading__paragraph">
-      <slot name="paragraph">
+    <p class="base-heading__subtitle">
+      <slot name="subtitle">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis,
         tenetur dicta illo officia ea expedita unde dolor, nostrum nemo, neque
         tempore! Quisquam quasi illo, molestias facilis tempore recusandae
@@ -41,6 +41,7 @@ export default {
 <style lang="scss" scoped>
 .base-heading {
   display: inline-block;
+  margin: 2rem 0;
 
   &--main {
     text-align: center;
@@ -55,12 +56,10 @@ export default {
   &__title {
     line-height: 1.2;
     margin-bottom: $default-font-size;
-    margin: 3rem 0;
   }
 
-  &__paragraph {
+  &__subtitle {
     font-size: $large-subtitle-font-size;
-    margin: 3rem 0;
   }
 }
 </style>

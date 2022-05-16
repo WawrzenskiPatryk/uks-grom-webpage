@@ -1,11 +1,11 @@
 <template>
   <section class="placeholder">
-    <BaseHeading type="main">
+    <!-- <BaseHeading type="main">
       <template #title></template>
-      <template #paragraph></template>
+      <template #subtitle></template>
     </BaseHeading>
     <BaseHeading type="aside"></BaseHeading>
-    <BaseButton type="hollow-dark" />
+    <BaseButton type="hollow-dark" /> -->
   </section>
 </template>
 
