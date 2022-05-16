@@ -48,28 +48,6 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.ripple {
-  position: absolute;
-  pointer-events: none;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  animation: rippleAnimation 400ms linear;
-}
-@keyframes rippleAnimation {
-  0% {
-    width: 0;
-    height: 0;
-    opacity: 0.5;
-  }
-  100% {
-    width: 40rem;
-    height: 40rem;
-    opacity: 0;
-  }
-}
-</style>
-
 <style lang="scss" scoped>
 .base-button {
   position: relative;
@@ -114,6 +92,27 @@ export default {
   &--hollow-dark {
     color: $primary-dark;
     border: 2px solid $primary-dark;
+  }
+
+  &::v-deep .ripple {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: rippleAnimation 400ms linear;
+  }
+}
+
+@keyframes rippleAnimation {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.5;
+  }
+  100% {
+    width: 40rem;
+    height: 40rem;
+    opacity: 0;
   }
 }
 </style>
