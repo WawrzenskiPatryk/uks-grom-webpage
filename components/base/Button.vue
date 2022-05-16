@@ -48,6 +48,7 @@ export default {
 
 <style lang="scss" scoped>
 .base-button {
+  user-select: none;
   position: relative;
   overflow: hidden;
   font-size: $default-font-size;
