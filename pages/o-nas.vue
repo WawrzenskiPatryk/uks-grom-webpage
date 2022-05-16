@@ -6,6 +6,6 @@
 
 <script>
 export default {
-  name: 'KadraPage',
+  name: 'AboutPage',
 };
 </script>

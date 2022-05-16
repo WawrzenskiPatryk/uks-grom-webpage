@@ -33,35 +33,33 @@ export default {
         },
         {
           name: 'O nas',
-          path: '/onas/',
-          submenu: [
-            { name: 'Trenerzy', path: '/onas/trenerzy/' },
-            { name: 'Wychowankowie', path: '/onas/wychowankowie/' },
-            { name: 'Kadra', path: '/onas/kadra/' },
-            { name: 'Cele', path: '/onas/cele/' },
-          ],
-        },
-        {
-          name: 'Treningi',
-          path: '/treningi/',
+          path: '/o-nas',
           submenu: [],
         },
         {
-          name: 'Aktualności',
-          path: '/aktualnosci/',
+          name: 'Treningi',
+          path: '/treningi',
           submenu: [
-            { name: 'Wakacje 2022', path: '/aktualnosci/wakacje-2022/' },
-            { name: 'Ferie 2022', path: '/aktualnosci/ferie-2022/' },
+            { name: 'Trenerzy', path: '/trenerzy' },
+            { name: 'Wychowankowie', path: '/wychowankowie' },
+          ],
+        },
+        {
+          name: 'Aktualności',
+          path: '/aktualnosci',
+          submenu: [
+            { name: 'Wakacje 2022', path: '/wakacje2022' },
+            { name: 'Ferie 2022', path: '/ferie2022' },
           ],
         },
         {
           name: 'Galeria',
-          path: '/galeria/',
+          path: '/galeria',
           submenu: [],
         },
         {
           name: 'Kontakt',
-          path: '/kontakt/',
+          path: '/kontakt',
           submenu: [],
         },
       ],
