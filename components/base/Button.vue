@@ -40,7 +40,7 @@ export default {
 
       setTimeout(() => {
         e.target.removeChild(circle);
-      }, 300);
+      }, 500);
     },
   },
 };
@@ -54,6 +54,7 @@ export default {
   border-radius: 10rem;
   transition: all 300ms ease;
   padding: 1.8rem 2.5rem;
+
   @media screen and (min-width: $desktop-min-screen-width) {
     padding: 2rem 3.2rem;
   }
@@ -66,7 +67,10 @@ export default {
   }
 
   &--filled {
-    color: $primary-light;
+    &,
+    * {
+      color: $primary-light;
+    }
     background-color: $primary-color;
     border: none;
   }
@@ -79,16 +83,25 @@ export default {
   }
 
   &--hollow-blue {
-    color: $primary-color;
+    &,
+    * {
+      color: $primary-color;
+    }
     border: 2px solid $primary-color;
   }
   &--hollow-white {
-    color: $primary-light;
+    &,
+    * {
+      color: $primary-light;
+    }
     border: 2px solid $primary-light;
   }
 
   &--hollow-dark {
-    color: $primary-dark;
+    &,
+    * {
+      color: $primary-dark;
+    }
     border: 2px solid $primary-dark;
   }
 
