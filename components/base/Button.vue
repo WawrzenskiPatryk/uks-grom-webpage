@@ -14,8 +14,10 @@ export default {
     buttonType() {
       if (this.type === 'hollow-white' || this.type === 'hollow')
         return 'base-button--hollow-white';
+
       if (this.type === 'hollow-blue') return 'base-button--hollow-blue';
       if (this.type === 'hollow-dark') return 'base-button--hollow-dark';
+
       return 'base-button--filled';
     },
   },
@@ -24,20 +26,21 @@ export default {
       const x = e.offsetX;
       const y = e.offsetY;
       const circle = document.createElement('div');
-      circle.classList.add('ripple');
+
+      circle.classList.add('base-button__ripple');
+      if (this.type === 'hollow-blue')
+        circle.classList.add('base-button__ripple--blue');
+      if (this.type === 'hollow-dark')
+        circle.classList.add('base-button__ripple--dark');
+
       circle.style.top = y + 'px';
       circle.style.left = x + 'px';
-      if (this.type === 'hollow-blue') {
-        circle.style.backgroundColor = '#0281ca';
-      } else if (this.type === 'hollow-dark') {
-        circle.style.backgroundColor = '#35495e';
-      } else {
-        circle.style.backgroundColor = '#fff';
-      }
+
       e.target.append(circle);
+
       setTimeout(() => {
         e.target.removeChild(circle);
-      }, 400);
+      }, 300);
     },
   },
 };
@@ -89,12 +92,20 @@ export default {
     border: 2px solid $primary-dark;
   }
 
-  &::v-deep .ripple {
+  &::v-deep &__ripple {
     position: absolute;
     pointer-events: none;
     border-radius: 50%;
     transform: translate(-50%, -50%);
     animation: rippleAnimation 400ms linear;
+
+    background-color: $primary-light;
+    &--blue {
+      background-color: $primary-color;
+    }
+    &--dark {
+      background-color: $primary-dark;
+    }
   }
 }
 
