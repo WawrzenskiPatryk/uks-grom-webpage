@@ -10,11 +10,6 @@ export default {
   props: {
     type: { type: String, default: 'filled' },
   },
-  data() {
-    return {
-      isAnimating: false,
-    };
-  },
   computed: {
     buttonType() {
       if (this.type === 'hollow-white' || this.type === 'hollow')
