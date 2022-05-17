@@ -35,6 +35,9 @@ export default {
   }
 
   &__page {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
     align-self: center;
     max-width: $content-max-width;
     margin: 8rem 10vw;

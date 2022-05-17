@@ -15,8 +15,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.base-paragraph {
-  margin: 2rem 0;
-}
-</style>
+<style lang="scss" scoped></style>
