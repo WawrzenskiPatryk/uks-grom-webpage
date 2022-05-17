@@ -9,15 +9,15 @@
             second-word="GROM"
           />
           <p>Uczniowski Klub Sportowy</p>
-          <p>GROM Lublin</p>
+          <p>GROM SP 2 Lublin</p>
         </div>
       </div>
 
       <div class="footer__section">
         <div class="footer__details">
-          <h4>Dane do przelewu</h4>
-          <p>mBank</p>
-          <p>00 0000 0000 0000 0000 0000 0000</p>
+          <p><strong>Dane do przelewu</strong></p>
+          <p>Bank Pekao</p>
+          <p>12 1240 2470 1111 0010 6881 3209</p>
         </div>
       </div>
 
@@ -27,8 +27,10 @@
             ul. Adama Mickiewicza 24 <br />
             20-433 Lublin
           </p>
-          <p>&#9993; info@uksgrom.lublin.pl</p>
-          <p>&#9742; 500-500-500</p>
+          <p>
+            <strong>Piotr Łuszczew </strong> <br />
+            &#9742; 609-006-576
+          </p>
         </div>
       </div>
     </div>
