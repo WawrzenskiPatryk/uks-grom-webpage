@@ -18,19 +18,20 @@
       czy ogólnopolskich.
     </BaseParagraph>
     <BaseParagraph>
-      Możemy się pochwalić,że naszym największym osiągnięciem było zdobycie I
-      miejsca w Województwie Lubelskim oraz III miejsca w Polsce !!! w minipiłce
-      nożnej chłopców.
+      <strong>
+        Naszym największym osiągnięciem jest zdobycie I miejsca w Województwie
+        Lubelskim oraz III miejsca w Polsce w minipiłce nożnej chłopców!
+      </strong>
     </BaseParagraph>
     <BaseParagraph>
       <span class="text-colored"
         >Naszym priorytetem jest zapewnienie dzieciom miłego czasu w
-        towarzystwie przekochanych osób, oraz dobrej zabawy, by oderwać się
+        towarzystwie przekochanych osób oraz dobrej zabawy, by oderwać się
         chociaż na chwilę od życia realnego.
       </span>
       Wszystkie zajęcia w klubie, na obozach sportowych czy koloniach dla dzieci
-      prowadzone są przez wykwalifikowanych trenerów, instruktorów, nauczycieli,
-      pedagogów posiadających wykształcenie do pracy z młodzieżą oraz ogromne
+      prowadzone są przez wykwalifikowanych trenerów, instruktorów, nauczycieli
+      i pedagogów posiadających wykształcenie do pracy z młodzieżą oraz ogromne
       doświadczenie w tym zakresie.
       <strong>
         Pracownikami klubu oraz wolontariuszami mogą być wyłącznie osoby
@@ -38,17 +39,17 @@
         dzieckiem.
       </strong>
       <span class="text-colored">
-        W kadrze mamy osoby pomysłowe i bardzo pomocne. Myślę, że można u nas
-        się poczuć jak w domu.
+        W kadrze mamy osoby pomysłowe i bardzo pomocne. Zdecydowanie można
+        poczuć się u nas jak w domu!
       </span>
-      Dlatego naszym celem jest prawidłowy rozwój fizyczny i psychiczny naszych
+      Wszystko to sprawia, że naszym celem jest prawidłowy rozwój fizyczny i psychiczny naszych
       podopiecznych. W ten sposób u dziecka budujemy tak ważną świadomość ciała
       i pozytywne nastawienie do całożyciowej aktywności fizycznej jakimi są
       ruch i rekreacja.
     </BaseParagraph>
     <BaseParagraph>
       Współpracujemy z wieloma organizacjami m.in. Urzędem Miasta Lublin, Szkołą
-      Podstawową nr 2 w Lublinie, Przedszkolem nr. 70 w Lublinie, Sygnałem
+      Podstawową nr 2 w Lublinie, Przedszkolem nr 70 w Lublinie, Sygnałem
       Lublin, Motorem Lublin, AZS Lublin oraz wieloma innymi.
     </BaseParagraph>
     <BaseHeading type="aside">
