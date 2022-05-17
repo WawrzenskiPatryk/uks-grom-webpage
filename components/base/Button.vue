@@ -73,6 +73,7 @@ export default {
       color: $primary-light;
     }
     background-color: $primary-color;
+    background-image: $button-gradient;
     border: none;
   }
 

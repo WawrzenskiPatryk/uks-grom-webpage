@@ -41,10 +41,30 @@ export default {
 <style lang="scss" scoped>
 .base-heading {
   display: inline-block;
+  position: relative;
   margin: 2rem 0;
+  &:before {
+    content: '';
+    display: block;
+    position: relative;
+    background-image: $primary-gradient;
+    border-radius: 100rem;
+    margin: 1rem 0;
+    height: 0.8rem;
+    width: 4rem;
+    @media screen and (min-width: $tablet-min-screen-width) {
+      margin: $default-font-size 0;
+      height: 1rem;
+      width: 6.5rem;
+    }
+  }
 
   &--main {
     text-align: center;
+    &:before {
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 
   &--aside {

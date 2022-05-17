@@ -4,7 +4,8 @@ $desktop-min-screen-width: 1024px;
 $content-max-width: 1440px;
 
 $primary-color: #0a92e0;
-$primary-color-darken: #0281ca;
+$primary-color-lighten: #6fcaff;
+$primary-color-darken: #06669d;
 $secondary-color: #efdb03;
 $primary-dark: #35495e;
 $secondary-dark: #2b2b33;
@@ -32,7 +33,25 @@ $medium-heading-font-size: 3rem;
 $small-heading-font-size: 2rem;
 
 $heading-gradient: linear-gradient(
-  to right,
+  270deg,
   rgba(9, 72, 109, 0.6),
   rgba(105, 96, 8, 0.6)
+);
+
+$primary-gradient: linear-gradient(
+  270deg,
+  $primary-color-lighten,
+  $primary-color-darken
+);
+
+$primary-gradient-dark: linear-gradient(
+  190deg,
+  $primary-color-darken,
+  $secondary-dark
+);
+
+$button-gradient: linear-gradient(
+  170deg,
+  $primary-color,
+  $primary-color-darken
 );

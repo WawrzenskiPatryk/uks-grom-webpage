@@ -57,11 +57,14 @@ export default {
 .footer {
   color: $primary-light;
   background-color: $primary-dark;
+  background-image: $primary-gradient-dark;
   padding: 2rem 0;
   text-align: center;
 
   @media screen and (min-width: $desktop-min-screen-width) {
     text-align: left;
+    padding: 7rem 0 2rem 0;
+    clip-path: polygon(0 0%, 100% 15%, 100% 100%, 0% 100%);
   }
 
   &__sections-wrapper {

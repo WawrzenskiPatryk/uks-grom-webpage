@@ -1,6 +1,6 @@
 <template>
   <main class="about">
-    <BaseHeading type="aside">
+    <BaseHeading>
       <template #title>
         Uczniowski Klub Sportowy GROM SP2 Lublin powstał 31 marca 2016 roku.
       </template>
@@ -42,10 +42,10 @@
         W kadrze mamy osoby pomysłowe i bardzo pomocne. Zdecydowanie można
         poczuć się u nas jak w domu!
       </span>
-      Wszystko to sprawia, że naszym celem jest prawidłowy rozwój fizyczny i psychiczny naszych
-      podopiecznych. W ten sposób u dziecka budujemy tak ważną świadomość ciała
-      i pozytywne nastawienie do całożyciowej aktywności fizycznej jakimi są
-      ruch i rekreacja.
+      Wszystko to sprawia, że naszym celem jest prawidłowy rozwój fizyczny i
+      psychiczny naszych podopiecznych. W ten sposób u dziecka budujemy tak
+      ważną świadomość ciała i pozytywne nastawienie do całożyciowej aktywności
+      fizycznej jakimi są ruch i rekreacja.
     </BaseParagraph>
     <BaseParagraph>
       Współpracujemy z wieloma organizacjami m.in. Urzędem Miasta Lublin, Szkołą
@@ -80,8 +80,26 @@ export default {
 <style lang="scss" scoped>
 .about {
   &__list {
-    list-style: disc;
-    padding-left: 2rem;
+    *:before {
+      content: '';
+      background-image: $button-gradient;
+      display: inline-block;
+      position: relative;
+      margin-right: 1rem;
+      border-radius: 100rem;
+      height: 0.8rem;
+      width: 0.8rem;
+      bottom: 1px;
+      @media screen and (min-width: $tablet-min-screen-width) {
+        height: 0.9rem;
+        width: 0.9rem;
+      }
+      @media screen and (min-width: $desktop-min-screen-width) {
+        height: 1rem;
+        width: 1rem;
+        bottom: 2px;
+      }
+    }
   }
 }
 .text-colored {
