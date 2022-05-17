@@ -77,8 +77,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.text-colored {
-  color: $primary-color;
-}
-</style>
+<style lang="scss" scoped></style>
