@@ -38,7 +38,7 @@
         2022 &copy; Powered by
         <a
           class="footer__author-link"
-          href="https://github.com/WawrzenskiPatryk/"
+          href="https://www.linkedin.com/in/patryk-wawrze%C5%84ski-41303a233/"
           target="_blank"
           >Patryk Wawrzeński</a
         >
