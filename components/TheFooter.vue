@@ -8,35 +8,35 @@
             first-word="UKS"
             second-word="GROM"
           />
-          <p>Uczniowski Klub Sportowy</p>
-          <p>GROM SP 2 Lublin</p>
+          <BaseParagraph>Uczniowski Klub Sportowy</BaseParagraph>
+          <BaseParagraph>GROM SP 2 Lublin</BaseParagraph>
         </div>
       </div>
 
       <div class="footer__section">
         <div class="footer__details">
-          <p><strong>Dane do przelewu</strong></p>
-          <p>Bank Pekao</p>
-          <p>12 1240 2470 1111 0010 6881 3209</p>
+          <BaseParagraph><strong>Dane do przelewu</strong></BaseParagraph>
+          <BaseParagraph>Bank Pekao</BaseParagraph>
+          <BaseParagraph>12 1240 2470 1111 0010 6881 3209</BaseParagraph>
         </div>
       </div>
 
       <div class="footer__section">
         <div class="footer__details">
-          <p>
+          <BaseParagraph>
             ul. Adama Mickiewicza 24 <br />
             20-433 Lublin
-          </p>
-          <p>
+          </BaseParagraph>
+          <BaseParagraph>
             <strong>Piotr Łuszczew </strong> <br />
             &#9742; 609-006-576
-          </p>
+          </BaseParagraph>
         </div>
       </div>
     </div>
 
     <div class="footer__copyrights">
-      <p>
+      <BaseParagraph>
         2022 &copy; Powered by
         <a
           class="footer__author-link"
@@ -44,7 +44,7 @@
           target="_blank"
           >Patryk Wawrzeński</a
         >
-      </p>
+      </BaseParagraph>
     </div>
   </footer>
 </template>
