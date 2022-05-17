@@ -42,18 +42,16 @@ export default {
 .base-heading {
   display: inline-block;
   position: relative;
-  margin: 2rem 0;
   &:before {
     content: '';
-    display: block;
+    display: inline-block;
     position: relative;
     background-image: $primary-gradient;
     border-radius: 100rem;
-    margin: 1rem 0;
     height: 0.8rem;
     width: 4rem;
+      margin: 2rem 0;
     @media screen and (min-width: $tablet-min-screen-width) {
-      margin: $default-font-size 0;
       height: 1rem;
       width: 6.5rem;
     }
@@ -62,12 +60,14 @@ export default {
   &--main {
     text-align: center;
     &:before {
-      left: 50%;
-      transform: translateX(-50%);
+      margin-bottom: 5rem;
     }
   }
 
   &--aside {
+    &:before {
+      margin: 2rem 0;
+    }
     text-align: left;
   }
 

@@ -1,6 +1,6 @@
 <template>
   <main class="about">
-    <BaseHeading>
+    <BaseHeading type="aside">
       <template #title>
         Uczniowski Klub Sportowy GROM SP2 Lublin powstał 31 marca 2016 roku.
       </template>
