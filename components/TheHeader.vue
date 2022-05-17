@@ -40,16 +40,16 @@ export default {
           name: 'Treningi',
           path: '/treningi',
           submenu: [
-            { name: 'Trenerzy', path: '/trenerzy' },
-            { name: 'Wychowankowie', path: '/wychowankowie' },
+            // { name: 'Trenerzy', path: '/trenerzy' },
+            // { name: 'Wychowankowie', path: '/wychowankowie' },
           ],
         },
         {
           name: 'Aktualności',
           path: '/aktualnosci',
           submenu: [
-            { name: 'Wakacje 2022', path: '/wakacje2022' },
-            { name: 'Ferie 2022', path: '/ferie2022' },
+            // { name: 'Wakacje 2022', path: '/wakacje2022' },
+            // { name: 'Ferie 2022', path: '/ferie2022' },
           ],
         },
         {
