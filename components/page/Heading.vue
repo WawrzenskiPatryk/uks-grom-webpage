@@ -56,13 +56,10 @@ export default {
   &__title {
     width: $content-max-width;
     text-transform: capitalize;
-    padding: 2rem 5rem;
-    font-size: $small-title-font-size;
+    margin: 2rem 10vw;
+    text-align: center;
     @media screen and (min-width: $tablet-min-screen-width) {
-      font-size: $medium-title-font-size;
-    }
-    @media screen and (min-width: $desktop-min-screen-width) {
-      font-size: $large-title-font-size;
+      text-align: left;
     }
   }
 }

@@ -1,9 +1,9 @@
 <template>
-  <h1 class="logo-placeholder">
+  <h4 class="logo-placeholder">
     <NuxtLink to="/" class="logo-placeholder__link">
       <span>{{ firstWord }}</span> <span>{{ secondWord }}</span>
     </NuxtLink>
-  </h1>
+  </h4>
 </template>
 
 <script>
@@ -18,6 +18,7 @@ export default {
 
 <style lang="scss" scoped>
 .logo-placeholder {
+  font-size: 3.2rem;
   user-select: none;
 
   &__link {

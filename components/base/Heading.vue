@@ -6,14 +6,14 @@
         Consectetur adipisicing elit.
       </slot>
     </h3>
-    <h5 class="base-heading__subtitle">
+    <h4 class="base-heading__subtitle">
       <slot name="subtitle">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis,
         tenetur dicta illo officia ea expedita unde dolor, nostrum nemo, neque
         tempore! Quisquam quasi illo, molestias facilis tempore recusandae
         eligendi laboriosam.
       </slot>
-    </h5>
+    </h4>
   </section>
 </template>
 
@@ -45,12 +45,10 @@ export default {
 
   &--main {
     text-align: center;
-    font-size: $medium-title-font-size;
   }
 
   &--aside {
     text-align: left;
-    font-size: $small-title-font-size;
   }
 
   &__title {
@@ -60,7 +58,6 @@ export default {
   }
 
   &__subtitle {
-    font-size: $large-subtitle-font-size;
     font-weight: 400;
   }
 }

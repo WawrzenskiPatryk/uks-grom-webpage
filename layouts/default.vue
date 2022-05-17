@@ -21,6 +21,8 @@ export default {
 
 <style lang="scss" scoped>
 .layout {
+  display: flex;
+  flex-direction: column;
   color: $primary-dark;
   background-color: $primary-light;
   transition: background-color 0.3s;
@@ -33,9 +35,9 @@ export default {
   }
 
   &__page {
+    align-self: center;
     max-width: $content-max-width;
-    padding: 0rem 10rem;
-    margin: 8rem auto;
+    margin: 8rem 10vw;
   }
 }
 </style>
