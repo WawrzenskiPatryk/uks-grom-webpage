@@ -121,7 +121,7 @@ export default {
     transition: color 0.3s ease;
     @media (hover: hover) {
       &:hover {
-        color: $primary-color;
+        color: $primary-color-lighten;
       }
     }
   }
