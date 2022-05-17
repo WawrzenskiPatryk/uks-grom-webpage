@@ -14,15 +14,22 @@ $secondary-shadow: rgba(0, 0, 0, 0.1);
 
 $header-height: 6rem;
 
-$default-font-size: 1.6rem;
 $default-font-family: 'Lato', sans-serif;
-
 $title-font-family: 'Jost', sans-serif;
+
+$default-font-size: 1.6rem;
+$mobile-font-size: 1.4rem;
+
 $large-title-font-size: 8rem;
 $medium-title-font-size: 6rem;
 $small-title-font-size: 3rem;
+
 $large-subtitle-font-size: 2rem;
-$small-subtitle-font-size: $default-font-size;
+$small-subtitle-font-size: 1.6rem;
+
+$large-heading-font-size: 3.5rem;
+$medium-heading-font-size: 3rem;
+$small-heading-font-size: 2rem;
 
 $heading-gradient: linear-gradient(
   to right,
