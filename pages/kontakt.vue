@@ -1,6 +1,6 @@
 <template>
-  <main>
-    <ThePlaceholder />
+  <main class="contact">
+    <GoogleMap class="contact__map" />
   </main>
 </template>
 
@@ -9,3 +9,5 @@ export default {
   name: 'ContactPage',
 };
 </script>
+
+<style lang="scss" scoped></style>
