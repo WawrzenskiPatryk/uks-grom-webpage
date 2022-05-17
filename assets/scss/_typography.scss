@@ -1,7 +1,50 @@
 body {
   font-family: $default-font-family;
   font-weight: 400;
-  font-size: $default-font-size;
   line-height: 1.7;
   background-color: $primary-light;
+  font-size: $mobile-font-size;
+  @media screen and (min-width: $tablet-min-screen-width) {
+    font-size: $default-font-size;
+  }
+}
+
+h1 {
+  font-size: $small-title-font-size;
+  @media screen and (min-width: $tablet-min-screen-width) {
+    font-size: $medium-title-font-size;
+  }
+  @media screen and (min-width: $desktop-min-screen-width) {
+    font-size: $large-title-font-size;
+  }
+}
+
+h2 {
+  font-size: $small-title-font-size;
+  @media screen and (min-width: $tablet-min-screen-width) {
+    font-size: $medium-title-font-size;
+  }
+  @media screen and (min-width: $desktop-min-screen-width) {
+    font-size: $large-title-font-size;
+  }
+}
+
+h3 {
+  font-size: $small-heading-font-size;
+  @media screen and (min-width: $tablet-min-screen-width) {
+    font-size: $medium-heading-font-size;
+  }
+  @media screen and (min-width: $desktop-min-screen-width) {
+    font-size: $large-heading-font-size;
+  }
+}
+
+h4 {
+  font-size: $mobile-font-size;
+  @media screen and (min-width: $tablet-min-screen-width) {
+    font-size: $small-subtitle-font-size;
+  }
+  @media screen and (min-width: $desktop-min-screen-width) {
+    font-size: $large-subtitle-font-size;
+  }
 }
