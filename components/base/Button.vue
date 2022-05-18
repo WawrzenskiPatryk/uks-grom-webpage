@@ -15,7 +15,7 @@ export default {
       if (this.type === 'hollow-white' || this.type === 'hollow')
         return 'base-button--hollow-white';
 
-      if (this.type === 'hollow-blue') return 'base-button--hollow-blue';
+      if (this.type === 'hollow-color') return 'base-button--hollow-color';
       if (this.type === 'hollow-dark') return 'base-button--hollow-dark';
 
       return 'base-button--filled';
@@ -28,8 +28,8 @@ export default {
       const circle = document.createElement('div');
 
       circle.classList.add('base-button__ripple');
-      if (this.type === 'hollow-blue')
-        circle.classList.add('base-button__ripple--blue');
+      if (this.type === 'hollow-color')
+        circle.classList.add('base-button__ripple--color');
       if (this.type === 'hollow-dark')
         circle.classList.add('base-button__ripple--dark');
 
@@ -77,14 +77,14 @@ export default {
     border: none;
   }
 
-  &--hollow-blue,
+  &--hollow-color,
   &--hollow-light,
   &--hollow-dark,
   &--hollow-white {
     background-color: transparent;
   }
 
-  &--hollow-blue {
+  &--hollow-color {
     &,
     * {
       color: $primary-color;
@@ -115,7 +115,7 @@ export default {
     animation: rippleAnimation 400ms linear;
 
     background-color: $primary-light;
-    &--blue {
+    &--color {
       background-color: $primary-color;
     }
     &--dark {
