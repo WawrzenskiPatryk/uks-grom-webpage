@@ -2,7 +2,7 @@
   <div class="layout">
     <TheHeader class="layout__header" />
     <PageSlider v-if="isIndex" class="layout__heading" />
-    <PageHeading v-else class="layout__heading" />
+    <PageHeading v-else-if="pageExists" class="layout__heading" />
     <Nuxt class="layout__page" />
     <TheFooter class="layout__footer" />
   </div>
@@ -15,6 +15,9 @@ export default {
       if (this.$route.name === 'index') return true;
       return false;
     },
+    pageExists() {
+      return !!this.$route.name;
+    },
   },
 };
 </script>
@@ -25,7 +28,6 @@ export default {
   flex-direction: column;
   color: $primary-dark;
   background-color: $primary-light;
-  transition: background-color 0.3s;
   max-width: 100vw;
   padding-top: $header-height;
 
