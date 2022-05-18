@@ -4,39 +4,47 @@
       <div class="footer__section">
         <div class="footer__details">
           <LogoPlaceholder
-            class="footer__logo"
+            class="footer__details-element"
             first-word="UKS"
             second-word="GROM"
           />
-          <BaseParagraph>Uczniowski Klub Sportowy</BaseParagraph>
-          <BaseParagraph>GROM SP 2 Lublin</BaseParagraph>
+          <span class="footer__details-element">Uczniowski Klub Sportowy</span>
+          <span class="footer__details-element">GROM SP 2 Lublin</span>
         </div>
       </div>
 
       <div class="footer__section">
         <div class="footer__details">
-          <BaseParagraph><strong>Dane do przelewu</strong></BaseParagraph>
-          <BaseParagraph>Bank Pekao</BaseParagraph>
-          <BaseParagraph>12 1240 2470 1111 0010 6881 3209</BaseParagraph>
+          <span class="footer__details-element">
+            <strong>Dane do przelewu</strong>
+          </span>
+          <span class="footer__details-element">Bank Pekao</span>
+          <span class="footer__details-element">
+            12 1240 2470 1111 0010 6881 3209
+          </span>
         </div>
       </div>
 
       <div class="footer__section">
         <div class="footer__details">
-          <BaseParagraph>
+          <span class="footer__details-element">
+            <fa-icon class="footer__icon" icon="fa-solid fa-map-location-dot" />
+            <br class="footer__icon-line-break" />
             ul. Adama Mickiewicza 24 <br />
             20-433 Lublin
-          </BaseParagraph>
-          <BaseParagraph>
+          </span>
+          <span class="footer__details-element">
+            <fa-icon class="footer__icon" icon="fa-solid fa-phone" />
+            <br class="footer__icon-line-break" />
             <strong>Piotr Łuszczew </strong> <br />
-            &#9742; 609-006-576
-          </BaseParagraph>
+            609-006-576
+          </span>
         </div>
       </div>
     </div>
 
     <div class="footer__copyrights">
-      <BaseParagraph>
+      <span>
         2022 &copy; Powered by
         <a
           class="footer__author-link"
@@ -44,7 +52,7 @@
           target="_blank"
           >Patryk Wawrzeński</a
         >
-      </BaseParagraph>
+      </span>
     </div>
   </footer>
 </template>
@@ -98,16 +106,27 @@ export default {
     }
   }
 
-  &__logo {
-    display: inline-block;
-  }
-
   &__details {
     display: flex;
     flex-direction: column;
     justify-content: center;
     * {
       padding: 0.5rem 0;
+    }
+  }
+
+  &__details-element {
+    position: relative;
+  }
+
+  &__icon {
+    @media screen and (min-width: $desktop-min-screen-width) {
+      position: absolute;
+      left: -4rem;
+      top: 2rem;
+      &-line-break {
+        display: none;
+      }
     }
   }
 
