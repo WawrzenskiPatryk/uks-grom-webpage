@@ -10,20 +10,20 @@
         specjalizujemy to piłka nożna, pływanie, lekkoatletyka oraz koszykówka.
       </template>
     </BaseHeading>
-    <BaseParagraph>
+    <p>
       Dzieci poszczególnych dyscyplin sportowych osiągają bardzo wysoki poziom
       umiejętności sportowy, reprezentując Szkołę Podstawową nr 2 w Lublinie w
       Igrzyskach Dzieci i Młodzieży Miasta Lublin, Wojewódzkich Igrzyskach
       Sportowych oraz w różnych turniejach i rozgrywkach miejskich, wojewódzkich
       czy ogólnopolskich.
-    </BaseParagraph>
-    <BaseParagraph>
+    </p>
+    <p>
       <strong>
         Naszym największym osiągnięciem jest zdobycie I miejsca w Województwie
         Lubelskim oraz III miejsca w Polsce w minipiłce nożnej chłopców!
       </strong>
-    </BaseParagraph>
-    <BaseParagraph>
+    </p>
+    <p>
       <span class="text-colored"
         >Naszym priorytetem jest zapewnienie dzieciom miłego czasu w
         towarzystwie przekochanych osób oraz dobrej zabawy, by oderwać się
@@ -46,12 +46,12 @@
       psychiczny naszych podopiecznych. W ten sposób u dziecka budujemy tak
       ważną świadomość ciała i pozytywne nastawienie do całożyciowej aktywności
       fizycznej jakimi są ruch i rekreacja.
-    </BaseParagraph>
-    <BaseParagraph>
+    </p>
+    <p>
       Współpracujemy z wieloma organizacjami m.in. Urzędem Miasta Lublin, Szkołą
       Podstawową nr 2 w Lublinie, Przedszkolem nr 70 w Lublinie, Sygnałem
       Lublin, Motorem Lublin, AZS Lublin oraz wieloma innymi.
-    </BaseParagraph>
+    </p>
     <BaseHeading type="aside">
       <template #title>Organizujemy:</template>
       <template #subtitle>
