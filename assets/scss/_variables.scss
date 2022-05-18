@@ -3,16 +3,6 @@ $tablet-min-screen-width: 768px;
 $desktop-min-screen-width: 1024px;
 $content-max-width: 1440px;
 
-$primary-color: #0a92e0;
-$primary-color-lighten: #6fcaff;
-$primary-color-darken: #06669d;
-$secondary-color: #efdb03;
-$primary-dark: #35495e;
-$secondary-dark: #2b2b33;
-$primary-light: #fafafa;
-$primary-shadow: rgba(0, 0, 0, 0.25);
-$secondary-shadow: rgba(0, 0, 0, 0.1);
-
 $header-height: 6rem;
 
 $default-font-family: 'Lato', sans-serif;
@@ -31,6 +21,16 @@ $small-subtitle-font-size: 1.6rem;
 $large-heading-font-size: 3.5rem;
 $medium-heading-font-size: 3rem;
 $small-heading-font-size: 2rem;
+
+$primary-color: #0a92e0;
+$primary-color-lighten: #6fcaff;
+$primary-color-darken: #06669d;
+$secondary-color: #efdb03;
+$primary-dark: #35495e;
+$secondary-dark: #2b2b33;
+$primary-light: #fafafa;
+$primary-shadow: rgba(0, 0, 0, 0.25);
+$secondary-shadow: rgba(0, 0, 0, 0.1);
 
 $heading-gradient: linear-gradient(
   270deg,
