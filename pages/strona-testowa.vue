@@ -22,13 +22,10 @@
     <section>
       <h4>Pliki do pobrania:</h4>
       <div>
-        <a href="/sample.pdf" target="_blank">Pobierz mnie!</a>
+        <a href="/sample.pdf" target="_blank">Pobierz PDF!</a>
       </div>
       <div>
-        <a href="/sample.pdf" target="_blank">Pobierz mnie!</a>
-      </div>
-      <div>
-        <a href="/sample.pdf" target="_blank">Pobierz mnie!</a>
+        <a href="/sample.docx" target="_blank">Pobierz DOCX!</a>
       </div>
     </section>
   </main>
