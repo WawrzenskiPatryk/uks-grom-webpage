@@ -48,7 +48,7 @@ export default {
     font-family: $title-font-family;
   }
   &__subtitle {
-    font-weight: 100;
+    font-weight: 300;
     width: 100%;
     @media screen and (min-width: $tablet-min-screen-width) {
       width: 67%;
