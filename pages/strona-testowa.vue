@@ -21,6 +21,6 @@
 
 <script>
 export default {
-  name: 'WychowankowiePage',
+  name: 'TestPage',
 };
 </script>
