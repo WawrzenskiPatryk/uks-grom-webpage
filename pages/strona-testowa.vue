@@ -1,7 +1,9 @@
 <template>
   <main>
     <PictureSection
-      :image="require('~/assets/images/white_red_shirt_kids_football_players.jpg')"
+      :image="
+        require('~/assets/images/white_red_shirt_kids_football_players.jpg')
+      "
     >
       <BaseHeading type="aside" />
     </PictureSection>
@@ -16,6 +18,19 @@
     >
       <BaseHeading type="aside" />
     </PictureSection>
+
+    <section>
+      <h4>Pliki do pobrania:</h4>
+      <div>
+        <a href="/sample.pdf" target="_blank">Pobierz mnie!</a>
+      </div>
+      <div>
+        <a href="/sample.pdf" target="_blank">Pobierz mnie!</a>
+      </div>
+      <div>
+        <a href="/sample.pdf" target="_blank">Pobierz mnie!</a>
+      </div>
+    </section>
   </main>
 </template>
 
