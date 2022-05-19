@@ -9,7 +9,7 @@
           doloribus deleniti enim nihil fuga voluptates quia porro dignissimos
           ducimus culpa? Nesciunt!
         </h4>
-        <BaseButton class="slider__button">Lorem Ipsum</BaseButton>
+        <BaseButton class="slider__button" />
       </div>
     </div>
   </section>

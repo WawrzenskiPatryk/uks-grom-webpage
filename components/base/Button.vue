@@ -1,6 +1,6 @@
 <template>
   <button class="base-button" :class="buttonType" @click="animateClick">
-    <slot>Lorem Ipsum</slot>
+    {{ label }}
   </button>
 </template>
 
@@ -9,6 +9,7 @@ export default {
   name: 'BaseButton',
   props: {
     type: { type: String, default: 'filled' },
+    label: { type: String, default: 'Lorem Ipsum' },
   },
   computed: {
     buttonType() {

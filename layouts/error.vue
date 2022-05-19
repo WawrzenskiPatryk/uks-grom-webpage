@@ -3,7 +3,7 @@
     <h2>Nie znaleźliśmy takiej strony.</h2>
     <div>
       <NuxtLink to="/">
-        <BaseButton> Strona Główna </BaseButton>
+        <BaseButton label="Strona Główna" />
       </NuxtLink>
     </div>
   </section>
