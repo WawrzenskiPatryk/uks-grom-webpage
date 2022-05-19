@@ -40,10 +40,10 @@ export default {
   &__page {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 8vh;
     align-self: center;
     max-width: $content-max-width;
-    margin: 8rem 10vw;
+    margin: 10vh 10vw;
   }
 }
 </style>
