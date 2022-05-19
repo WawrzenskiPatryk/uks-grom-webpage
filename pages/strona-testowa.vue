@@ -25,7 +25,7 @@
         <a href="/sample.pdf" target="_blank">Pobierz PDF!</a>
       </div>
       <div>
-        <a href="/sample.docx" target="_blank">Pobierz DOCX!</a>
+        <a href="/sample.docx">Pobierz DOCX!</a>
       </div>
     </section>
   </main>
