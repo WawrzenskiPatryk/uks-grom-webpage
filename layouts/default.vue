@@ -25,6 +25,7 @@ export default {
 <style lang="scss" scoped>
 .layout {
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   color: $primary-dark;
   background-color: $primary-light;
