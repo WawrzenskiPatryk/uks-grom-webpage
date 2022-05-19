@@ -20,13 +20,13 @@
     </PictureSection>
 
     <section>
-      <h4>Pliki do pobrania:</h4>
-      <div>
-        <a href="/sample.pdf" target="_blank">Pobierz PDF!</a>
-      </div>
-      <div>
-        <a href="/sample.docx">Pobierz DOCX!</a>
-      </div>
+      <h3>Pliki do pobrania:</h3>
+      <h4>
+        <a href="/downloads/sample.pdf" target="_blank">Pobierz PDF!</a>
+      </h4>
+      <h4>
+        <a href="/downloads/sample.docx">Pobierz DOCX!</a>
+      </h4>
     </section>
   </main>
 </template>
