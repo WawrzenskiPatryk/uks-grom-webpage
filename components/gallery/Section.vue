@@ -61,14 +61,19 @@ export default {
 
 <style lang="scss" scoped>
 .gallery-section {
+  // &__images-wrapper {
+  //! TODO: CSS-GRID THAT OUT!
+  // }
+
   &__image-container {
     display: inline-block;
     overflow: hidden;
     position: relative;
-    width: 28rem;
-    height: 17rem;
     margin: 1rem;
     border-radius: 1rem;
+
+    width: 25rem;
+    height: 15rem;
 
     cursor: pointer;
     transition: opacity 0.3s ease;
