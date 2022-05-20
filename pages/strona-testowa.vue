@@ -22,10 +22,21 @@
     <section>
       <h3>Pliki do pobrania:</h3>
       <h4>
-        <a href="/downloads/sample.pdf" target="_blank">Pobierz PDF!</a>
+        <a href="/downloads/sample.pdf" target="_blank" download>
+          Pobierz PDF!
+        </a>
       </h4>
       <h4>
-        <a href="/downloads/sample.docx">Pobierz DOCX!</a>
+        <a href="/downloads/sample.docx" download> Pobierz DOCX! </a>
+      </h4>
+      <h4>
+        <a
+          :href="
+            require('~/assets/images/white_red_shirt_kids_football_players.jpg')
+          "
+          download
+          >Pobierz zdjęcie!</a
+        >
       </h4>
     </section>
   </main>
