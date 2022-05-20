@@ -16,7 +16,7 @@ export default {
     return {
       galleries: [
         {
-          title: 'Galeria testowa 2022',
+          title: 'Wakacje 2022',
           images: [
             'jumping_kids_football_fun.jpg',
             'school_physical_education_football.jpg',
@@ -28,7 +28,7 @@ export default {
           ],
         },
         {
-          title: 'Galeria testowa 2021',
+          title: 'Wakacje 2021',
           images: [
             'white_red_shirt_kids_football_players.jpg',
             'school_physical_education_football.jpg',
@@ -39,7 +39,7 @@ export default {
           ],
         },
         {
-          title: 'Galeria testowa 2020',
+          title: 'Wakacje 2020',
           images: [
             'white_red_shirt_kids_football_players.jpg',
             'jumping_kids_football_fun.jpg',
