@@ -43,7 +43,13 @@ export default {
   computed: {
     filteredImages() {
       const images = this.gallery.images;
-      const filteredImgs = images.slice(0, 4);
+
+      // TODO: AMOUNT OF DISPLAYED IMAGES BASED ON WIDTH
+      
+      // let amountOfDisplayedImgs = 4;
+      const amountOfDisplayedImgs = 4;
+
+      const filteredImgs = images.slice(0, amountOfDisplayedImgs);
       return filteredImgs;
     },
   },
@@ -84,20 +90,18 @@ export default {
       }
     }
 
-    &:nth-child(4) {
-      &::after {
-        content: 'Zobacz więcej';
-        position: absolute;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: $primary-shadow;
-        color: $primary-light;
-        text-shadow: 0 0 0.75rem black, 0 0 2rem black;
-        font-size: 3rem;
-        height: 100%;
-        width: 100%;
-      }
+    &:last-child:not(:first-child):after {
+      content: 'Zobacz wszystkie';
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $primary-shadow;
+      color: $primary-light;
+      text-shadow: 0 0 0.75rem black, 0 0 2rem black;
+      font-size: 2.5rem;
+      height: 100%;
+      width: 100%;
     }
   }
 
