@@ -20,8 +20,5 @@ export default {
   height: 100vh;
   background-color: $backdrop-color;
   padding: 10vh 3vw;
-  * {
-    color: $primary-light;
-  }
 }
 </style>
