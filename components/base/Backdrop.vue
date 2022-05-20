@@ -19,7 +19,7 @@ export default {
   z-index: 100;
   height: 100vh;
   background-color: $backdrop-color;
-  padding: 10vh 10vw;
+  padding: 10vh 3vw;
   * {
     color: $primary-light;
   }
