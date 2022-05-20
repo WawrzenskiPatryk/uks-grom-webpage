@@ -1,5 +1,17 @@
 <template>
   <BaseBackdrop class="gallery-lightbox" @close-backdrop="closeLightbox">
+    <div class="gallery-lightbox__icons">
+      <a
+        class="gallery-lightbox__icon"
+        :href="require(`~/assets/images/${images[currentImgIndex]}`)"
+        download
+      >
+        <fa-icon icon="fa-solid fa-floppy-disk" />
+      </a>
+      <span class="gallery-lightbox__icon" @click="closeLightbox">
+        <fa-icon icon="fa-solid fa-xmark" />
+      </span>
+    </div>
     <GalleryButton
       class="gallery-lightbox__button gallery-lightbox__button--left"
       @clicked="showPrevImage"
@@ -91,6 +103,28 @@ export default {
     }
     &--right {
       right: 5vw;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    font-size: 4rem;
+    gap: 4rem;
+    position: absolute;
+    top: 1rem;
+    right: 5rem;
+  }
+  &__icon {
+    transition: all 0.3s ease;
+    * {
+      color: $primary-light;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        transform: translateY(-3px);
+        cursor: pointer;
+      }
     }
   }
 }
