@@ -18,11 +18,10 @@ export default {
   width: 100vw;
   z-index: 100;
   height: 100vh;
-  background-color: $primary-dark;
-  opacity: 0.9;
+  background-color: $backdrop-color;
+  padding: 10vh 10vw;
   * {
     color: $primary-light;
-    padding: 10vh 10vw;
   }
 }
 </style>
