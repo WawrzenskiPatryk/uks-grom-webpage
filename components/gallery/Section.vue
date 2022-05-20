@@ -3,12 +3,11 @@
     <h3>{{ gallery.title }}</h3>
     <section class="gallery-section__images-wrapper">
       <div
-        v-for="(image, index) in gallery.images"
+        v-for="(image, index) in filteredImages"
         :key="index"
         class="gallery-section__image-container"
         @click="openLightBox(index)"
       >
-        <h4>{{ image.title }}</h4>
         <img
           :src="require(`~/assets/images/${image}`)"
           class="gallery-section__image"
@@ -41,6 +40,13 @@ export default {
       initialImageIndex: 0,
     };
   },
+  computed: {
+    filteredImages() {
+      const images = this.gallery.images;
+      const filteredImgs = images.slice(0, 4);
+      return filteredImgs;
+    },
+  },
   methods: {
     openLightBox(index) {
       this.initialImageIndex = index;
@@ -59,8 +65,8 @@ export default {
     display: inline-block;
     overflow: hidden;
     position: relative;
-    width: 320px;
-    height: 200px;
+    width: 28rem;
+    height: 17rem;
     margin: 1rem;
     border-radius: 1rem;
 
@@ -70,6 +76,22 @@ export default {
     @media (hover: hover) {
       &:hover {
         opacity: 0.75;
+      }
+    }
+
+    &:nth-child(4) {
+      &::after {
+        content: 'Zobacz więcej';
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $primary-shadow;
+        color: $primary-light;
+        text-shadow: 0 0 0.75rem black, 0 0 2rem black;
+        font-size: 3rem;
+        height: 100%;
+        width: 100%;
       }
     }
   }

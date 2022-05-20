@@ -16,8 +16,23 @@ export default {
     return {
       galleries: [
         {
+          title: 'Galeria testowa 2020',
+          images: [
+            'jumping_kids_football_fun.jpg',
+            'school_physical_education_football.jpg',
+            'jumping_kids_football_fun.jpg',
+            'school_physical_education_football.jpg',
+            'jumping_kids_football_fun.jpg',
+            'school_physical_education_football.jpg',
+            'school_physical_education_football.jpg',
+          ],
+        },
+        {
           title: 'Galeria testowa 2022',
           images: [
+            'white_red_shirt_kids_football_players.jpg',
+            'school_physical_education_football.jpg',
+            'jumping_kids_football_fun.jpg',
             'white_red_shirt_kids_football_players.jpg',
             'school_physical_education_football.jpg',
             'jumping_kids_football_fun.jpg',
@@ -28,17 +43,6 @@ export default {
           images: [
             'white_red_shirt_kids_football_players.jpg',
             'jumping_kids_football_fun.jpg',
-          ],
-        },
-        {
-          title: 'Galeria testowa 2020',
-          images: [
-            'jumping_kids_football_fun.jpg',
-            'school_physical_education_football.jpg',
-            'jumping_kids_football_fun.jpg',
-            'school_physical_education_football.jpg',
-            'jumping_kids_football_fun.jpg',
-            'school_physical_education_football.jpg',
           ],
         },
       ],
