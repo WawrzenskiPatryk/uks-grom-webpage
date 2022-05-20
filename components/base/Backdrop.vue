@@ -1,5 +1,5 @@
 <template>
-  <div class="base-backdrop">
+  <div class="base-backdrop" @click.self="closeBackdrop">
     <slot />
   </div>
 </template>
@@ -7,6 +7,11 @@
 <script>
 export default {
   name: 'BaseBackdrop',
+  methods: {
+    closeBackdrop() {
+      this.$emit('close-backdrop');
+    },
+  },
 };
 </script>
 
