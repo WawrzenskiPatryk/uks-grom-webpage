@@ -13,7 +13,7 @@
       <img
         v-show="index === currentImgIndex"
         class="gallery-lightbox__slide-image"
-        :src="require(`~/assets/images/${image.fileName}`)"
+        :src="require(`~/assets/images/${image}`)"
         alt=""
       />
     </div>

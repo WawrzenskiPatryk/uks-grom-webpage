@@ -1,0 +1,87 @@
+<template>
+  <main class="gallery-section">
+    <h3>{{ gallery.title }}</h3>
+    <section class="gallery-section__images-wrapper">
+      <div
+        v-for="(image, index) in gallery.images"
+        :key="index"
+        class="gallery-section__image-container"
+        @click="openLightBox(index)"
+      >
+        <h4>{{ image.title }}</h4>
+        <img
+          :src="require(`~/assets/images/${image}`)"
+          class="gallery-section__image"
+        />
+      </div>
+    </section>
+
+    <GalleryLightbox
+      v-if="isLightBoxOpen"
+      class="gallery-section__lightbox"
+      :images="gallery.images"
+      :initial-index="initialImageIndex"
+      @close-lightbox="closeLightBox"
+    />
+  </main>
+</template>
+
+<script>
+export default {
+  name: 'GallerySection',
+  props: {
+    gallery: {
+      type: Object,
+      required: true,
+    },
+  },
+  data() {
+    return {
+      isLightBoxOpen: false,
+      initialImageIndex: 0,
+    };
+  },
+  methods: {
+    openLightBox(index) {
+      this.initialImageIndex = index;
+      this.isLightBoxOpen = true;
+    },
+    closeLightBox() {
+      this.isLightBoxOpen = false;
+    },
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.gallery-section {
+  &__image-container {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    width: 320px;
+    height: 200px;
+    margin: 1rem;
+    border-radius: 1rem;
+
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+
+    @media (hover: hover) {
+      &:hover {
+        opacity: 0.75;
+      }
+    }
+  }
+
+  &__image {
+    min-height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+  }
+}
+</style>
