@@ -31,13 +31,11 @@ export default {
       const galleriesNames = [];
 
       imagesNames.forEach((name) => {
-        if (name.includes('/')) {
-          const endOfGalleryName = name.indexOf('/');
-          const galleryName = name.slice(0, endOfGalleryName).replace('-', ' ');
+        const endOfGalleryName = name.indexOf('/');
+        const galleryName = name.slice(0, endOfGalleryName).replace('-', ' ');
 
-          if (!galleriesNames.includes(galleryName)) {
-            galleriesNames.push(galleryName);
-          }
+        if (!galleriesNames.includes(galleryName)) {
+          galleriesNames.push(galleryName);
         }
       });
 
