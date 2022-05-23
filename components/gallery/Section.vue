@@ -8,7 +8,7 @@
     </h3>
     <section class="gallery-section__images-wrapper">
       <div
-        v-for="(image, index) in filteredImages"
+        v-for="(image, index) in loadedImages"
         :key="index"
         class="gallery-section__image-container"
         @click="openLightBox(index)"
@@ -45,13 +45,25 @@ export default {
       isLightBoxOpen: false,
       initialImageIndex: 0,
       galleryLength: this.gallery.images.length,
+      windowWidth: null,
     };
   },
   computed: {
-    filteredImages() {
+    loadedImages() {
       const images = this.gallery.images;
-      const amountOfDisplayedImgs = 4;
-      const filteredImgs = images.slice(0, amountOfDisplayedImgs);
+      let amountOfLoadedImgs;
+      if (this.windowWidth < 768) {
+        amountOfLoadedImgs = 1;
+      } else if (this.windowWidth >= 768 && this.windowWidth < 1024) {
+        amountOfLoadedImgs = 2;
+      } else if (this.windowWidth >= 1024 && this.windowWidth < 1440) {
+        amountOfLoadedImgs = 3;
+      } else if (this.windowWidth >= 1440 && this.windowWidth < 1700) {
+        amountOfLoadedImgs = 4;
+      } else {
+        amountOfLoadedImgs = 5;
+      }
+      const filteredImgs = images.slice(0, amountOfLoadedImgs);
       return filteredImgs;
     },
     countWord() {
@@ -60,6 +72,17 @@ export default {
       return 'zdjęć';
     },
   },
+  mounted() {
+    this.setWindowWidth();
+    window.addEventListener('resize', () => {
+      this.setWindowWidth();
+    });
+  },
+  destroyed() {
+    window.removeEventListener('resize', () => {
+      this.setWindowWidt();
+    });
+  },
   methods: {
     openLightBox(index) {
       this.initialImageIndex = index;
@@ -67,6 +90,9 @@ export default {
     },
     closeLightBox() {
       this.isLightBoxOpen = false;
+    },
+    setWindowWidth() {
+      this.windowWidth = window.innerWidth;
     },
   },
 };
@@ -78,11 +104,6 @@ export default {
     &--counter {
       font-size: 2rem;
     }
-  }
-
-  &__images-wrapper {
-    display: flex;
-    flex-wrap: wrap;
   }
 
   &__image-container {
