@@ -110,21 +110,37 @@ export default {
   }
 
   &__button {
+    bottom: 12vh;
     &--left {
-      left: 5vw;
+      left: 30%;
     }
     &--right {
-      right: 5vw;
+      right: 30%;
+    }
+    @media screen and (min-width: $tablet-min-screen-width) {
+      bottom: 5vh;
+    }
+    @media screen and (min-width: 1024px) {
+      bottom: initial;
+      &--left {
+        left: 5vw;
+      }
+      &--right {
+        right: 5vw;
+      }
     }
   }
 
   &__icons {
     display: flex;
     font-size: 4rem;
-    gap: 4rem;
     position: absolute;
-    top: 1rem;
-    right: 5rem;
+    top: 1.2rem;
+    right: 8vw;
+    gap: 4rem;
+    @media screen and (min-width: $tablet-min-screen-width) {
+      right: 5rem;
+    }
   }
   &__icon {
     opacity: 0.75;
@@ -148,9 +164,13 @@ export default {
     opacity: 0.75;
     font-size: 2.5rem;
     position: absolute;
-    top: 3rem;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 2.5rem;
+    left: 8vw;
+
+    @media screen and (min-width: $tablet-min-screen-width) {
+      top: 3rem;
+      left: initial;
+    }
   }
 }
 </style>

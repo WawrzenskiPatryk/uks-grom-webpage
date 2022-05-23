@@ -1,10 +1,10 @@
 <template>
-  <div class="gallery-button" :class="`gallery-button--${direction}`">
-    <fa-icon
-      :icon="`fa-solid fa-circle-chevron-${direction}`"
-      @click="clicked"
-    />
-  </div>
+  <fa-icon
+    class="gallery-button"
+    :class="`gallery-button--${direction}`"
+    :icon="`fa-solid fa-circle-chevron-${direction}`"
+    @click="clicked"
+  />
 </template>
 
 <script>
@@ -31,7 +31,7 @@ export default {
   font-size: 5rem;
   border: none;
   background: none;
-  transition: all 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
   cursor: pointer;
   opacity: 0.75;
 

@@ -80,6 +80,11 @@ export default {
     }
   }
 
+  &__images-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   &__image-container {
     display: inline-block;
     overflow: hidden;
@@ -99,10 +104,7 @@ export default {
       }
     }
 
-    // &:nth-child(4) {
-    //   display: none;
-    // }
-    &:nth-child(4):after {
+    &:last-child:not(:first-child):after {
       content: 'Zobacz wszystkie';
       position: absolute;
       display: flex;
