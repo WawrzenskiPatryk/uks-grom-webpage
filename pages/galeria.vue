@@ -32,7 +32,7 @@ export default {
 
       imagesNames.forEach((name) => {
         const endOfGalleryName = name.indexOf('/');
-        const galleryName = name.slice(0, endOfGalleryName).replace('-', ' ');
+        const galleryName = name.slice(0, endOfGalleryName).replace(/-/g, ' ');
 
         if (!galleriesNames.includes(galleryName)) {
           galleriesNames.push(galleryName);
@@ -48,7 +48,7 @@ export default {
 
       imagesNames.forEach((name) => {
         this.galleries.forEach((gallery) => {
-          if (name.includes(gallery.title.replace(' ', '-'))) {
+          if (name.includes(gallery.title.replace(/ /g, '-'))) {
             gallery.images.push(name);
           }
         });
