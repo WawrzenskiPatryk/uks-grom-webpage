@@ -23,7 +23,7 @@ export default {
   methods: {
     getGalleriesFromAssets() {
       const storedImages = require.context(
-        '~/assets/images/galleries',
+        '~/assets/galleries',
         true,
         /^.*\.jpg$/
       );
