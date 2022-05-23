@@ -135,7 +135,8 @@ export default {
     display: flex;
     font-size: 4rem;
     position: absolute;
-    top: 1.2rem;
+    line-height: 0;
+    top: 2rem;
     right: 8vw;
     gap: 4rem;
     @media screen and (min-width: $tablet-min-screen-width) {
@@ -164,7 +165,7 @@ export default {
     opacity: 0.75;
     font-size: 2.5rem;
     position: absolute;
-    top: 2.5rem;
+    top: 2rem;
     left: 8vw;
 
     @media screen and (min-width: $tablet-min-screen-width) {
