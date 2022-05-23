@@ -9,7 +9,7 @@
         @click="openLightBox(index)"
       >
         <img
-          :src="require(`~/assets/images/gallery/${image}`)"
+          :src="require(`~/assets/images/galleries/${image}`)"
           class="gallery-section__image"
         />
       </div>

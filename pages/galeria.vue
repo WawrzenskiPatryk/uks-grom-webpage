@@ -14,27 +14,47 @@ export default {
   name: 'GalleryPage',
   data() {
     return {
-      galleries: [
-        {
-          title: 'Wakacje 2022',
-          images: [],
-        },
-      ],
+      galleries: [],
     };
   },
   created() {
-    this.getFileNamesFromGallery();
+    this.getGalleriesFromAssets();
   },
   methods: {
-    getFileNamesFromGallery() {
+    getGalleriesFromAssets() {
       const storedImages = require.context(
-        '~/assets/images/gallery',
+        '~/assets/images/galleries',
         true,
         /^.*\.jpg$/
       );
-      const imagesKeys = storedImages.keys();
-      const imagesNames = imagesKeys.map((key) => key.slice(2));
-      imagesNames.forEach((name) => this.galleries[0].images.push(name));
+      const imagesNames = storedImages.keys().map((key) => key.slice(2));
+      const galleriesNames = [];
+
+      imagesNames.forEach((name) => {
+        if (name.includes('/')) {
+          const endOfGalleryName = name.indexOf('/');
+          const galleryName = name.slice(0, endOfGalleryName).replace('-', ' ');
+
+          if (!galleriesNames.includes(galleryName)) {
+            galleriesNames.push(galleryName);
+          }
+        }
+      });
+
+      galleriesNames.forEach((galleryName) => {
+        this.galleries.push({
+          title: galleryName,
+          images: [],
+        });
+      });
+
+      imagesNames.forEach((name) => {
+        this.galleries.forEach((gallery) => {
+          if (name.includes(gallery.title.replace(' ', '-'))) {
+            gallery.images.push(name);
+          }
+        });
+      });
     },
   },
 };
