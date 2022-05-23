@@ -40,7 +40,7 @@ export default {
       });
 
       galleriesTitles.forEach(title => {
-        this.galleries.push({
+        this.galleries.unshift({
           title,
           images: [],
         });
