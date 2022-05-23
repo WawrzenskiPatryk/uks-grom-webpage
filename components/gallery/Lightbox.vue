@@ -65,6 +65,12 @@ export default {
       return this.images.length;
     },
   },
+  mounted() {
+    document.body.style.overflow = 'hidden';
+  },
+  destroyed() {
+    document.body.style.overflow = 'auto';
+  },
   methods: {
     showNextImage() {
       if (this.currentImgIndex + 1 === this.images.length) {
