@@ -3,7 +3,7 @@
     <div class="gallery-lightbox__icons">
       <a
         class="gallery-lightbox__icon"
-        :href="require(`~/assets/images/${images[currentImgIndex]}`)"
+        :href="require(`~/assets/images/gallery/${images[currentImgIndex]}`)"
         download
       >
         <fa-icon icon="fa-solid fa-floppy-disk" />
@@ -25,7 +25,7 @@
       <img
         v-show="index === currentImgIndex"
         class="gallery-lightbox__slide-image"
-        :src="require(`~/assets/images/${image}`)"
+        :src="require(`~/assets/images/gallery/${image}`)"
         alt=""
       />
     </div>
