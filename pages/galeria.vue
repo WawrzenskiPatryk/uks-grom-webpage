@@ -27,29 +27,29 @@ export default {
         true,
         /^.*\.jpg$/
       );
-      const imagesNames = storedImages.keys().map((key) => key.slice(2));
-      const galleriesNames = [];
+      const imagesFormattedPaths = storedImages.keys().map(key => key.slice(2));
+      const galleriesTitles = [];
 
-      imagesNames.forEach((name) => {
-        const endOfGalleryName = name.indexOf('/');
-        const galleryName = name.slice(0, endOfGalleryName).replace(/-/g, ' ');
+      imagesFormattedPaths.forEach(path => {
+        const endOfGalleryName = path.indexOf('/');
+        const galleryName = path.slice(0, endOfGalleryName).replace(/-/g, ' ');
 
-        if (!galleriesNames.includes(galleryName)) {
-          galleriesNames.push(galleryName);
+        if (!galleriesTitles.includes(galleryName)) {
+          galleriesTitles.push(galleryName);
         }
       });
 
-      galleriesNames.forEach((galleryName) => {
+      galleriesTitles.forEach(title => {
         this.galleries.push({
-          title: galleryName,
+          title,
           images: [],
         });
       });
 
-      imagesNames.forEach((name) => {
-        this.galleries.forEach((gallery) => {
-          if (name.includes(gallery.title.replace(/ /g, '-'))) {
-            gallery.images.push(name);
+      this.galleries.forEach(gallery => {
+        imagesFormattedPaths.forEach(path => {
+          if (path.includes(gallery.title.replace(/ /g, '-'))) {
+            gallery.images.push(path);
           }
         });
       });
