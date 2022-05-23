@@ -1,5 +1,5 @@
 <template>
-  <div class="gallery-button">
+  <div class="gallery-button" :class="`gallery-button--${direction}`">
     <fa-icon
       :icon="`fa-solid fa-circle-chevron-${direction}`"
       @click="clicked"
@@ -31,12 +31,13 @@ export default {
   font-size: 5rem;
   border: none;
   background: none;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  opacity: 0.75;
 
   @media (hover: hover) {
     &:hover {
-      transform: translateY(-3px);
-      cursor: pointer;
+      opacity: 1;
     }
   }
 }

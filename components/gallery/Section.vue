@@ -1,6 +1,11 @@
 <template>
   <main class="gallery-section">
-    <h3>{{ gallery.title }}</h3>
+    <h3 class="gallery-section__title">
+      {{ gallery.title }}
+      <span class="gallery-section__title--counter">
+        ({{ galleryLength }} {{ countWord }})
+      </span>
+    </h3>
     <section class="gallery-section__images-wrapper">
       <div
         v-for="(image, index) in filteredImages"
@@ -10,6 +15,7 @@
       >
         <img
           :src="require(`~/assets/galleries/${image}`)"
+          :alt="`${image}`"
           class="gallery-section__image"
         />
       </div>
@@ -38,19 +44,20 @@ export default {
     return {
       isLightBoxOpen: false,
       initialImageIndex: 0,
+      galleryLength: this.gallery.images.length,
     };
   },
   computed: {
     filteredImages() {
       const images = this.gallery.images;
-
-      // TODO: AMOUNT OF DISPLAYED IMAGES BASED ON WIDTH
-      
-      // let amountOfDisplayedImgs = 4;
       const amountOfDisplayedImgs = 4;
-
       const filteredImgs = images.slice(0, amountOfDisplayedImgs);
       return filteredImgs;
+    },
+    countWord() {
+      if (this.galleryLength === 1) return 'zdjęcie';
+      if ([2, 3, 4].includes(this.galleryLength)) return 'zdjęcia';
+      return 'zdjęć';
     },
   },
   methods: {
@@ -67,9 +74,11 @@ export default {
 
 <style lang="scss" scoped>
 .gallery-section {
-  // &__images-wrapper {
-  //! TODO: CSS-GRID THAT OUT!
-  // }
+  &__title {
+    &--counter {
+      font-size: 2rem;
+    }
+  }
 
   &__image-container {
     display: inline-block;
@@ -90,7 +99,10 @@ export default {
       }
     }
 
-    &:last-child:not(:first-child):after {
+    // &:nth-child(4) {
+    //   display: none;
+    // }
+    &:nth-child(4):after {
       content: 'Zobacz wszystkie';
       position: absolute;
       display: flex;

@@ -1,12 +1,16 @@
 <template>
   <BaseBackdrop class="gallery-lightbox" @close-backdrop="closeLightbox">
+    <div class="gallery-lightbox__counter">
+      {{ currentImgIndex + 1 }} / {{ galleryLength }}
+    </div>
+
     <div class="gallery-lightbox__icons">
       <a
-        class="gallery-lightbox__icon"
+        class="gallery-lightbox__icon gallery-lightbox__icon--download"
         :href="require(`~/assets/galleries/${images[currentImgIndex]}`)"
         download
       >
-        <fa-icon icon="fa-solid fa-floppy-disk" />
+        <fa-icon icon="fa-solid fa-download" />
       </a>
       <span class="gallery-lightbox__icon" @click="closeLightbox">
         <fa-icon icon="fa-solid fa-xmark" />
@@ -26,7 +30,7 @@
         v-show="index === currentImgIndex"
         class="gallery-lightbox__slide-image"
         :src="require(`~/assets/galleries/${image}`)"
-        alt=""
+        :alt="`${image}`"
       />
     </div>
 
@@ -56,6 +60,11 @@ export default {
       currentImgIndex: this.initialIndex,
     };
   },
+  computed: {
+    galleryLength() {
+      return this.images.length;
+    },
+  },
   methods: {
     showNextImage() {
       if (this.currentImgIndex + 1 === this.images.length) {
@@ -84,6 +93,9 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  * {
+    color: $primary-light;
+  }
 
   &__slide {
     display: flex;
@@ -115,17 +127,30 @@ export default {
     right: 5rem;
   }
   &__icon {
-    transition: all 0.3s ease;
+    opacity: 0.75;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
     * {
       color: $primary-light;
     }
-
     @media (hover: hover) {
       &:hover {
-        transform: translateY(-3px);
-        cursor: pointer;
+        opacity: 1;
       }
     }
+
+    &--download {
+      font-size: 3.5rem;
+    }
+  }
+
+  &__counter {
+    opacity: 0.75;
+    font-size: 2.5rem;
+    position: absolute;
+    top: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 </style>
