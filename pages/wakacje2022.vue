@@ -6,6 +6,6 @@
 
 <script>
 export default {
-  name: 'IndexPage',
+  name: 'Wakacje2022Page',
 };
 </script>

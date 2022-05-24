@@ -1,0 +1,59 @@
+$mobile-min-screen-width: 375px;
+$tablet-min-screen-width: 768px;
+$desktop-min-screen-width: 1024px;
+$content-max-width: 1440px;
+
+$header-height: 6rem;
+
+$default-font-family: 'Lato', sans-serif;
+$title-font-family: 'Jost', sans-serif;
+
+$default-font-size: 1.6rem;
+$mobile-font-size: 1.4rem;
+
+$large-title-font-size: 8rem;
+$medium-title-font-size: 6rem;
+$small-title-font-size: 3rem;
+
+$large-subtitle-font-size: 2rem;
+$small-subtitle-font-size: 1.6rem;
+
+$large-heading-font-size: 3.5rem;
+$medium-heading-font-size: 3rem;
+$small-heading-font-size: 2rem;
+
+$primary-color: #0a92e0;
+$primary-color-lighten: #6fcaff;
+$primary-color-darken: #06669d;
+$secondary-color: #efdb03;
+$primary-dark: #35495e;
+$secondary-dark: #2b2b33;
+$primary-light: #fafafa;
+$primary-shadow: #00000040;
+$secondary-shadow: #0000001a;
+
+$backdrop-color: #0a364fe6;
+
+$heading-gradient: linear-gradient(
+  270deg,
+  #09486d99,
+  #69600899
+);
+
+$primary-gradient: linear-gradient(
+  270deg,
+  $primary-color-lighten,
+  $primary-color-darken
+);
+
+$primary-gradient-dark: linear-gradient(
+  190deg,
+  $primary-color-darken,
+  $secondary-dark
+);
+
+$button-gradient: linear-gradient(
+  170deg,
+  $primary-color,
+  $primary-color-darken
+);

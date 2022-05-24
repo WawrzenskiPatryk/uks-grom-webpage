@@ -6,6 +6,6 @@
 
 <script>
 export default {
-  name: 'IndexPage',
+  name: 'Ferie2022Page',
 };
 </script>
