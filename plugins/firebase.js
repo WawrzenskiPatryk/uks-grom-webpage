@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable no-unused-vars */
 import { initializeApp } from 'firebase/app';
 
 const firebaseConfig = {
@@ -11,4 +9,4 @@ const firebaseConfig = {
   appId: '1:379253269799:web:3845f2a9ffe90d3e503502',
 };
 
-const firebaseApp = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);

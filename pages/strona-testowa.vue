@@ -1,6 +1,5 @@
 <template>
   <main>
-    <img :src="testStorageImageURL" alt="Testowa grafika" />
     <PictureSection
       :image="
         require('~/assets/images/white_red_shirt_kids_football_players.jpg')
@@ -40,6 +39,8 @@
         </BaseLink>
       </div>
     </section>
+
+    <img :src="testStorageImageURL" alt="Testowa grafika" />
   </main>
 </template>
 
@@ -59,24 +60,12 @@ export default {
   methods: {
     getImageFromStorage() {
       const storage = getStorage();
-      const imageRef = ref(storage, '/gallery/1.jpg');
+      const imagePath = 'gallery/Wakacje-2021/1.jpg';
+      const imageRef = ref(storage, imagePath);
 
-      getDownloadURL(imageRef)
-        .then(url => {
-          this.testStorageImageURL = url;
-        })
-        .catch(error => {
-          switch (error.code) {
-            case 'storage/object-not-found':
-              break;
-            case 'storage/unauthorized':
-              break;
-            case 'storage/canceled':
-              break;
-            case 'storage/unknown':
-              break;
-          }
-        });
+      getDownloadURL(imageRef).then(url => {
+        this.testStorageImageURL = url;
+      });
     },
   },
 };
