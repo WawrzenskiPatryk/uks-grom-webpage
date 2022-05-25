@@ -48,9 +48,9 @@ export default {
       let amountOfLoadedImgs;
       if (this.windowWidth < 768) {
         amountOfLoadedImgs = 1;
-      } else if (this.windowWidth >= 768 && this.windowWidth < 1024) {
+      } else if (this.windowWidth >= 768 && this.windowWidth < 1034) {
         amountOfLoadedImgs = 2;
-      } else if (this.windowWidth >= 1024 && this.windowWidth < 1440) {
+      } else if (this.windowWidth >= 1034 && this.windowWidth < 1440) {
         amountOfLoadedImgs = 3;
       } else if (this.windowWidth >= 1440 && this.windowWidth < 1700) {
         amountOfLoadedImgs = 4;
