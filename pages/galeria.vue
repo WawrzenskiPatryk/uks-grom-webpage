@@ -10,7 +10,12 @@
 </template>
 
 <script>
-import { getStorage, ref, listAll, getDownloadURL } from 'firebase/storage';
+import {
+  getStorage,
+  ref as firebaseRef,
+  listAll,
+  getDownloadURL,
+} from 'firebase/storage';
 
 export default {
   name: 'GalleryPage',
@@ -19,18 +24,18 @@ export default {
       galleries: [],
     };
   },
+  // @mnieznaj adviced to use mounted() here, but from my observation
+  // created() allows the app to download images significantly faster
   created() {
     this.getImagesFromStorage();
-    // eslint-disable-next-line no-console
-    console.log(this.galleries);
   },
   methods: {
     getImagesFromStorage() {
       const storage = getStorage();
-      const galleryPath = 'gallery';
-      const listRef = ref(storage, galleryPath);
+      const mainFolderName = 'gallery';
+      const mainFolderRef = firebaseRef(storage, mainFolderName);
 
-      listAll(listRef).then(result => {
+      listAll(mainFolderRef).then(result => {
         result.prefixes.forEach(folderRef => {
           this.galleries.unshift({
             title: folderRef.name.replace(/-/g, ' '),
@@ -40,11 +45,14 @@ export default {
           listAll(folderRef).then(result => {
             result.items.forEach((itemRef, index) => {
               this.galleries.forEach(gallery => {
-                if (
-                  itemRef.fullPath.includes(gallery.title.replace(/ /g, '-'))
-                ) {
+                const areTitlesMatching = itemRef.fullPath.includes(
+                  gallery.title.replace(/ /g, '-')
+                );
+
+                if (areTitlesMatching) {
                   getDownloadURL(itemRef).then(url => {
                     gallery.images[index] = url;
+                    gallery.images.push();
                   });
                 }
               });
