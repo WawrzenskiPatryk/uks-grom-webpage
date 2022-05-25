@@ -1,11 +1,11 @@
 <template>
   <main class="gallery">
-    <!-- <GallerySection
+    <GallerySection
       v-for="(gallery, index) in galleries"
       :key="index"
       :gallery="gallery"
       class="gallery__section"
-    /> -->
+    />
   </main>
 </template>
 
