@@ -40,33 +40,12 @@
       </div>
     </section>
 
-    <img :src="testStorageImageURL" alt="Testowa grafika" />
+    <img src="" alt="Testowa grafika" />
   </main>
 </template>
 
 <script>
-import { getStorage, ref, getDownloadURL } from 'firebase/storage';
-
 export default {
   name: 'TestPage',
-  data() {
-    return {
-      testStorageImageURL: null,
-    };
-  },
-  created() {
-    this.getImageFromStorage();
-  },
-  methods: {
-    getImageFromStorage() {
-      const storage = getStorage();
-      const imagePath = 'gallery/Wakacje-2021/1.jpg';
-      const imageRef = ref(storage, imagePath);
-
-      getDownloadURL(imageRef).then(url => {
-        this.testStorageImageURL = url;
-      });
-    },
-  },
 };
 </script>

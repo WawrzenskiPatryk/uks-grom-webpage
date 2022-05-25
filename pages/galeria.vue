@@ -1,15 +1,17 @@
 <template>
   <main class="gallery">
-    <GallerySection
+    <!-- <GallerySection
       v-for="(gallery, index) in galleries"
       :key="index"
       :gallery="gallery"
       class="gallery__section"
-    />
+    /> -->
   </main>
 </template>
 
 <script>
+import { getStorage, ref, listAll, getDownloadURL } from 'firebase/storage';
+
 export default {
   name: 'GalleryPage',
   data() {
@@ -18,44 +20,39 @@ export default {
     };
   },
   created() {
-    this.getGalleriesFromAssets();
+    this.getImagesFromStorage();
+    // eslint-disable-next-line no-console
+    console.log(this.galleries);
   },
   methods: {
-    getGalleriesFromAssets() {
-      const storedImages = require.context(
-        '~/assets/galleries',
-        true,
-        /^.*\.jpg$/
-      );
-      const imagesFormattedPaths = storedImages.keys().map(key => key.slice(2));
-      const galleriesTitles = [];
+    getImagesFromStorage() {
+      const storage = getStorage();
+      const galleryPath = 'gallery';
+      const listRef = ref(storage, galleryPath);
 
-      imagesFormattedPaths.forEach(path => {
-        const endOfGalleryName = path.indexOf('/');
-        const galleryName = path.slice(0, endOfGalleryName).replace(/-/g, ' ');
+      listAll(listRef).then(result => {
+        result.prefixes.forEach(folderRef => {
+          this.galleries.push({
+            title: folderRef.name.replace(/-/g, ' '),
+            images: [],
+          });
 
-        if (!galleriesTitles.includes(galleryName)) {
-          galleriesTitles.push(galleryName);
-        }
-      });
-
-      galleriesTitles.forEach(title => {
-        this.galleries.unshift({
-          title,
-          images: [],
-        });
-      });
-
-      this.galleries.forEach(gallery => {
-        imagesFormattedPaths.forEach(path => {
-          if (path.includes(gallery.title.replace(/ /g, '-'))) {
-            gallery.images.push(path);
-          }
+          listAll(folderRef).then(result => {
+            result.items.forEach(itemRef => {
+              this.galleries.forEach(gallery => {
+                if (
+                  itemRef.fullPath.includes(gallery.title.replace(/ /g, '-'))
+                ) {
+                  getDownloadURL(itemRef).then(url => {
+                    gallery.images.push(url);
+                  });
+                }
+              });
+            });
+          });
         });
       });
     },
   },
 };
 </script>
-
-<style lang="scss" scoped></style>
