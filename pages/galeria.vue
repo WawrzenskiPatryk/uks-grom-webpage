@@ -38,13 +38,13 @@ export default {
           });
 
           listAll(folderRef).then(result => {
-            result.items.forEach(itemRef => {
+            result.items.forEach((itemRef, index) => {
               this.galleries.forEach(gallery => {
                 if (
                   itemRef.fullPath.includes(gallery.title.replace(/ /g, '-'))
                 ) {
                   getDownloadURL(itemRef).then(url => {
-                    gallery.images.push(url);
+                    gallery.images[index] = url;
                   });
                 }
               });
