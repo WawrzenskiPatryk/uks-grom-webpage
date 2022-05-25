@@ -110,8 +110,12 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     * {
       padding: 0.5rem 0;
+    }
+    @media screen and (min-width: $desktop-min-screen-width) {
+      align-items: flex-start;
     }
   }
 
