@@ -25,7 +25,7 @@
         <BaseHeading class="contact__address-info" type="aside">
           <template #title>Dane do przelewu</template>
           <template #subtitle>
-            <BaseParagraph>Bank Pekao</BaseParagraph>
+            <BaseParagraph>Bank Pekao S.A.</BaseParagraph>
             <BaseParagraph>12 1240 2470 1111 0010 6881 3209</BaseParagraph>
           </template>
         </BaseHeading>
