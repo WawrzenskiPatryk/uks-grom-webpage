@@ -38,7 +38,7 @@ export default {
       listAll(mainFolderRef).then(result => {
         result.prefixes.forEach(folderRef => {
           this.galleries.unshift({
-            title: folderRef.name.replace(/-/g, ' '),
+            title: folderRef.name.slice(3).replace(/-/g, ' '),
             images: [],
           });
 
