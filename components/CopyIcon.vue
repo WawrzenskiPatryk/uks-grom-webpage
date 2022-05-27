@@ -19,7 +19,7 @@ export default {
     },
   },
   methods: {
-    acopyToClipboard() {
+    copyToClipboard() {
       navigator.clipboard.writeText(this.dataToCopy);
       alert(this.message);
     },
