@@ -3,7 +3,7 @@
     <section class="contact__info">
       <div class="contact__info-items">
         <BaseHeading class="contact__address-info" type="aside">
-          <template #title>Adres</template>
+          <template #title> Adres </template>
           <template #subtitle>
             <BaseParagraph>
               ul. Adama Mickiewicza 24<br />
@@ -23,10 +23,13 @@
         </BaseHeading>
 
         <BaseHeading class="contact__address-info" type="aside">
-          <template #title>Dane do przelewu</template>
+          <template #title> Dane do przelewu </template>
           <template #subtitle>
-            <BaseParagraph>Bank Pekao S.A.</BaseParagraph>
-            <BaseParagraph>12 1240 2470 1111 0010 6881 3209</BaseParagraph>
+            <BaseParagraph> Bank Pekao S.A. </BaseParagraph>
+            <BaseParagraph>
+              {{ accountNumber }}
+              <CopyIcon :data-to-copy="accountNumber" :message="copyMessage" />
+            </BaseParagraph>
           </template>
         </BaseHeading>
       </div>
@@ -39,6 +42,12 @@
 <script>
 export default {
   name: 'ContactPage',
+  data() {
+    return {
+      accountNumber: '12 1240 2470 1111 0010 6881 3209',
+      copyMessage: 'Skopiowałeś numer konta :)',
+    };
+  },
 };
 </script>
 
