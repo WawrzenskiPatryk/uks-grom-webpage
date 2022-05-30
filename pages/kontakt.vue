@@ -28,7 +28,7 @@
             <BaseParagraph> Bank Pekao S.A. </BaseParagraph>
             <BaseParagraph>
               {{ accountNumber }}
-              <CopyIcon :data-to-copy="accountNumber" :message="copyMessage" />
+              <!-- <CopyIcon :data-to-copy="accountNumber" :message="copyMessage" /> -->
             </BaseParagraph>
           </template>
         </BaseHeading>
