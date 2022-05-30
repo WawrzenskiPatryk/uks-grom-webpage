@@ -21,45 +21,62 @@ export default {
   name: 'GalleryPage',
   data() {
     return {
+      isLoading: false,
       galleries: [],
     };
   },
-  // @mnieznaj adviced to use mounted() here, but from my observation
-  // created() allows the app to download images significantly faster
-  created() {
-    this.getImagesFromStorage();
+  async created() {
+    this.isLoading = true;
+    try {
+      this.galleries = await this.getGalleriesFromStorage();
+    } finally {
+      this.isLoading = false;
+    }
   },
   methods: {
-    getImagesFromStorage() {
+    setGalleryName(name) {
+      return name.slice(3).replace(/-/g, ' ');
+    },
+    getReferenceItems(reference) {
+      return listAll(reference).then(result => result.items);
+    },
+    getReferencePrefixes(reference) {
+      return listAll(reference).then(result => result.prefixes);
+    },
+    async getGalleriesFromStorage() {
+      const downloadedGalleries = [];
+
       const storage = getStorage();
       const mainFolderName = 'gallery';
       const mainFolderRef = firebaseRef(storage, mainFolderName);
 
-      listAll(mainFolderRef).then(result => {
-        result.prefixes.forEach(folderRef => {
-          this.galleries.unshift({
-            title: folderRef.name.slice(3).replace(/-/g, ' '),
-            images: [],
-          });
+      const galleriesReferences = await this.getReferencePrefixes(
+        mainFolderRef
+      );
 
-          listAll(folderRef).then(result => {
-            result.items.forEach((itemRef, index) => {
-              this.galleries.forEach(gallery => {
-                const areTitlesMatching = itemRef.fullPath.includes(
-                  gallery.title.replace(/ /g, '-')
-                );
+      galleriesReferences.forEach(async galleryReference => {
+        downloadedGalleries.unshift({
+          title: this.setGalleryName(galleryReference.name),
+          images: [],
+        });
 
-                if (areTitlesMatching) {
-                  getDownloadURL(itemRef).then(url => {
-                    gallery.images[index] = url;
-                    gallery.images.push();
-                  });
-                }
-              });
-            });
+        const imagesReferences = await this.getReferenceItems(galleryReference);
+
+        imagesReferences.forEach((imageReference, index) => {
+          this.galleries.forEach(async gallery => {
+            const areTitlesMatching = imageReference.fullPath.includes(
+              gallery.title.replace(/ /g, '-')
+            );
+
+            if (areTitlesMatching) {
+              const imageUrl = await getDownloadURL(imageReference);
+              this.$set(gallery.images, index, imageUrl);
+            }
           });
         });
       });
+
+      return downloadedGalleries;
     },
   },
 };
