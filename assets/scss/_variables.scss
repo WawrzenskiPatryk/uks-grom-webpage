@@ -34,11 +34,8 @@ $secondary-shadow: #0000001a;
 
 $backdrop-color: #0a364fe6;
 
-$heading-gradient: linear-gradient(
-  270deg,
-  #09486d99,
-  #69600899
-);
+$heading-gradient: linear-gradient(270deg, #09486d99, #69600899);
+$heading-gradient-weaker: linear-gradient(#09486d70, #695f0870);
 
 $primary-gradient: linear-gradient(
   270deg,
