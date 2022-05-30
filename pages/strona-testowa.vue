@@ -39,6 +39,8 @@
         </BaseLink>
       </div>
     </section>
+
+    <img src="" alt="Testowa grafika" />
   </main>
 </template>
 

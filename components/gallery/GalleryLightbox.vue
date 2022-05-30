@@ -7,7 +7,8 @@
     <div class="gallery-lightbox__icons">
       <a
         class="gallery-lightbox__icon gallery-lightbox__icon--download"
-        :href="require(`~/assets/galleries/${images[currentImgIndex]}`)"
+        :href="images[currentImgIndex]"
+        target="_blank"
         download
       >
         <fa-icon icon="fa-solid fa-download" />
@@ -29,8 +30,7 @@
       <img
         v-show="index === currentImgIndex"
         class="gallery-lightbox__slide-image"
-        :src="require(`~/assets/galleries/${image}`)"
-        :alt="`${image}`"
+        :src="image"
       />
     </div>
 

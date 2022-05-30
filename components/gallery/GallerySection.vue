@@ -1,9 +1,8 @@
 <template>
   <main class="gallery-section">
     <h3 class="gallery-section__title">
-      {{ gallery.title }}
-      <span class="gallery-section__title--counter">
-        ({{ galleryLength }} {{ countWord }})
+      <span class="gallery-section__title--heading">
+        {{ gallery.title }}
       </span>
     </h3>
     <section class="gallery-section__images-wrapper">
@@ -13,11 +12,7 @@
         class="gallery-section__image-container"
         @click="openLightBox(index)"
       >
-        <img
-          :src="require(`~/assets/galleries/${image}`)"
-          :alt="`${image}`"
-          class="gallery-section__image"
-        />
+        <img :src="image" class="gallery-section__image" />
       </div>
     </section>
 
@@ -44,7 +39,6 @@ export default {
     return {
       isLightBoxOpen: false,
       initialImageIndex: 0,
-      galleryLength: this.gallery.images.length,
       windowWidth: null,
     };
   },
@@ -54,9 +48,9 @@ export default {
       let amountOfLoadedImgs;
       if (this.windowWidth < 768) {
         amountOfLoadedImgs = 1;
-      } else if (this.windowWidth >= 768 && this.windowWidth < 1024) {
+      } else if (this.windowWidth >= 768 && this.windowWidth < 1034) {
         amountOfLoadedImgs = 2;
-      } else if (this.windowWidth >= 1024 && this.windowWidth < 1440) {
+      } else if (this.windowWidth >= 1034 && this.windowWidth < 1440) {
         amountOfLoadedImgs = 3;
       } else if (this.windowWidth >= 1440 && this.windowWidth < 1700) {
         amountOfLoadedImgs = 4;
@@ -65,11 +59,6 @@ export default {
       }
       const filteredImgs = images.slice(0, amountOfLoadedImgs);
       return filteredImgs;
-    },
-    countWord() {
-      if (this.galleryLength === 1) return 'zdjęcie';
-      if ([2, 3, 4].includes(this.galleryLength)) return 'zdjęcia';
-      return 'zdjęć';
     },
   },
   mounted() {
@@ -101,8 +90,8 @@ export default {
 <style lang="scss" scoped>
 .gallery-section {
   &__title {
-    &--counter {
-      font-size: 2rem;
+    &--heading {
+      text-transform: capitalize;
     }
   }
 

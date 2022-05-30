@@ -18,7 +18,7 @@
           <span class="footer__details-element">
             <strong>Dane do przelewu</strong>
           </span>
-          <span class="footer__details-element">Bank Pekao</span>
+          <span class="footer__details-element">Bank Pekao S.A.</span>
           <span class="footer__details-element">
             12 1240 2470 1111 0010 6881 3209
           </span>
@@ -110,8 +110,12 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     * {
       padding: 0.5rem 0;
+    }
+    @media screen and (min-width: $desktop-min-screen-width) {
+      align-items: flex-start;
     }
   }
 
