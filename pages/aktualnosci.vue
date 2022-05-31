@@ -27,8 +27,29 @@ export default {
         {
           title: 'Grecja 2022',
           subtitle:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit...',
-          image: require('~/assets/images/jumping_kids_football_fun.jpg'),
+            'Przedstawiamy ofertę wypoczynku dla aktywnych dzieci i młodzieży w Grecji, nad morzem Egejskim. Opiekę szkoleniowo - wychowawczą pełnić będą czynni nauczyciele posiadający wszystkie niezbędne kwalifikacje do prowadzenia zajęć.',
+          image: require('~/assets/images/grecja2022.jpg'),
+          path: '/aktualnosci/grecja2022',
+        },
+        {
+          title: 'Grecja 2022',
+          subtitle:
+            'Przedstawiamy ofertę wypoczynku dla aktywnych dzieci i młodzieży w Grecji, nad morzem Egejskim. Opiekę szkoleniowo - wychowawczą pełnić będą czynni nauczyciele posiadający wszystkie niezbędne kwalifikacje do prowadzenia zajęć.',
+          image: require('~/assets/images/grecja2022.jpg'),
+          path: '/aktualnosci/grecja2022',
+        },
+        {
+          title: 'Grecja 2022',
+          subtitle:
+            'Przedstawiamy ofertę wypoczynku dla aktywnych dzieci i młodzieży w Grecji, nad morzem Egejskim. Opiekę szkoleniowo - wychowawczą pełnić będą czynni nauczyciele posiadający wszystkie niezbędne kwalifikacje do prowadzenia zajęć.',
+          image: require('~/assets/images/grecja2022.jpg'),
+          path: '/aktualnosci/grecja2022',
+        },
+        {
+          title: 'Grecja 2022',
+          subtitle:
+            'Przedstawiamy ofertę wypoczynku dla aktywnych dzieci i młodzieży w Grecji, nad morzem Egejskim. Opiekę szkoleniowo - wychowawczą pełnić będą czynni nauczyciele posiadający wszystkie niezbędne kwalifikacje do prowadzenia zajęć.',
+          image: require('~/assets/images/grecja2022.jpg'),
           path: '/aktualnosci/grecja2022',
         },
       ],
@@ -46,8 +67,6 @@ export default {
 
 <style lang="scss" scoped>
 .news {
-  align-self: stretch;
-
   &__navigation {
     width: 100%;
     display: flex;

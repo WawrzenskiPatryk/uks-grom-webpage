@@ -9,7 +9,9 @@
       </div>
     </div>
     <div class="article-card__description">
-      <p class="article-card__description--subtitle">{{ subtitle }}</p>
+      <p class="article-card__description--subtitle">
+        {{ subtitle.slice(0, 200) + '...' }}
+      </p>
     </div>
   </article>
 </template>
