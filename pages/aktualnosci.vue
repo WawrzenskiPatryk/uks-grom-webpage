@@ -1,6 +1,8 @@
 <template>
-  <main>
-    <nav class="article-navigation">
+  <main class="news">
+    <NuxtChild class="news__content" />
+
+    <nav v-if="!hasChildComponent" class="news__navigation">
       <NuxtLink
         v-for="article in articles"
         :key="article.title"
@@ -27,41 +29,31 @@ export default {
           subtitle:
             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit...',
           image: require('~/assets/images/jumping_kids_football_fun.jpg'),
-          path: '/strona-testowa',
-        },
-        {
-          title: 'Bułgaria 2021',
-          subtitle:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit...',
-          image: require('~/assets/images/jumping_kids_football_fun.jpg'),
-          path: '/strona-testowa',
-        },
-        {
-          title: 'Kąty Rybackie 2015',
-          subtitle:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit...',
-          image: require('~/assets/images/jumping_kids_football_fun.jpg'),
-          path: '/strona-testowa',
-        },
-        {
-          title: 'Jarosławiec 2018',
-          subtitle:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit...',
-          image: require('~/assets/images/jumping_kids_football_fun.jpg'),
-          path: '/strona-testowa',
+          path: '/aktualnosci/grecja2022',
         },
       ],
     };
+  },
+  computed: {
+    hasChildComponent() {
+      const routeName = this.$route.name;
+      if (routeName.includes('-')) return true;
+      return false;
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.article-navigation {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 5rem;
+.news {
+  align-self: stretch;
+
+  &__navigation {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5rem;
+  }
 }
 </style>

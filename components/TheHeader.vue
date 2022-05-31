@@ -37,19 +37,13 @@ export default {
           submenu: [],
         },
         {
-          name: 'Treningi',
-          path: '/treningi',
-          submenu: [
-            // { name: 'Trenerzy', path: '/trenerzy' },
-            // { name: 'Wychowankowie', path: '/wychowankowie' },
-          ],
-        },
-        {
           name: 'Aktualności',
           path: '/aktualnosci',
           submenu: [
-            // { name: 'Wakacje 2022', path: '/wakacje2022' },
-            // { name: 'Ferie 2022', path: '/ferie2022' },
+            // This is how you are suppoused to structure 
+            // submenus if there is any need for them:
+            // { name: 'Grecja 2022', path: 'aktualnosci/grecja2022' },
+            // { name: 'Grecja 2022', path: 'aktualnosci/grecja2022' },
           ],
         },
         {

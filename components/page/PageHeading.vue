@@ -17,7 +17,7 @@ export default {
   methods: {
     getTitleFromRouteName() {
       const routeName = this.$route.name;
-      if (routeName === 'aktualnosci') return 'Aktualności';
+      if (routeName.includes('aktualnosci')) return 'Aktualności';
       const title = routeName
         .replace(/([^0-9])([0-9])/g, '$1 $2')
         .replace('-', ' ');
