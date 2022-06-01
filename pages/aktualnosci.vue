@@ -1,6 +1,8 @@
 <template>
-  <main>
-    <nav class="article-navigation">
+  <main class="news">
+    <NuxtChild class="news__content" />
+
+    <nav v-if="!hasChildComponent" class="news__navigation">
       <NuxtLink
         v-for="article in articles"
         :key="article.title"
@@ -25,43 +27,52 @@ export default {
         {
           title: 'Grecja 2022',
           subtitle:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit...',
-          image: require('~/assets/images/jumping_kids_football_fun.jpg'),
-          path: '/strona-testowa',
+            'Przedstawiamy ofertę wypoczynku dla aktywnych dzieci i młodzieży w Grecji, nad morzem Egejskim. Opiekę szkoleniowo - wychowawczą pełnić będą czynni nauczyciele posiadający wszystkie niezbędne kwalifikacje do prowadzenia zajęć.',
+          image: require('~/assets/images/grecja2022.jpg'),
+          path: '/aktualnosci/grecja2022',
         },
         {
-          title: 'Bułgaria 2021',
+          title: 'Grecja 2021',
           subtitle:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit...',
-          image: require('~/assets/images/jumping_kids_football_fun.jpg'),
-          path: '/strona-testowa',
+            'Przedstawiamy ofertę wypoczynku dla aktywnych dzieci i młodzieży w Grecji, nad morzem Egejskim. Opiekę szkoleniowo - wychowawczą pełnić będą czynni nauczyciele posiadający wszystkie niezbędne kwalifikacje do prowadzenia zajęć.',
+          image: require('~/assets/images/grecja2022.jpg'),
+          path: '/aktualnosci/grecja2022',
         },
         {
-          title: 'Kąty Rybackie 2015',
+          title: 'Grecja 2020',
           subtitle:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit...',
-          image: require('~/assets/images/jumping_kids_football_fun.jpg'),
-          path: '/strona-testowa',
+            'Przedstawiamy ofertę wypoczynku dla aktywnych dzieci i młodzieży w Grecji, nad morzem Egejskim. Opiekę szkoleniowo - wychowawczą pełnić będą czynni nauczyciele posiadający wszystkie niezbędne kwalifikacje do prowadzenia zajęć.',
+          image: require('~/assets/images/grecja2022.jpg'),
+          path: '/aktualnosci/grecja2022',
         },
         {
-          title: 'Jarosławiec 2018',
+          title: 'Grecja 2019',
           subtitle:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit...',
-          image: require('~/assets/images/jumping_kids_football_fun.jpg'),
-          path: '/strona-testowa',
+            'Przedstawiamy ofertę wypoczynku dla aktywnych dzieci i młodzieży w Grecji, nad morzem Egejskim. Opiekę szkoleniowo - wychowawczą pełnić będą czynni nauczyciele posiadający wszystkie niezbędne kwalifikacje do prowadzenia zajęć.',
+          image: require('~/assets/images/grecja2022.jpg'),
+          path: '/aktualnosci/grecja2022',
         },
       ],
     };
+  },
+  computed: {
+    hasChildComponent() {
+      const routeName = this.$route.name;
+      if (routeName.includes('aktualnosci-')) return true;
+      return false;
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.article-navigation {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 5rem;
+.news {
+  &__navigation {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5rem;
+  }
 }
 </style>

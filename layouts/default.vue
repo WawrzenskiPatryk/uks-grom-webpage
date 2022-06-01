@@ -1,5 +1,6 @@
 <template>
-  <div class="layout">
+  <MaintenancePlaceholder v-if="isMaintenance" />
+  <div v-else class="layout">
     <TheHeader class="layout__header" />
     <PageSlider v-if="isIndex" class="layout__heading" />
     <PageHeading v-else-if="pageExists" class="layout__heading" />
@@ -10,6 +11,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      isMaintenance: false,
+    };
+  },
   computed: {
     isIndex() {
       if (this.$route.name === 'index') return true;

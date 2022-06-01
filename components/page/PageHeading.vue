@@ -1,5 +1,5 @@
 <template>
-  <section class="heading">
+  <section class="heading" :style="{ backgroundImage: `url(${pageImage})` }">
     <div class="heading__content-wrapper">
       <h2 class="heading__title">{{ pageTitle }}</h2>
     </div>
@@ -13,15 +13,28 @@ export default {
     pageTitle() {
       return this.getTitleFromRouteName();
     },
+    pageImage() {
+      return this.getHeadingImageFromRouteName();
+    },
   },
   methods: {
     getTitleFromRouteName() {
       const routeName = this.$route.name;
       if (routeName === 'aktualnosci') return 'Aktualności';
-      const title = routeName
-        .replace(/([^0-9])([0-9])/g, '$1 $2')
-        .replace('-', ' ');
-      return title;
+      if (routeName.includes('aktualnosci')) {
+        return routeName
+          .slice(11)
+          .replace(/([^0-9])([0-9])/g, '$1 $2')
+          .replace('-', ' ');
+      }
+
+      return routeName.replace(/([^0-9])([0-9])/g, '$1 $2').replace('-', ' ');
+    },
+    getHeadingImageFromRouteName() {
+      const routeName = this.$route.name;
+      if (routeName.includes('aktualnosci'))
+        return require('~/assets/images/grecja2022.jpg');
+      return require('~/assets/images/white_red_shirt_kids_football_players.jpg');
     },
   },
 };
@@ -29,20 +42,20 @@ export default {
 
 <style lang="scss" scoped>
 .heading {
-  background-image: url('~/assets/images/white_red_shirt_kids_football_players.jpg');
   color: $primary-light;
   min-height: 12rem;
   height: 20vh;
-  background-position: 80% 5%;
+  // background-position: 80% 5%;
+  background-position: center;
   background-size: cover;
   @media screen and (min-width: $tablet-min-screen-width) {
-    height: 35vh;
+    height: 30vh;
     min-height: 15rem;
-    background-position: 20% 35%;
+    // background-position: 20% 35%;
   }
   @media screen and (min-width: $desktop-min-screen-width) {
     min-height: 20rem;
-    background-position: 10% 50%;
+    // background-position: 10% 50%;
   }
 
   &__content-wrapper {

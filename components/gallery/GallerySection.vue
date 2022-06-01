@@ -69,7 +69,7 @@ export default {
   },
   destroyed() {
     window.removeEventListener('resize', () => {
-      this.setWindowWidt();
+      this.setWindowWidth();
     });
   },
   methods: {

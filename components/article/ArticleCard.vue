@@ -9,7 +9,9 @@
       </div>
     </div>
     <div class="article-card__description">
-      <p class="article-card__description--subtitle">{{ subtitle }}</p>
+      <p class="article-card__description--subtitle">
+        {{ subtitle }}
+      </p>
     </div>
   </article>
 </template>
@@ -86,6 +88,12 @@ export default {
 
   &__description {
     padding: 1rem 2rem 2rem 2rem;
+    &--subtitle {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
   }
 }
 </style>
