@@ -84,9 +84,9 @@
       <ArticleParagraph type="centered">
         <strong class="upper"> Numer konta do wpłat: </strong>
         <br />
-        <strong class="text-colored"> Bank Pekao S.A. </strong>
-        <br />
         <strong class="text-colored"> 12 1240 2470 1111 0010 6881 3209 </strong>
+        <br />
+        <strong class="text-colored"> Bank Pekao S.A. </strong>
       </ArticleParagraph>
 
       <ArticleParagraph type="centered">
