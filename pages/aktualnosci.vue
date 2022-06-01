@@ -58,7 +58,7 @@ export default {
   computed: {
     hasChildComponent() {
       const routeName = this.$route.name;
-      if (routeName.includes('-')) return true;
+      if (routeName.includes('aktualnosci-')) return true;
       return false;
     },
   },
