@@ -90,14 +90,12 @@
         <div
           class="news-section__article-column news-section__article-column--right"
         >
-          <hr />
           <p class="news-section__description-important centered">
             <strong class="text-colored upper">
-              Wpłata zaliczki w kwocie 100 euro + 400 złotych decyduje o zapisie
+              Wpłata zaliczki w kwocie 100 euro +400 złotych decyduje o zapisie
               dziecka na wypoczynek!
             </strong>
           </p>
-          <hr />
 
           <p class="news-section__description centered">
             <strong class="upper"> Numer konta do wpłat: </strong>
@@ -115,14 +113,13 @@
             <strong class="text-colored"> Piotr Łuszczew - 609 006 576</strong>
           </p>
 
-          <hr />
           <p class="news-section__description-important centered">
             <strong class="upper text-colored">
               Ilość miejsc ograniczona!
             </strong>
           </p>
-          <hr />
-          <p class="news-section__description-important centered">
+
+          <p class="news-section__description centered">
             <strong> Do pobrania: </strong>
             <br />
             <BaseLink
@@ -158,8 +155,7 @@ export default {
     height: 40vw;
     max-height: 30rem;
     width: 100%;
-    margin-top: 4rem;
-    margin-bottom: 2rem;
+    margin: 4rem 0;
   }
 
   &__article-columns-wrapper {
@@ -208,7 +204,8 @@ export default {
   }
 
   &__description {
-    margin: 3rem 0;
+    margin-bottom: 3rem;
+    margin-top: 1rem;
   }
   &__description-title,
   &__description-heading {
@@ -218,16 +215,17 @@ export default {
     margin-top: 3rem;
   }
 
-  &__description-title {
-    margin-bottom: -2rem;
-  }
-
   &__description-important {
-    margin: 4rem 0;
+    position: relative;
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+    padding: 5rem 0;
     font-size: $small-subtitle-font-size;
     @media screen and (min-width: $tablet-min-screen-width) {
       font-size: $large-subtitle-font-size;
     }
+    border-bottom: 1px solid $primary-dark;
+    border-top: 1px solid $primary-dark;
   }
 }
 </style>

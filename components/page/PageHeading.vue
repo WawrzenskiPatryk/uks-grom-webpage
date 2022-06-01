@@ -45,16 +45,17 @@ export default {
   color: $primary-light;
   min-height: 12rem;
   height: 20vh;
-  background-position: 80% 5%;
+  // background-position: 80% 5%;
+  background-position: center;
   background-size: cover;
   @media screen and (min-width: $tablet-min-screen-width) {
     height: 30vh;
     min-height: 15rem;
-    background-position: 20% 35%;
+    // background-position: 20% 35%;
   }
   @media screen and (min-width: $desktop-min-screen-width) {
     min-height: 20rem;
-    background-position: 10% 50%;
+    // background-position: 10% 50%;
   }
 
   &__content-wrapper {
