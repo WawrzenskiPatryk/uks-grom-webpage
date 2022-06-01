@@ -48,7 +48,7 @@ export default {
   background-position: 80% 5%;
   background-size: cover;
   @media screen and (min-width: $tablet-min-screen-width) {
-    height: 35vh;
+    height: 30vh;
     min-height: 15rem;
     background-position: 20% 35%;
   }
