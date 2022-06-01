@@ -10,7 +10,7 @@
     </div>
     <div class="article-card__description">
       <p class="article-card__description--subtitle">
-        {{ subtitle.slice(0, 200) + '...' }}
+        {{ subtitle }}
       </p>
     </div>
   </article>
@@ -88,6 +88,12 @@ export default {
 
   &__description {
     padding: 1rem 2rem 2rem 2rem;
+    &--subtitle {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
   }
 }
 </style>
