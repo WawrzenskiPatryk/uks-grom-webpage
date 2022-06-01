@@ -32,21 +32,21 @@ export default {
           path: '/aktualnosci/grecja2022',
         },
         {
-          title: 'Grecja 2022',
+          title: 'Grecja 2021',
           subtitle:
             'Przedstawiamy ofertę wypoczynku dla aktywnych dzieci i młodzieży w Grecji, nad morzem Egejskim. Opiekę szkoleniowo - wychowawczą pełnić będą czynni nauczyciele posiadający wszystkie niezbędne kwalifikacje do prowadzenia zajęć.',
           image: require('~/assets/images/grecja2022.jpg'),
           path: '/aktualnosci/grecja2022',
         },
         {
-          title: 'Grecja 2022',
+          title: 'Grecja 2020',
           subtitle:
             'Przedstawiamy ofertę wypoczynku dla aktywnych dzieci i młodzieży w Grecji, nad morzem Egejskim. Opiekę szkoleniowo - wychowawczą pełnić będą czynni nauczyciele posiadający wszystkie niezbędne kwalifikacje do prowadzenia zajęć.',
           image: require('~/assets/images/grecja2022.jpg'),
           path: '/aktualnosci/grecja2022',
         },
         {
-          title: 'Grecja 2022',
+          title: 'Grecja 2019',
           subtitle:
             'Przedstawiamy ofertę wypoczynku dla aktywnych dzieci i młodzieży w Grecji, nad morzem Egejskim. Opiekę szkoleniowo - wychowawczą pełnić będą czynni nauczyciele posiadający wszystkie niezbędne kwalifikacje do prowadzenia zajęć.',
           image: require('~/assets/images/grecja2022.jpg'),
