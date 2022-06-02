@@ -13,7 +13,14 @@
       <div
         class="article-section__article-illustration"
         :style="{ backgroundImage: `url(${illustrationUrl})` }"
-      ></div>
+      >
+        <span
+          v-if="isFull"
+          class="article-section__article-illustration--full-background"
+        >
+          BRAK WOLNYCH MIEJSC
+        </span>
+      </div>
 
       <div class="article-section__article-columns-wrapper">
         <div
@@ -49,6 +56,10 @@ export default {
       type: String,
       required: true,
     },
+    isFull: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     parent() {
@@ -74,6 +85,28 @@ export default {
     max-height: 30rem;
     width: 100%;
     margin: 4rem 0;
+    color: $primary-light;
+    font-weight: 600;
+    overflow: hidden;
+
+    font-size: 8vw;
+    @media screen and (min-width: $desktop-min-screen-width) {
+      font-size: 5vw;
+    }
+    @media screen and (min-width: $content-max-width) {
+      font-size: 7rem;
+    }
+
+    &--full-background {
+      background-color: $backdrop-color;
+      opacity: 0.75;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 5vw;
+    }
   }
 
   &__article-columns-wrapper {

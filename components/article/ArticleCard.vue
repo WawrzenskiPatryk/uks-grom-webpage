@@ -5,7 +5,12 @@
       :style="{ backgroundImage: `url(${imageUrl})` }"
     >
       <div class="article-card__heading--title-gradient">
-        <h3 class="article-card__heading--title">{{ title }}</h3>
+        <h3 class="article-card__heading--title">
+          {{ title }}
+        </h3>
+        <span v-if="isFull" class="article-card__heading--full upper">
+          Brak wolnych miejsc
+        </span>
       </div>
     </div>
     <div class="article-card__description">
@@ -35,6 +40,10 @@ export default {
       required: true,
       default:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima iusto ratione molestiae harum laboriosam sed maxime, ducimus explicabo...',
+    },
+    isFull: {
+      type: Boolean,
+      default: false,
     },
   },
 };
@@ -83,6 +92,18 @@ export default {
       left: 0;
       color: $primary-light;
       text-shadow: 0 0 4rem black;
+    }
+
+    &--full {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: $secondary-color;
+      font-weight: 600;
+
+      padding: 0.5rem 1.5rem;
+      border-radius: 0 0 0 1rem;
+      box-shadow: $primary-shadow 0 0 1rem, $primary-shadow 0 0 2rem;
     }
   }
 

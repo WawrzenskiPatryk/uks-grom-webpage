@@ -33,7 +33,7 @@ export default {
     getHeadingImageFromRouteName() {
       const routeName = this.$route.name;
       if (routeName.includes('aktualnosci'))
-        return require('~/assets/images/grecja2022.jpg');
+        return require('~/assets/images/grecja.jpg');
       return require('~/assets/images/white_red_shirt_kids_football_players.jpg');
     },
   },

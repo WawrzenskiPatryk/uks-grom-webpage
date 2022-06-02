@@ -1,12 +1,12 @@
 <template>
-  <ArticleSection :illustration-url="image">
+  <ArticleSection :illustration-url="image" :is-full="isFull">
     <template #back-link>Powrót</template>
 
     <template #article-heading>
       <BaseHeading>
         <template #title> Wypoczynek dla dzieci i młodzieży </template>
         <template #subtitle>
-          <strong> 28 czerwca - 7 sierpnia 2022 r. </strong>
+          <strong> 28 czerwca - 7 lipca 2022 r. </strong>
           <br />
           <span class="text-colored"> Cena: 1000 złotych + 320 euro </span>
         </template>
@@ -103,7 +103,7 @@
         <strong> Do pobrania: </strong>
         <br />
         <DownloadLink
-          path="/downloads/KARTA-KWALIFIKACYJNA-UCZESTNIKA-WYPOCZYNKU-GRECJA-2022.odt"
+          path="/downloads/KARTA-KWALIFIKACYJNA-UCZESTNIKA-WYPOCZYNKU.odt"
         >
           Karta uczestnika wypoczynku
         </DownloadLink>
@@ -118,7 +118,8 @@ export default {
   name: 'NewsGrecja2022',
   data() {
     return {
-      image: require('~/assets/images/grecja2022.jpg'),
+      image: require('~/assets/images/grecja.jpg'),
+      isFull: false,
     };
   },
 };
