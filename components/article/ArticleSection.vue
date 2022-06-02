@@ -97,13 +97,13 @@ export default {
   }
 
   &__back-link {
+    display: inline-block;
     color: $primary-color-darken;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
     position: relative;
     top: -2.5rem;
     border-bottom: 1px solid;
-    border-color: $primary-color-darken;
-    padding-bottom: 0.5rem;
+    padding-inline: 0.25rem;
 
     @media screen and (min-width: $tablet-min-screen-width) {
       top: 0;
