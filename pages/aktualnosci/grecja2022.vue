@@ -102,12 +102,12 @@
       <ArticleParagraph type="centered">
         <strong> Do pobrania: </strong>
         <br />
-        <BaseLink
+        <DownloadLink
           path="/downloads/KARTA-KWALIFIKACYJNA-UCZESTNIKA-WYPOCZYNKU-GRECJA-2022.odt"
-          download
         >
           Karta uczestnika wypoczynku
-        </BaseLink>
+        </DownloadLink>
+        <!-- <DownloadLink path="/"> Informacje przed wyjazdem </DownloadLink> -->
       </ArticleParagraph>
     </template>
   </ArticleSection>
