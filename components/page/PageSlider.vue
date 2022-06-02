@@ -23,6 +23,7 @@ export default {
 
 <style lang="scss" scoped>
 .slider {
+  text-shadow: 0 0 4rem $secondary-dark;
   background-image: url('~/assets/images/white_red_shirt_kids_football_players.jpg');
   background-size: cover;
   background-position: 42% 80%;

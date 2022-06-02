@@ -1,5 +1,11 @@
 <template>
-  <section class="heading" :style="{ backgroundImage: `url(${pageImage})` }">
+  <section
+    class="heading"
+    :style="{
+      backgroundImage: `url(${pageImage})`,
+      backgroundPosition: pageImagePosition,
+    }"
+  >
     <div class="heading__content-wrapper">
       <h2 class="heading__title">{{ pageTitle }}</h2>
     </div>
@@ -9,6 +15,11 @@
 <script>
 export default {
   name: 'PageHeading',
+  data() {
+    return {
+      pageImagePosition: 'center',
+    };
+  },
   computed: {
     pageTitle() {
       return this.getTitleFromRouteName();
@@ -32,9 +43,16 @@ export default {
     },
     getHeadingImageFromRouteName() {
       const routeName = this.$route.name;
-      if (routeName.includes('aktualnosci'))
-        return require('~/assets/images/grecja.jpg');
-      return require('~/assets/images/white_red_shirt_kids_football_players.jpg');
+      if (routeName.includes('aktualnosci')) {
+        this.pageImagePosition = '50% 46%';
+        return require('~/assets/images/katy_rybackie_ponton.jpg');
+      } else if (routeName.includes('o-nas')) {
+        this.pageImagePosition = '50% 42%';
+        return require('~/assets/images/onas.jpg');
+      } else {
+        this.pageImagePosition = '50% 62%';
+        return require('~/assets/images/white_red_shirt_kids_football_players.jpg');
+      }
     },
   },
 };
@@ -43,19 +61,16 @@ export default {
 <style lang="scss" scoped>
 .heading {
   color: $primary-light;
+  text-shadow: 0 0 4rem $secondary-dark;
   min-height: 12rem;
   height: 20vh;
-  // background-position: 80% 5%;
-  background-position: center;
   background-size: cover;
   @media screen and (min-width: $tablet-min-screen-width) {
     height: 30vh;
     min-height: 15rem;
-    // background-position: 20% 35%;
   }
   @media screen and (min-width: $desktop-min-screen-width) {
     min-height: 20rem;
-    // background-position: 10% 50%;
   }
 
   &__content-wrapper {
