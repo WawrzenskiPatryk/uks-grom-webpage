@@ -21,15 +21,21 @@ export default {
   name: 'GalleryPage',
   data() {
     return {
-      isLoading: false,
+      isLoading: true,
       galleries: [],
     };
   },
-  async created() {
+  async mounted() {
     this.isLoading = true;
-    try {
-      this.galleries = await this.getGalleriesFromStorage();
-    } finally {
+    const sessionStorageIsEmpty = !sessionStorage.getItem('gallery');
+    if (sessionStorageIsEmpty) {
+      try {
+        this.galleries = await this.getGalleriesFromStorage();
+      } finally {
+        this.isLoading = false;
+      }
+    } else {
+      this.galleries = this.getItemFromSessionStorage('gallery');
       this.isLoading = false;
     }
   },
@@ -42,6 +48,12 @@ export default {
     },
     getReferencePrefixes(reference) {
       return listAll(reference).then(result => result.prefixes);
+    },
+    setItemInSessionStorage(itemKey, itemValue) {
+      sessionStorage.setItem(itemKey, JSON.stringify(itemValue));
+    },
+    getItemFromSessionStorage(itemKey) {
+      return JSON.parse(sessionStorage.getItem(itemKey));
     },
     async getGalleriesFromStorage() {
       const downloadedGalleries = [];
@@ -71,6 +83,7 @@ export default {
             if (areTitlesMatching) {
               const imageUrl = await getDownloadURL(imageReference);
               this.$set(gallery.images, index, imageUrl);
+              this.setItemInSessionStorage('gallery', downloadedGalleries);
             }
           });
         });
