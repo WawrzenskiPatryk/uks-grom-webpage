@@ -8,11 +8,9 @@
       <template #subtitle> Prosimy spróbować ponownie za 24h </template>
     </BaseHeading>
   </main>
-  <!-- <main v-else-if="isLoading">
-    <h2>
-      <fa-icon icon="fa-solid fa-spinner" />
-    </h2>
-  </main> -->
+  <main v-else-if="isLoading">
+    <BaseSpinner />
+  </main>
   <main v-else class="gallery">
     <GallerySection
       v-for="(gallery, index) in galleries"
