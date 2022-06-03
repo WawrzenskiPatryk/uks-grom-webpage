@@ -12,6 +12,7 @@
 
 <script>
 export default {
+  name: 'NoteRibbon',
   props: {
     text: {
       type: String,
@@ -80,13 +81,13 @@ export default {
     transform: translateX(0);
   }
   18% {
-    transform: translateX(-1.5rem);
+    transform: translateX(-1rem);
   }
   21% {
-    transform: translateX(1.5rem);
+    transform: translateX(1rem);
   }
   24% {
-    transform: translateX(-1rem);
+    transform: translateX(-0.5rem);
   }
   27% {
     transform: translateX(0);
@@ -98,13 +99,13 @@ export default {
     transform: translateX(0);
   }
   18% {
-    transform: translateX(-2rem);
+    transform: translateX(-1.5rem);
   }
   21% {
-    transform: translateX(1.25rem);
+    transform: translateX(1rem);
   }
   24% {
-    transform: translateX(-1rem);
+    transform: translateX(-0.5rem);
   }
   27% {
     transform: translateX(0);

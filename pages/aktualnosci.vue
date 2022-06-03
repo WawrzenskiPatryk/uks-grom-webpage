@@ -1,6 +1,6 @@
 <template>
   <main class="news">
-    <ArticleNote v-show="!hasChildPage" :text="articleNoteText" />
+    <NoteRibbon v-show="!hasChildPage" :text="articleNoteText" />
 
     <NuxtChild
       :image="articles[lastActiveArticleIndex].image"
