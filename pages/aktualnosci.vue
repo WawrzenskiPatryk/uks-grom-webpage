@@ -1,12 +1,14 @@
 <template>
   <main class="news">
+    <ArticleNote v-show="!hasChildPage" :text="articleNoteText" />
+
     <NuxtChild
       :image="articles[lastActiveArticleIndex].image"
       :is-full="articles[lastActiveArticleIndex].isFull"
       class="news__content"
     />
 
-    <nav v-if="!hasChildComponent" class="news__navigation">
+    <nav v-if="!hasChildPage" class="news__navigation">
       <NuxtLink
         v-for="(article, index) in articles"
         :key="article.title"
@@ -36,6 +38,8 @@ export default {
   data() {
     return {
       lastActiveArticleIndex: 0,
+      articleNoteText:
+        'Za rok planowany wyjazd do Czarnogóry, nad Polskie Morze lub do Zakopanego!',
       articles: [
         {
           title: 'Grecja 2022',
@@ -57,7 +61,7 @@ export default {
     };
   },
   computed: {
-    hasChildComponent() {
+    hasChildPage() {
       const routeName = this.$route.name;
       if (routeName.includes('aktualnosci-')) return true;
       return false;
@@ -73,6 +77,7 @@ export default {
 
 <style lang="scss" scoped>
 .news {
+  position: relative;
   &__navigation {
     width: 100%;
     display: flex;

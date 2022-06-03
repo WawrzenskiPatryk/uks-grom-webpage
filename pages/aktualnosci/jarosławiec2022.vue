@@ -71,7 +71,8 @@
       <ArticleParagraph type="important centered">
         <strong class="upper text-colored">Brak wolnych miejsc! </strong>
         <br />
-        Za rok planowany wyjazd nad polskie morze lub do Zakopanego!
+        Za rok planowany wyjazd do Czarnogóry, nad Polskie Morze lub do
+        Zakopanego!
       </ArticleParagraph>
 
       <ArticleParagraph type="centered">
