@@ -1,6 +1,6 @@
 <template>
   <ArticleSection :illustration-url="image" :is-full="isFull">
-    <template #back-link>Powrót</template>
+    <template #back-link>Aktualności</template>
 
     <template #article-heading>
       <BaseHeading>

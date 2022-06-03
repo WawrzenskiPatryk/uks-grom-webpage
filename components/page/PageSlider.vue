@@ -1,15 +1,23 @@
 <template>
-  <section class="slider">
+  <section
+    class="slider"
+    :style="{
+      backgroundImage: `url(${slideImage.path})`,
+      backgroundPosition: slideImage.position,
+    }"
+  >
     <div class="slider__content-wrapper">
       <div class="slider__content">
-        <h1 class="slider__title">LOREM IPSUM</h1>
+        <h1 class="slider__title">{{ slideContent.title }}</h1>
         <h4 class="slider__subtitle">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni
-          perferendis itaque voluptas a illo iste possimus aliquam, asperiores,
-          doloribus deleniti enim nihil fuga voluptates quia porro dignissimos
-          ducimus culpa? Nesciunt!
+          {{ slideContent.subtitle }}
         </h4>
-        <BaseButton class="slider__button" />
+        <NuxtLink :to="slideContent.buttonPath">
+          <BaseButton
+            class="slider__button"
+            :label="slideContent.buttonLabel"
+          />
+        </NuxtLink>
       </div>
     </div>
   </section>
@@ -18,15 +26,29 @@
 <script>
 export default {
   name: 'PageSlider',
+  props: {
+    indexPage: {
+      type: Object,
+      required: true,
+    },
+  },
+  computed: {
+    slideImage() {
+      const indexPage = this.indexPage;
+      return indexPage.image;
+    },
+    slideContent() {
+      const indexPage = this.indexPage;
+      return indexPage.slide;
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .slider {
   text-shadow: 0 0 4rem $secondary-dark;
-  background-image: url('~/assets/images/white_red_shirt_kids_football_players.jpg');
   background-size: cover;
-  background-position: 42% 80%;
   height: calc(100vh - $header-height);
   color: $primary-light;
 
@@ -47,6 +69,7 @@ export default {
   }
   &__title {
     font-family: $title-font-family;
+    text-transform: uppercase;
   }
   &__subtitle {
     font-weight: 300;

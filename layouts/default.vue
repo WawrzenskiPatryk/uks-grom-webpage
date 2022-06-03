@@ -1,9 +1,13 @@
 <template>
   <MaintenancePlaceholder v-if="isMaintenance" />
   <div v-else class="layout">
-    <TheHeader class="layout__header" />
-    <PageSlider v-if="isIndex" class="layout__heading" />
-    <PageHeading v-else-if="pageExists" class="layout__heading" />
+    <TheHeader :navigation-items="pages" class="layout__header" />
+    <PageSlider v-if="isIndex" :index-page="pages[0]" class="layout__heading" />
+    <PageHeading
+      v-else-if="pageExists"
+      :pages="pages"
+      class="layout__heading"
+    />
     <Nuxt class="layout__page" />
     <TheFooter class="layout__footer" />
   </div>
@@ -14,6 +18,55 @@ export default {
   data() {
     return {
       isMaintenance: false,
+      pages: [
+        {
+          name: 'Strona Główna',
+          path: '/',
+          image: {
+            path: require('~/assets/images/grecja.jpg'),
+            position: '50% 62%',
+          },
+          slide: {
+            title: 'Grecja 2022',
+            subtitle:
+              'Przedstawiamy ofertę wypoczynku dla aktywnych dzieci i młodzieży w Grecji, nad morzem Egejskim. Opiekę szkoleniowo - wychowawczą pełnić będą czynni nauczyciele posiadający wszystkie niezbędne kwalifikacje do prowadzenia zajęć.',
+            buttonPath: '/aktualnosci/grecja2022',
+            buttonLabel: 'Zobacz szczegóły',
+          },
+        },
+        {
+          name: 'O nas',
+          path: '/o-nas',
+          image: {
+            path: require('~/assets/images/onas.jpg'),
+            position: '50% 42%',
+          },
+        },
+        {
+          name: 'Aktualności',
+          path: '/aktualnosci',
+          image: {
+            path: require('~/assets/images/katy_rybackie_ponton.jpg'),
+            position: '50% 46%',
+          },
+        },
+        {
+          name: 'Galeria',
+          path: '/galeria',
+          image: {
+            path: require('~/assets/images/white_red_shirt_kids_football_players.jpg'),
+            position: '50% 62%',
+          },
+        },
+        {
+          name: 'Kontakt',
+          path: '/kontakt',
+          image: {
+            path: require('~/assets/images/white_red_shirt_kids_football_players.jpg'),
+            position: '50% 62%',
+          },
+        },
+      ],
     };
   },
   computed: {

@@ -15,6 +15,12 @@
 <script>
 export default {
   name: 'PageHeading',
+  props: {
+    pages: {
+      type: Array,
+      required: true,
+    },
+  },
   data() {
     return {
       pageImagePosition: 'center',
@@ -30,33 +36,29 @@ export default {
   },
   methods: {
     getTitleFromRouteName() {
-      const exceptionNames = {
-        newsPage: 'aktualnosci',
-      };
-
-      let routeName = this.$route.name;
-      if (routeName === exceptionNames.newsPage) {
-        routeName = routeName.replace('s', 'ś');
-      }
-      for (const name in exceptionNames) {
-        if (routeName.includes(exceptionNames[name] + '-')) {
-          routeName = routeName.slice(exceptionNames[name].length);
-        }
-      }
-      return routeName.replace(/([^0-9])([0-9])/g, '$1 $2').replace('-', ' ');
+      const routePath = '/' + this.$route.name;
+      let pageTitle;
+      this.pages.forEach(page => {
+        if (routePath === page.path) pageTitle = page.name;
+        else if (routePath.includes(page.path))
+          pageTitle = routePath
+            .slice(page.path.length)
+            .replace(/([^0-9])([0-9])/g, '$1 $2')
+            .replace('-', ' ');
+      });
+      return pageTitle;
     },
     getHeadingImageByRouteName() {
-      const routeName = this.$route.name;
-      if (routeName.includes('aktualnosci')) {
-        this.pageImagePosition = '50% 46%';
-        return require('~/assets/images/katy_rybackie_ponton.jpg');
-      } else if (routeName.includes('o-nas')) {
-        this.pageImagePosition = '50% 42%';
-        return require('~/assets/images/onas.jpg');
-      } else {
-        this.pageImagePosition = '50% 62%';
-        return require('~/assets/images/white_red_shirt_kids_football_players.jpg');
-      }
+      const routePath = '/' + this.$route.name;
+      let imagePath;
+      this.pages.forEach(page => {
+        if (routePath.includes(page.path)) {
+          imagePath = page.image.path;
+          this.pageImagePosition = page.image.position;
+        }
+      });
+
+      return imagePath;
     },
   },
 };
