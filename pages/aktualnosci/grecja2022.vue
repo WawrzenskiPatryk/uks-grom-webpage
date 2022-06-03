@@ -103,7 +103,7 @@
         <strong> Do pobrania: </strong>
         <br />
         <DownloadLink
-          path="/downloads/KARTA-KWALIFIKACYJNA-UCZESTNIKA-WYPOCZYNKU.odt"
+          path="/downloads/KARTA-KWALIFIKACYJNA-UCZESTNIKA-WYPOCZYNKU-GRECJA-2022.odt"
         >
           Karta uczestnika wypoczynku
         </DownloadLink>
