@@ -1,5 +1,5 @@
 <template>
-  <article class="article-card">
+  <article class="article-card" @click="clicked">
     <div
       class="article-card__heading"
       :style="{ backgroundImage: `url(${imageUrl})` }"
@@ -44,6 +44,11 @@ export default {
     isFull: {
       type: Boolean,
       default: false,
+    },
+  },
+  methods: {
+    clicked() {
+      this.$emit('clicked');
     },
   },
 };

@@ -1,10 +1,27 @@
 <template>
   <main class="news">
-    <NuxtChild class="news__content" />
+    <NuxtChild
+      :image="articles[lastActiveArticleIndex].image"
+      :is-full="articles[lastActiveArticleIndex].isFull"
+      class="news__content"
+    />
+    <!-- <ArticleSection
+      v-if="hasChildComponent"
+      :illustration-url="articles[lastActiveArticleIndex].image"
+      :is-full="articles[lastActiveArticleIndex].isFull"
+    >
+      <template #back-link>Aktualności</template>
+      <template #article-heading></template>
+
+      <NuxtChild class="news__content" />
+      <template #left-column></template>
+      <template #right-column></template>
+
+    </ArticleSection> -->
 
     <nav v-if="!hasChildComponent" class="news__navigation">
       <NuxtLink
-        v-for="article in articles"
+        v-for="(article, index) in articles"
         :key="article.title"
         :to="article.path"
       >
@@ -13,6 +30,7 @@
           :title="article.title"
           :subtitle="article.subtitle"
           :is-full="article.isFull"
+          @clicked="setActiveArticleIndex(index)"
         />
       </NuxtLink>
     </nav>
@@ -24,6 +42,7 @@ export default {
   name: 'NewsPage',
   data() {
     return {
+      lastActiveArticleIndex: 0,
       articles: [
         {
           title: 'Grecja 2022',
@@ -49,6 +68,11 @@ export default {
       const routeName = this.$route.name;
       if (routeName.includes('aktualnosci-')) return true;
       return false;
+    },
+  },
+  methods: {
+    setActiveArticleIndex(index) {
+      this.lastActiveArticleIndex = index;
     },
   },
 };

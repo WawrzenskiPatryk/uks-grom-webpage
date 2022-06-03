@@ -93,11 +93,15 @@
 <script>
 export default {
   name: 'NewsJaroslawiec2022',
-  data() {
-    return {
-      image: require('~/assets/images/jaroslawiec.jpg'),
-      isFull: true,
-    };
+  props: {
+    image: {
+      type: String,
+      required: true,
+    },
+    isFull: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>

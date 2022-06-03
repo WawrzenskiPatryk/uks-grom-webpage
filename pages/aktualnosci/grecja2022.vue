@@ -116,11 +116,16 @@
 <script>
 export default {
   name: 'NewsGrecja2022',
-  data() {
-    return {
-      image: require('~/assets/images/grecja.jpg'),
-      isFull: false,
-    };
+  layout: 'NewsChilds',
+  props: {
+    image: {
+      type: String,
+      required: true,
+    },
+    isFull: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>
