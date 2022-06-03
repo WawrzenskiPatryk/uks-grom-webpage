@@ -62,7 +62,7 @@
         <strong class="text-colored"> Bank Pekao S.A. </strong>
       </ArticleParagraph>
 
-      <ArticleParagraph type="centered ">
+      <ArticleParagraph type="centered">
         <strong class="upper"> Informacje i zapisy: </strong>
         <br />
         <strong class="text-colored"> Piotr Łuszczew - 609 006 576</strong>
