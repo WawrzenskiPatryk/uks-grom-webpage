@@ -1,6 +1,11 @@
 <template>
   <main>
-    <ThePlaceholder />
+    <PictureSection>
+      <BaseHeading type="aside" />
+    </PictureSection>
+    <PictureSection direction="right">
+      <BaseHeading type="aside" />
+    </PictureSection>
   </main>
 </template>
 
