@@ -28,10 +28,12 @@ export default {
   margin: -2rem 0 -1rem 0;
   border-radius: 1rem;
   box-shadow: $secondary-shadow 0 0 1rem;
+  animation: bounce 6s infinite ease-out;
 
   @media screen and (min-width: $tablet-min-screen-width) {
     align-self: flex-start;
     box-shadow: $secondary-shadow -1rem 0 1rem;
+    animation: bounceLeft 6s infinite ease-out;
   }
   @media screen and (min-width: $desktop-min-screen-width) {
     align-self: flex-start;
@@ -50,7 +52,7 @@ export default {
     @media screen and (min-width: $tablet-min-screen-width) {
       text-align: left;
       clip-path: polygon(100% 0, 95% 50%, 100% 100%, 0 100%, 0 0);
-      border-radius: 1rem 0 0 1rem;
+      border-radius: 3rem 0 0 3rem;
       padding: 1rem 8rem 1rem 5rem;
       box-shadow: 1rem;
       left: -1rem;
@@ -70,6 +72,42 @@ export default {
     }
     font-size: 2.5rem;
     padding-right: 1rem;
+  }
+}
+
+@keyframes bounce {
+  15% {
+    transform: translateX(0);
+  }
+  18% {
+    transform: translateX(-1.5rem);
+  }
+  21% {
+    transform: translateX(1.5rem);
+  }
+  24% {
+    transform: translateX(-1rem);
+  }
+  27% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounceLeft {
+  15% {
+    transform: translateX(0);
+  }
+  18% {
+    transform: translateX(-2rem);
+  }
+  21% {
+    transform: translateX(1.25rem);
+  }
+  24% {
+    transform: translateX(-1rem);
+  }
+  27% {
+    transform: translateX(0);
   }
 }
 </style>
