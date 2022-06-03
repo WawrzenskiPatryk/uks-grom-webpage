@@ -1,5 +1,5 @@
 <template>
-  <ArticleSection :illustration-url="image" :is-full="isFull">
+  <ArticleTripSection :illustration-url="image" :is-full="isFull">
     <template #back-link>Aktualności</template>
 
     <template #article-heading>
@@ -110,7 +110,7 @@
         <!-- <DownloadLink path="/"> Informacje przed wyjazdem </DownloadLink> -->
       </ArticleParagraph>
     </template>
-  </ArticleSection>
+  </ArticleTripSection>
 </template>
 
 <script>
