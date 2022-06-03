@@ -25,23 +25,27 @@ export default {
       return this.getTitleFromRouteName();
     },
     pageImage() {
-      return this.getHeadingImageFromRouteName();
+      return this.getHeadingImageByRouteName();
     },
   },
   methods: {
     getTitleFromRouteName() {
-      const routeName = this.$route.name;
-      if (routeName === 'aktualnosci') return 'Aktualności';
-      if (routeName.includes('aktualnosci')) {
-        return routeName
-          .slice(11)
-          .replace(/([^0-9])([0-9])/g, '$1 $2')
-          .replace('-', ' ');
-      }
+      const exceptionNames = {
+        newsPage: 'aktualnosci',
+      };
 
+      let routeName = this.$route.name;
+      if (routeName === exceptionNames.newsPage) {
+        routeName = routeName.replace('s', 'ś');
+      }
+      for (const name in exceptionNames) {
+        if (routeName.includes(exceptionNames[name] + '-')) {
+          routeName = routeName.slice(exceptionNames[name].length);
+        }
+      }
       return routeName.replace(/([^0-9])([0-9])/g, '$1 $2').replace('-', ' ');
     },
-    getHeadingImageFromRouteName() {
+    getHeadingImageByRouteName() {
       const routeName = this.$route.name;
       if (routeName.includes('aktualnosci')) {
         this.pageImagePosition = '50% 46%';
