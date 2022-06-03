@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "uks-grom-test-link",
+    "site": "uks-grom-test",
     "public": "dist",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "headers": [
