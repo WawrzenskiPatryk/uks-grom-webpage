@@ -116,16 +116,7 @@
 <script>
 export default {
   name: 'NewsGrecja2022',
-  layout: 'NewsChilds',
-  props: {
-    image: {
-      type: String,
-      required: true,
-    },
-    isFull: {
-      type: Boolean,
-      default: false,
-    },
-  },
+  // eslint-disable-next-line vue/require-prop-types
+  props: ['image', 'isFull'],
 };
 </script>

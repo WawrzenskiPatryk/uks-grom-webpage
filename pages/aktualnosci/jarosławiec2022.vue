@@ -93,15 +93,7 @@
 <script>
 export default {
   name: 'NewsJaroslawiec2022',
-  props: {
-    image: {
-      type: String,
-      required: true,
-    },
-    isFull: {
-      type: Boolean,
-      default: false,
-    },
-  },
+  // eslint-disable-next-line vue/require-prop-types
+  props: ['image', 'isFull'],
 };
 </script>

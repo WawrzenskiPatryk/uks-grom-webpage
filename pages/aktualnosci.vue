@@ -5,19 +5,6 @@
       :is-full="articles[lastActiveArticleIndex].isFull"
       class="news__content"
     />
-    <!-- <ArticleSection
-      v-if="hasChildComponent"
-      :illustration-url="articles[lastActiveArticleIndex].image"
-      :is-full="articles[lastActiveArticleIndex].isFull"
-    >
-      <template #back-link>Aktualności</template>
-      <template #article-heading></template>
-
-      <NuxtChild class="news__content" />
-      <template #left-column></template>
-      <template #right-column></template>
-
-    </ArticleSection> -->
 
     <nav v-if="!hasChildComponent" class="news__navigation">
       <NuxtLink
