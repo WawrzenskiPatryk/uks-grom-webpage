@@ -51,21 +51,18 @@
 <script>
 export default {
   name: 'ArticleSection',
-  props: {
-    illustrationUrl: {
-      type: String,
-      required: true,
-    },
-    isFull: {
-      type: Boolean,
-      default: false,
-    },
-  },
+  inject: ['articleImage', 'articleIsFull'],
   computed: {
     parent() {
       const routeName = this.$route.name;
       const parentName = routeName.split('-')[0];
       return parentName;
+    },
+    illustrationUrl() {
+      return this.articleImage();
+    },
+    isFull() {
+      return this.articleIsFull();
     },
   },
 };

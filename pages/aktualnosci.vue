@@ -27,6 +27,12 @@
 <script>
 export default {
   name: 'NewsPage',
+  provide() {
+    return {
+      articleImage: () => this.articles[this.lastActiveArticleIndex].image,
+      articleIsFull: () => this.articles[this.lastActiveArticleIndex].isFull,
+    };
+  },
   data() {
     return {
       lastActiveArticleIndex: 0,

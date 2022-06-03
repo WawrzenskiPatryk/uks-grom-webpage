@@ -93,7 +93,5 @@
 <script>
 export default {
   name: 'NewsJaroslawiec2022',
-  // eslint-disable-next-line vue/require-prop-types
-  props: ['image', 'isFull'],
 };
 </script>

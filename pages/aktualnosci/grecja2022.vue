@@ -116,7 +116,5 @@
 <script>
 export default {
   name: 'NewsGrecja2022',
-  // eslint-disable-next-line vue/require-prop-types
-  props: ['image', 'isFull'],
 };
 </script>
