@@ -1,5 +1,19 @@
 <template>
-  <main class="gallery">
+  <main v-if="quotaError && !isLoading">
+    <BaseHeading>
+      <template #title>
+        Nasza galeria została przeciążona
+        <fa-icon icon="fa-solid fa-face-frown" />
+      </template>
+      <template #subtitle> Prosimy spróbować ponownie za 24h </template>
+    </BaseHeading>
+  </main>
+  <!-- <main v-else-if="isLoading">
+    <h2>
+      <fa-icon icon="fa-solid fa-spinner" />
+    </h2>
+  </main> -->
+  <main v-else class="gallery">
     <GallerySection
       v-for="(gallery, index) in galleries"
       :key="index"
@@ -22,6 +36,7 @@ export default {
   data() {
     return {
       isLoading: true,
+      quotaError: false,
       galleries: [],
     };
   },
@@ -31,6 +46,9 @@ export default {
     if (sessionStorageIsEmpty) {
       try {
         this.galleries = await this.getGalleriesFromStorage();
+      } catch (error) {
+        if (error.code.includes('quota')) this.quotaError = true;
+        else throw new Error(error);
       } finally {
         this.isLoading = false;
       }
