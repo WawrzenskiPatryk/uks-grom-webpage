@@ -1,5 +1,17 @@
 <template>
-  <main class="gallery">
+  <main v-if="quotaError && !isLoading">
+    <BaseHeading title subtitle deco>
+      <template #title>
+        Nasza galeria została przeciążona
+        <fa-icon icon="fa-solid fa-face-frown" />
+      </template>
+      <template #subtitle> Prosimy spróbować ponownie za 24h </template>
+    </BaseHeading>
+  </main>
+  <main v-else-if="isLoading">
+    <BaseSpinner />
+  </main>
+  <main v-else class="gallery">
     <GallerySection
       v-for="(gallery, index) in galleries"
       :key="index"
@@ -21,15 +33,25 @@ export default {
   name: 'GalleryPage',
   data() {
     return {
-      isLoading: false,
+      isLoading: true,
+      quotaError: false,
       galleries: [],
     };
   },
-  async created() {
+  async mounted() {
     this.isLoading = true;
-    try {
-      this.galleries = await this.getGalleriesFromStorage();
-    } finally {
+    const sessionStorageIsEmpty = !sessionStorage.getItem('gallery');
+    if (sessionStorageIsEmpty) {
+      try {
+        this.galleries = await this.getGalleriesFromStorage();
+      } catch (error) {
+        if (error.code.includes('quota')) this.quotaError = true;
+        else throw new Error(error);
+      } finally {
+        this.isLoading = false;
+      }
+    } else {
+      this.galleries = this.getItemFromSessionStorage('gallery');
       this.isLoading = false;
     }
   },
@@ -42,6 +64,12 @@ export default {
     },
     getReferencePrefixes(reference) {
       return listAll(reference).then(result => result.prefixes);
+    },
+    setItemInSessionStorage(itemKey, itemValue) {
+      sessionStorage.setItem(itemKey, JSON.stringify(itemValue));
+    },
+    getItemFromSessionStorage(itemKey) {
+      return JSON.parse(sessionStorage.getItem(itemKey));
     },
     async getGalleriesFromStorage() {
       const downloadedGalleries = [];
@@ -71,6 +99,7 @@ export default {
             if (areTitlesMatching) {
               const imageUrl = await getDownloadURL(imageReference);
               this.$set(gallery.images, index, imageUrl);
+              this.setItemInSessionStorage('gallery', downloadedGalleries);
             }
           });
         });

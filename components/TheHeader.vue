@@ -12,7 +12,7 @@
         'header__navigation--displayed': isNavDisplayed,
         'header__navigation--visible': isNavVisible,
       }"
-      :nav-items="navItems"
+      :nav-items="navigationItems"
       :is-nav-visible="isNavVisible"
     />
   </header>
@@ -21,42 +21,48 @@
 <script>
 export default {
   name: 'TheHeader',
+  props: {
+    navigationItems: {
+      type: Array,
+      required: true,
+      default() {
+        return [
+          {
+            name: 'Home',
+            path: '/',
+            submenu: [],
+          },
+          {
+            name: 'About',
+            path: '/about',
+            submenu: [],
+          },
+          {
+            name: "What's new",
+            path: '/news',
+            submenu: [
+              { name: 'Topic 1', path: 'news/topic1' },
+              { name: 'Topic 2', path: 'news/topic2' },
+            ],
+          },
+          {
+            name: 'Gallery',
+            path: '/gallery',
+            submenu: [],
+          },
+          {
+            name: 'Contact',
+            path: '/contact',
+            submenu: [],
+          },
+        ];
+      },
+    },
+  },
   data() {
     return {
       isNavDisplayed: false,
       isNavVisible: false,
-      navItems: [
-        {
-          name: 'Strona Główna',
-          path: '/',
-          submenu: [],
-        },
-        {
-          name: 'O nas',
-          path: '/o-nas',
-          submenu: [],
-        },
-        {
-          name: 'Aktualności',
-          path: '/aktualnosci',
-          submenu: [
-            // This is how you are suppoused to structure 
-            // submenus if there is any need for them:
-            // { name: 'Grecja 2022', path: 'aktualnosci/grecja2022' },
-            // { name: 'Grecja 2022', path: 'aktualnosci/grecja2022' },
-          ],
-        },
-        {
-          name: 'Galeria',
-          path: '/galeria',
-          submenu: [],
-        },
-        {
-          name: 'Kontakt',
-          path: '/kontakt',
-          submenu: [],
-        },
-      ],
     };
   },
   methods: {

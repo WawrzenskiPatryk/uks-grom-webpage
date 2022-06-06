@@ -53,9 +53,14 @@ export default {
   &__title {
     text-transform: uppercase;
     margin-bottom: 0;
+
     margin-top: 3rem;
     @media screen and (min-width: $desktop-min-screen-width) {
       margin-top: 6rem;
+    }
+
+    &:first-child {
+      margin-top: 1rem;
     }
   }
 

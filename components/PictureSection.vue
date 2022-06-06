@@ -58,6 +58,9 @@ export default {
   }
 
   &__texts-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
     padding-bottom: 3%;
   }
 

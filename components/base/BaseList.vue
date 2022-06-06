@@ -1,5 +1,5 @@
 <template>
-  <ul class="base-list">
+  <ul id="base-list" class="base-list">
     <slot />
   </ul>
 </template>
@@ -7,6 +7,10 @@
 <script>
 export default {
   name: 'BaseList',
+  mounted() {
+    const items = [...document.getElementById('base-list').children];
+    items.forEach(item => (item.textContent = item.textContent.trim()));
+  },
 };
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <section class="article-section">
-    <NuxtLink :to="`/${parent}`" class="article-section__back-link">
+    <NuxtLink :to="parentPath" class="article-section__back-link">
       <fa-icon icon="fa-solid fa-arrow-left-long" />
       <span class="article-section__back-link--text">
         <slot name="back-link"> Back </slot>
@@ -13,7 +13,14 @@
       <div
         class="article-section__article-illustration"
         :style="{ backgroundImage: `url(${illustrationUrl})` }"
-      ></div>
+      >
+        <span
+          v-if="tripIsFull"
+          class="article-section__article-illustration--full-background"
+        >
+          BRAK WOLNYCH MIEJSC
+        </span>
+      </div>
 
       <div class="article-section__article-columns-wrapper">
         <div
@@ -43,18 +50,19 @@
 
 <script>
 export default {
-  name: 'ArticleSection',
-  props: {
-    illustrationUrl: {
-      type: String,
-      required: true,
-    },
-  },
+  name: 'ArticleTripSection',
+  inject: ['articleImage', 'articleIsFull'],
   computed: {
-    parent() {
+    parentPath() {
       const routeName = this.$route.name;
       const parentName = routeName.split('-')[0];
-      return parentName;
+      return '/' + parentName;
+    },
+    illustrationUrl() {
+      return this.articleImage();
+    },
+    tripIsFull() {
+      return this.articleIsFull();
     },
   },
 };
@@ -74,6 +82,28 @@ export default {
     max-height: 30rem;
     width: 100%;
     margin: 4rem 0;
+    color: $primary-light;
+    font-weight: 600;
+    overflow: hidden;
+
+    font-size: 8vw;
+    @media screen and (min-width: $desktop-min-screen-width) {
+      font-size: 5vw;
+    }
+    @media screen and (min-width: $content-max-width) {
+      font-size: 7rem;
+    }
+
+    &--full-background {
+      background-color: $backdrop-color;
+      opacity: 0.75;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 5vw;
+    }
   }
 
   &__article-columns-wrapper {
@@ -97,13 +127,13 @@ export default {
   }
 
   &__back-link {
+    display: inline-block;
     color: $primary-color-darken;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
     position: relative;
     top: -2.5rem;
     border-bottom: 1px solid;
-    border-color: $primary-color-darken;
-    padding-bottom: 0.5rem;
+    padding-inline: 0.25rem;
 
     @media screen and (min-width: $tablet-min-screen-width) {
       top: 0;

@@ -1,5 +1,11 @@
 <template>
-  <section class="heading" :style="{ backgroundImage: `url(${pageImage})` }">
+  <section
+    class="heading"
+    :style="{
+      backgroundImage: `url(${pageImage})`,
+      backgroundPosition: pageImagePosition,
+    }"
+  >
     <div class="heading__content-wrapper">
       <h2 class="heading__title">{{ pageTitle }}</h2>
     </div>
@@ -9,32 +15,50 @@
 <script>
 export default {
   name: 'PageHeading',
+  props: {
+    pages: {
+      type: Array,
+      required: true,
+    },
+  },
+  data() {
+    return {
+      pageImagePosition: 'center',
+    };
+  },
   computed: {
     pageTitle() {
       return this.getTitleFromRouteName();
     },
     pageImage() {
-      return this.getHeadingImageFromRouteName();
+      return this.getHeadingImageByRouteName();
     },
   },
   methods: {
     getTitleFromRouteName() {
-      const routeName = this.$route.name;
-      if (routeName === 'aktualnosci') return 'Aktualności';
-      if (routeName.includes('aktualnosci')) {
-        return routeName
-          .slice(11)
-          .replace(/([^0-9])([0-9])/g, '$1 $2')
-          .replace('-', ' ');
-      }
-
-      return routeName.replace(/([^0-9])([0-9])/g, '$1 $2').replace('-', ' ');
+      const routePath = '/' + this.$route.name;
+      let pageTitle;
+      this.pages.forEach(page => {
+        if (routePath === page.path) pageTitle = page.name;
+        else if (routePath.includes(page.path))
+          pageTitle = routePath
+            .slice(page.path.length)
+            .replace(/([^0-9])([0-9])/g, '$1 $2')
+            .replace('-', ' ');
+      });
+      return pageTitle;
     },
-    getHeadingImageFromRouteName() {
-      const routeName = this.$route.name;
-      if (routeName.includes('aktualnosci'))
-        return require('~/assets/images/grecja2022.jpg');
-      return require('~/assets/images/white_red_shirt_kids_football_players.jpg');
+    getHeadingImageByRouteName() {
+      const routePath = '/' + this.$route.name;
+      let imagePath;
+      this.pages.forEach(page => {
+        if (routePath.includes(page.path)) {
+          imagePath = page.image.path;
+          this.pageImagePosition = page.image.position;
+        }
+      });
+
+      return imagePath;
     },
   },
 };
@@ -43,19 +67,16 @@ export default {
 <style lang="scss" scoped>
 .heading {
   color: $primary-light;
+  text-shadow: 0 0 4rem $secondary-dark;
   min-height: 12rem;
   height: 20vh;
-  // background-position: 80% 5%;
-  background-position: center;
   background-size: cover;
   @media screen and (min-width: $tablet-min-screen-width) {
     height: 30vh;
     min-height: 15rem;
-    // background-position: 20% 35%;
   }
   @media screen and (min-width: $desktop-min-screen-width) {
     min-height: 20rem;
-    // background-position: 10% 50%;
   }
 
   &__content-wrapper {

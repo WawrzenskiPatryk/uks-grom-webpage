@@ -1,10 +1,20 @@
 <template>
   <main class="news">
-    <NuxtChild class="news__content" />
+    <NoteRibbon
+      v-show="!hasChildPage"
+      :text="articleNoteText"
+      class="news__note-ribbon"
+    />
 
-    <nav v-if="!hasChildComponent" class="news__navigation">
+    <NuxtChild
+      :image="articles[lastActiveArticleIndex].image"
+      :is-full="articles[lastActiveArticleIndex].isFull"
+      class="news__content"
+    />
+
+    <nav v-if="!hasChildPage" class="news__navigation">
       <NuxtLink
-        v-for="article in articles"
+        v-for="(article, index) in articles"
         :key="article.title"
         :to="article.path"
       >
@@ -12,6 +22,8 @@
           :image-url="article.image"
           :title="article.title"
           :subtitle="article.subtitle"
+          :is-full="article.isFull"
+          @clicked="setActiveArticleIndex(index)"
         />
       </NuxtLink>
     </nav>
@@ -21,45 +33,48 @@
 <script>
 export default {
   name: 'NewsPage',
+  provide() {
+    return {
+      articleImage: () => this.articles[this.lastActiveArticleIndex].image,
+      articleIsFull: () => this.articles[this.lastActiveArticleIndex].isFull,
+    };
+  },
   data() {
     return {
+      lastActiveArticleIndex: 0,
+      articleNoteText:
+        'Za rok planowany wyjazd do Czarnogóry, nad Polskie Morze lub do Zakopanego!',
       articles: [
         {
           title: 'Grecja 2022',
           subtitle:
             'Przedstawiamy ofertę wypoczynku dla aktywnych dzieci i młodzieży w Grecji, nad morzem Egejskim. Opiekę szkoleniowo - wychowawczą pełnić będą czynni nauczyciele posiadający wszystkie niezbędne kwalifikacje do prowadzenia zajęć.',
-          image: require('~/assets/images/grecja2022.jpg'),
+          image: require('~/assets/images/grecja.jpg'),
           path: '/aktualnosci/grecja2022',
+          isFull: false,
         },
         {
-          title: 'Grecja 2021',
+          title: 'Jarosławiec 2022',
           subtitle:
-            'Przedstawiamy ofertę wypoczynku dla aktywnych dzieci i młodzieży w Grecji, nad morzem Egejskim. Opiekę szkoleniowo - wychowawczą pełnić będą czynni nauczyciele posiadający wszystkie niezbędne kwalifikacje do prowadzenia zajęć.',
-          image: require('~/assets/images/grecja2022.jpg'),
-          path: '/aktualnosci/grecja2022',
-        },
-        {
-          title: 'Grecja 2020',
-          subtitle:
-            'Przedstawiamy ofertę wypoczynku dla aktywnych dzieci i młodzieży w Grecji, nad morzem Egejskim. Opiekę szkoleniowo - wychowawczą pełnić będą czynni nauczyciele posiadający wszystkie niezbędne kwalifikacje do prowadzenia zajęć.',
-          image: require('~/assets/images/grecja2022.jpg'),
-          path: '/aktualnosci/grecja2022',
-        },
-        {
-          title: 'Grecja 2019',
-          subtitle:
-            'Przedstawiamy ofertę wypoczynku dla aktywnych dzieci i młodzieży w Grecji, nad morzem Egejskim. Opiekę szkoleniowo - wychowawczą pełnić będą czynni nauczyciele posiadający wszystkie niezbędne kwalifikacje do prowadzenia zajęć.',
-          image: require('~/assets/images/grecja2022.jpg'),
-          path: '/aktualnosci/grecja2022',
+            'Ośrodek Barka z dostępnym podgrzewanym basenem. Zakwaterowanie w domkach 6-osobowych z tarasem i pełnym węzłem sanitarnym + TV, wi-fi na stołówce, bilard , pingpong.',
+          image: require('~/assets/images/jaroslawiec.jpg'),
+          path: '/aktualnosci/jarosławiec2022',
+          isFull: true,
         },
       ],
     };
   },
   computed: {
-    hasChildComponent() {
+    hasChildPage() {
       const routeName = this.$route.name;
-      if (routeName.includes('aktualnosci-')) return true;
+      const expectedPrefix = 'aktualnosci-';
+      if (routeName.includes(expectedPrefix)) return true;
       return false;
+    },
+  },
+  methods: {
+    setActiveArticleIndex(index) {
+      this.lastActiveArticleIndex = index;
     },
   },
 };
@@ -67,12 +82,17 @@ export default {
 
 <style lang="scss" scoped>
 .news {
+  position: relative;
   &__navigation {
     width: 100%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 5rem;
+  }
+
+  &__note-ribbon {
+    margin: -2rem 0 -1rem 0;
   }
 }
 </style>

@@ -1,10 +1,29 @@
 <template>
   <MaintenancePlaceholder v-if="isMaintenance" />
+
+  <div v-else-if="isLoading" class="layout">
+    <div v-if="isLoading" class="layout__spinner">
+      <BaseSpinner />
+    </div>
+  </div>
+
   <div v-else class="layout">
-    <TheHeader class="layout__header" />
-    <PageSlider v-if="isIndex" class="layout__heading" />
-    <PageHeading v-else-if="pageExists" class="layout__heading" />
-    <Nuxt class="layout__page" />
+    <TheHeader :navigation-items="pages" class="layout__header" />
+
+    <PageSlider
+      v-show="!isLoading"
+      v-if="isIndex"
+      :index-page="pages[0]"
+      class="layout__heading"
+    />
+    <PageHeading
+      v-show="!isLoading"
+      v-else-if="pageExists"
+      :pages="pages"
+      class="layout__heading"
+    />
+    <Nuxt v-show="!isLoading" class="layout__page" />
+
     <TheFooter class="layout__footer" />
   </div>
 </template>
@@ -13,7 +32,57 @@
 export default {
   data() {
     return {
+      isLoading: true,
       isMaintenance: false,
+      pages: [
+        {
+          name: 'Strona Główna',
+          path: '/',
+          image: {
+            path: require('~/assets/images/grecja.jpg'),
+            position: '50% 62%',
+          },
+          slide: {
+            title: 'Grecja 2022',
+            subtitle:
+              'Przedstawiamy ofertę wypoczynku dla aktywnych dzieci i młodzieży w Grecji, nad morzem Egejskim. Opiekę szkoleniowo - wychowawczą pełnić będą czynni nauczyciele posiadający wszystkie niezbędne kwalifikacje do prowadzenia zajęć.',
+            buttonPath: '/aktualnosci/grecja2022',
+            buttonLabel: 'Zobacz szczegóły',
+          },
+        },
+        {
+          name: 'O nas',
+          path: '/o-nas',
+          image: {
+            path: require('~/assets/images/onas.jpg'),
+            position: '50% 42%',
+          },
+        },
+        {
+          name: 'Aktualności',
+          path: '/aktualnosci',
+          image: {
+            path: require('~/assets/images/katy_rybackie_ponton.jpg'),
+            position: '50% 46%',
+          },
+        },
+        {
+          name: 'Galeria',
+          path: '/galeria',
+          image: {
+            path: require('~/assets/images/white_red_shirt_kids_football_players.jpg'),
+            position: '50% 62%',
+          },
+        },
+        {
+          name: 'Kontakt',
+          path: '/kontakt',
+          image: {
+            path: require('~/assets/images/white_red_shirt_kids_football_players.jpg'),
+            position: '50% 62%',
+          },
+        },
+      ],
     };
   },
   computed: {
@@ -23,6 +92,17 @@ export default {
     },
     pageExists() {
       return !!this.$route.name;
+    },
+  },
+  mounted() {
+    window.addEventListener('load', this.disableLoading);
+  },
+  destroyed() {
+    window.removeEventListener('load', this.disableLoading);
+  },
+  methods: {
+    disableLoading() {
+      this.isLoading = false;
     },
   },
 };
@@ -43,13 +123,19 @@ export default {
     top: 0;
   }
 
-  &__page {
+  &__page,
+  &__spinner {
     display: flex;
     flex-direction: column;
     gap: 8vh;
     align-self: center;
     max-width: $content-max-width;
     margin: 10vh 10vw;
+  }
+
+  &__spinner {
+    min-height: 50vh;
+    justify-content: center;
   }
 }
 </style>

@@ -18,10 +18,10 @@
           <span class="footer__details-element">
             <strong>Dane do przelewu</strong>
           </span>
-          <span class="footer__details-element">Bank Pekao S.A.</span>
           <span class="footer__details-element">
             12 1240 2470 1111 0010 6881 3209
           </span>
+          <span class="footer__details-element">Bank Pekao S.A.</span>
         </div>
       </div>
 

@@ -48,4 +48,11 @@ export default {
   styleResources: {
     scss: ['./assets/scss/main.scss'],
   },
+
+  loading: {
+    color: '#0a92e0',
+    height: '3px',
+    continuos: true,
+    throttle: 200,
+  },
 };

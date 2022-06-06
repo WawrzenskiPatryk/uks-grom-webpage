@@ -1,12 +1,12 @@
 <template>
-  <ArticleSection :illustration-url="image">
-    <template #back-link>Powrót</template>
+  <ArticleTripSection :illustration-url="image" :is-full="isFull">
+    <template #back-link>Aktualności</template>
 
     <template #article-heading>
-      <BaseHeading>
+      <BaseHeading title subtitle deco>
         <template #title> Wypoczynek dla dzieci i młodzieży </template>
         <template #subtitle>
-          <strong> 28 czerwca - 7 sierpnia 2022 r. </strong>
+          <strong> 28 czerwca - 7 lipca 2022 r. </strong>
           <br />
           <span class="text-colored"> Cena: 1000 złotych + 320 euro </span>
         </template>
@@ -84,9 +84,9 @@
       <ArticleParagraph type="centered">
         <strong class="upper"> Numer konta do wpłat: </strong>
         <br />
-        <strong class="text-colored"> Bank Pekao S.A. </strong>
-        <br />
         <strong class="text-colored"> 12 1240 2470 1111 0010 6881 3209 </strong>
+        <br />
+        <strong class="text-colored"> Bank Pekao S.A. </strong>
       </ArticleParagraph>
 
       <ArticleParagraph type="centered">
@@ -102,24 +102,21 @@
       <ArticleParagraph type="centered">
         <strong> Do pobrania: </strong>
         <br />
-        <BaseLink
+        <DownloadLink
           path="/downloads/KARTA-KWALIFIKACYJNA-UCZESTNIKA-WYPOCZYNKU-GRECJA-2022.odt"
-          download
         >
           Karta uczestnika wypoczynku
-        </BaseLink>
+        </DownloadLink>
+        <DownloadLink path="/downloads/info-2022-grecja.odt">
+          Informacje przed wyjazdem
+        </DownloadLink>
       </ArticleParagraph>
     </template>
-  </ArticleSection>
+  </ArticleTripSection>
 </template>
 
 <script>
 export default {
   name: 'NewsGrecja2022',
-  data() {
-    return {
-      image: require('~/assets/images/grecja2022.jpg'),
-    };
-  },
 };
 </script>
