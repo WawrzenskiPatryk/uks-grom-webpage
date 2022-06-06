@@ -1,6 +1,10 @@
 <template>
   <main class="news">
-    <NoteRibbon v-show="!hasChildPage" :text="articleNoteText" />
+    <NoteRibbon
+      v-show="!hasChildPage"
+      :text="articleNoteText"
+      class="news__note-ribbon"
+    />
 
     <NuxtChild
       :image="articles[lastActiveArticleIndex].image"
@@ -63,7 +67,8 @@ export default {
   computed: {
     hasChildPage() {
       const routeName = this.$route.name;
-      if (routeName.includes('aktualnosci-')) return true;
+      const expectedPrefix = 'aktualnosci-';
+      if (routeName.includes(expectedPrefix)) return true;
       return false;
     },
   },
@@ -84,6 +89,10 @@ export default {
     justify-content: center;
     flex-wrap: wrap;
     gap: 5rem;
+  }
+
+  &__note-ribbon {
+    margin: -2rem 0 -1rem 0;
   }
 }
 </style>

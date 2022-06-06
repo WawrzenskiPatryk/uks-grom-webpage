@@ -107,7 +107,9 @@
         >
           Karta uczestnika wypoczynku
         </DownloadLink>
-        <!-- <DownloadLink path="/"> Informacje przed wyjazdem </DownloadLink> -->
+        <DownloadLink path="/downloads/info-2022-grecja.odt">
+          Informacje przed wyjazdem
+        </DownloadLink>
       </ArticleParagraph>
     </template>
   </ArticleTripSection>

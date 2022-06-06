@@ -1,6 +1,6 @@
 <template>
   <section class="article-section">
-    <NuxtLink :to="`/${parent}`" class="article-section__back-link">
+    <NuxtLink :to="parentPath" class="article-section__back-link">
       <fa-icon icon="fa-solid fa-arrow-left-long" />
       <span class="article-section__back-link--text">
         <slot name="back-link"> Back </slot>
@@ -15,7 +15,7 @@
         :style="{ backgroundImage: `url(${illustrationUrl})` }"
       >
         <span
-          v-if="isFull"
+          v-if="tripIsFull"
           class="article-section__article-illustration--full-background"
         >
           BRAK WOLNYCH MIEJSC
@@ -53,15 +53,15 @@ export default {
   name: 'ArticleTripSection',
   inject: ['articleImage', 'articleIsFull'],
   computed: {
-    parent() {
+    parentPath() {
       const routeName = this.$route.name;
       const parentName = routeName.split('-')[0];
-      return parentName;
+      return '/' + parentName;
     },
     illustrationUrl() {
       return this.articleImage();
     },
-    isFull() {
+    tripIsFull() {
       return this.articleIsFull();
     },
   },

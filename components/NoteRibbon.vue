@@ -1,8 +1,8 @@
 <template>
-  <div class="article-note">
-    <p class="article-note__text">
+  <div class="note-ribbon">
+    <p class="note-ribbon__text">
       <fa-icon
-        class="article-note__icon"
+        class="note-ribbon__icon"
         icon="fa-solid fa-circle-exclamation"
       />
       {{ text }}
@@ -25,8 +25,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.article-note {
-  margin: -2rem 0 -1rem 0;
+.note-ribbon {
   border-radius: 1rem;
   box-shadow: $secondary-shadow 0 0 1rem;
   animation: bounce 6s infinite ease-out;
