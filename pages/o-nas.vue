@@ -1,6 +1,6 @@
 <template>
   <main class="about">
-    <BaseHeading>
+    <BaseHeading title subtitle deco>
       <template #title>
         Uczniowski Klub Sportowy GROM SP2 Lublin powstał 31 marca 2016 roku.
       </template>
@@ -52,8 +52,45 @@
         Lublin, AZS Lublin oraz wieloma innymi.
       </span>
     </p>
-    <BaseHeading type="aside">
-      <template #title>Organizujemy:</template>
+
+    <BaseHeading title subtitle aside deco>
+      <template #title>
+        <span class="uppe">
+          Główne cele wychowawczo - profilaktyczne naszego klubu
+        </span>
+      </template>
+      <template #subtitle>
+        <BaseList>
+          <li>
+            Wszechstronny rozwój ucznia: wymiar etyczno- moralny, intelektualny,
+            zdrowotny, emocjonalny
+          </li>
+          <li>Przygotowanie do życia w rodzinie, grupie i społeczeństwie.</li>
+          <li>
+            Kształtowanie postaw, respektowanie norm społecznych i wychowanie do
+            wartości.
+          </li>
+          <li>
+            Kształtowanie poczucia tożsamości narodowej oraz otwarcie się na
+            wartości europejskie.
+          </li>
+          <li>Uwrażliwianie na naturalne środowisko przyrodnicze.</li>
+          <li>
+            Kształtowanie poczucia przynależności do społeczności szkolnej,
+            lokalnej i regionalnej, świadomości swoich praw i obowiązków.
+          </li>
+          <li>
+            Kształtowanie i promowanie zdrowego stylu życia. Profilaktyka
+            uzależnień i zachowań agresywnych oraz przeciwdziałanie pojawianiu
+            się zachowań ryzykownych.
+          </li>
+          <li>Współpraca z rodzicami oraz instytucjami wspomagającymi.</li>
+        </BaseList>
+      </template>
+    </BaseHeading>
+
+    <BaseHeading title subtitle aside>
+      <template #title>Organizujemy</template>
       <template #subtitle>
         <BaseList>
           <li>Zajęcia profilaktyczne</li>
@@ -64,7 +101,7 @@
             młodzieży
           </li>
           <li>Zimowiska profilaktyczno – sportowe</li>
-          <li>Obozy profilaktyczno – sportowe w kraju i zagranicą</li>
+          <li>Obozy profilaktyczno – sportowe w kraju i za granicą</li>
         </BaseList>
       </template>
     </BaseHeading>

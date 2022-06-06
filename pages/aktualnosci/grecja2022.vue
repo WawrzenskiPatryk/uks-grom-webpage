@@ -3,7 +3,7 @@
     <template #back-link>Aktualności</template>
 
     <template #article-heading>
-      <BaseHeading>
+      <BaseHeading title subtitle deco>
         <template #title> Wypoczynek dla dzieci i młodzieży </template>
         <template #subtitle>
           <strong> 28 czerwca - 7 lipca 2022 r. </strong>

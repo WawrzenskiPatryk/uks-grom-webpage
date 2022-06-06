@@ -2,7 +2,7 @@
   <main class="contact">
     <section class="contact__info">
       <div class="contact__info-items">
-        <BaseHeading class="contact__address-info" type="aside">
+        <BaseHeading title subtitle aside deco class="contact__address-info">
           <template #title> Adres </template>
           <template #subtitle>
             <BaseParagraph>
@@ -12,7 +12,7 @@
           </template>
         </BaseHeading>
 
-        <BaseHeading class="contact__address-info" type="aside">
+        <BaseHeading title subtitle aside deco class="contact__address-info">
           <template #title>Telefon</template>
           <template #subtitle>
             <BaseParagraph>
@@ -22,7 +22,7 @@
           </template>
         </BaseHeading>
 
-        <BaseHeading class="contact__address-info" type="aside">
+        <BaseHeading title subtitle aside deco class="contact__address-info">
           <template #title> Dane do przelewu </template>
           <template #subtitle>
             <BaseParagraph> Bank Pekao S.A. </BaseParagraph>

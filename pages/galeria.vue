@@ -1,6 +1,6 @@
 <template>
   <main v-if="quotaError && !isLoading">
-    <BaseHeading>
+    <BaseHeading title subtitle deco>
       <template #title>
         Nasza galeria została przeciążona
         <fa-icon icon="fa-solid fa-face-frown" />

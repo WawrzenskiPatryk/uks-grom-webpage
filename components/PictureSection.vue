@@ -35,7 +35,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8vw;
+  gap: 6vw;
   margin: 2vh 0;
 
   @media screen and (min-width: $tablet-min-screen-width) {
@@ -58,6 +58,9 @@ export default {
   }
 
   &__texts-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
     padding-bottom: 3%;
   }
 

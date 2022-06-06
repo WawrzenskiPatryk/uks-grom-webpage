@@ -1,12 +1,12 @@
 <template>
-  <section class="base-heading" :class="positionStyle">
-    <h3 class="base-heading__title">
+  <section class="base-heading" :class="headingStyle">
+    <h3 v-if="title" class="base-heading__title">
       <slot name="title">
         Lorem ipsum dolor. <br />
         Consectetur adipisicing elit.
       </slot>
     </h3>
-    <h4 class="base-heading__subtitle">
+    <h4 v-if="subtitle" class="base-heading__subtitle">
       <slot name="subtitle">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis,
         tenetur dicta illo officia ea expedita unde dolor, nostrum nemo, neque
@@ -21,17 +21,27 @@
 export default {
   name: 'BaseHeading',
   props: {
-    type: {
-      type: String,
-      default: 'main',
-    },
+    aside: Boolean,
+    deco: Boolean,
+    title: Boolean,
+    subtitle: Boolean,
   },
   computed: {
+    headingStyle() {
+      return this.positionStyle + ' ' + this.decoratedStyle;
+    },
     positionStyle() {
-      if (this.type === 'aside') {
+      if (this.aside) {
         return 'base-heading--aside';
       } else {
         return 'base-heading--main';
+      }
+    },
+    decoratedStyle() {
+      if (this.deco) {
+        return 'base-heading--decorated';
+      } else {
+        return '';
       }
     },
   },
@@ -42,20 +52,6 @@ export default {
 .base-heading {
   display: inline-block;
   position: relative;
-  &:before {
-    content: '';
-    display: inline-block;
-    position: relative;
-    background-image: $primary-gradient;
-    border-radius: 100rem;
-    height: 0.8rem;
-    width: 4rem;
-      margin: 2rem 0;
-    @media screen and (min-width: $tablet-min-screen-width) {
-      height: 1rem;
-      width: 6.5rem;
-    }
-  }
 
   &--main {
     text-align: center;
@@ -71,6 +67,22 @@ export default {
     text-align: left;
   }
 
+  &--decorated {
+    &:before {
+      content: '';
+      display: inline-block;
+      position: relative;
+      background-image: $primary-gradient;
+      border-radius: 100rem;
+      height: 0.8rem;
+      width: 4rem;
+      margin: 2rem 0;
+      @media screen and (min-width: $tablet-min-screen-width) {
+        height: 1rem;
+        width: 6.5rem;
+      }
+    }
+  }
   &__title {
     line-height: 1.2;
     margin-bottom: $default-font-size;
