@@ -7,8 +7,8 @@
 <style lang="scss" scoped>
 .base-spinner {
   display: block;
-  width: 100%;
-  height: 100%;
+  // width: 100%;
+  // height: 100%;
 
   font-size: $small-title-font-size;
   @media screen and (min-width: $tablet-min-screen-width) {

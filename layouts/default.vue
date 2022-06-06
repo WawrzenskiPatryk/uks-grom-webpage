@@ -1,14 +1,33 @@
 <template>
   <MaintenancePlaceholder v-if="isMaintenance" />
+
+  <div v-else-if="isLoading" class="layout">
+    <div v-if="isLoading" class="layout__spinner">
+      <BaseSpinner />
+    </div>
+  </div>
+
   <div v-else class="layout">
     <TheHeader :navigation-items="pages" class="layout__header" />
-    <PageSlider v-if="isIndex" :index-page="pages[0]" class="layout__heading" />
+
+    <!-- <div v-if="isLoading" class="layout__spinner">
+      <BaseSpinner />
+    </div> -->
+
+    <PageSlider
+      v-show="!isLoading"
+      v-if="isIndex"
+      :index-page="pages[0]"
+      class="layout__heading"
+    />
     <PageHeading
+      v-show="!isLoading"
       v-else-if="pageExists"
       :pages="pages"
       class="layout__heading"
     />
-    <Nuxt class="layout__page" />
+    <Nuxt v-show="!isLoading" class="layout__page" />
+
     <TheFooter class="layout__footer" />
   </div>
 </template>
@@ -17,6 +36,7 @@
 export default {
   data() {
     return {
+      isLoading: true,
       isMaintenance: false,
       pages: [
         {
@@ -78,6 +98,17 @@ export default {
       return !!this.$route.name;
     },
   },
+  mounted() {
+    window.addEventListener('load', this.disableLoading);
+  },
+  destroyed() {
+    window.removeEventListener('load', this.disableLoading);
+  },
+  methods: {
+    disableLoading() {
+      this.isLoading = false;
+    },
+  },
 };
 </script>
 
@@ -96,13 +127,19 @@ export default {
     top: 0;
   }
 
-  &__page {
+  &__page,
+  &__spinner {
     display: flex;
     flex-direction: column;
     gap: 8vh;
     align-self: center;
     max-width: $content-max-width;
     margin: 10vh 10vw;
+  }
+
+  &__spinner {
+    min-height: 50vh;
+    justify-content: center;
   }
 }
 </style>
