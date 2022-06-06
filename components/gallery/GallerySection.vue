@@ -63,14 +63,10 @@ export default {
   },
   mounted() {
     this.setWindowWidth();
-    window.addEventListener('resize', () => {
-      this.setWindowWidth();
-    });
+    window.addEventListener('resize', this.setWindowWidth);
   },
   destroyed() {
-    window.removeEventListener('resize', () => {
-      this.setWindowWidth();
-    });
+    window.removeEventListener('resize', this.setWindowWidth);
   },
   methods: {
     openLightBox(index) {

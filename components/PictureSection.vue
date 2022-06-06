@@ -35,7 +35,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6vw;
+  gap: 8vw;
   margin: 2vh 0;
 
   @media screen and (min-width: $tablet-min-screen-width) {
