@@ -10,10 +10,6 @@
   <div v-else class="layout">
     <TheHeader :navigation-items="pages" class="layout__header" />
 
-    <!-- <div v-if="isLoading" class="layout__spinner">
-      <BaseSpinner />
-    </div> -->
-
     <PageSlider
       v-show="!isLoading"
       v-if="isIndex"
