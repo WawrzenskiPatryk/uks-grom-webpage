@@ -8,7 +8,7 @@
       </template>
     </BaseHeading> -->
 
-    <PictureSection :image="require('~/assets/images/grecja.jpg')">
+    <PictureSection :image="require('~/assets/images/onas.jpg')">
       <BaseHeading title subtitle aside deco>
         <template #title>
           Zajęcia, zawody i festyny profilaktyczne i rekreacyjno - sportowe
@@ -27,15 +27,14 @@
 
     <PictureSection
       direction="right"
-      :image="require('~/assets/images/grecja.jpg')"
+      :image="require('~/assets/images/katy_rybackie_ponton.jpg')"
     >
       <BaseHeading title subtitle aside deco>
         <template #title> Wycieczki i kolonie </template>
         <template #subtitle>
-          Organizujemy obozy wakacyjne i zimowiska profilaktyczno - sportowe
-          zarówno w kraju jak i za granicą. <br />
-          Idealna forma wypoczynku dla aktywnych dzieci i młodzieży, promująca
-          zdrowy styl życia.
+          Organizujemy obozy wakacyjne i zimowiska profilaktyczno - sportowe dla
+          dzieci i młodzieży zarówno w kraju jak i za granicą. Stanowią one idealną formę
+          wypoczynku promującą zdrowy styl życia.
         </template>
       </BaseHeading>
 
