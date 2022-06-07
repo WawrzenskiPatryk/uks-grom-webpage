@@ -1,6 +1,6 @@
 <template>
   <main class="index">
-    <PictureSection :image="require('~/assets/images/onas.jpg')">
+    <PictureSection :image="require('~/assets/images/galeria.jpg')">
       <BaseHeading title subtitle :aside="isAside" deco>
         <template #title>
           Zajęcia, zawody i festyny

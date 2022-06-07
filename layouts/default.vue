@@ -55,7 +55,7 @@ export default {
           path: '/o-nas',
           image: {
             path: require('~/assets/images/onas.jpg'),
-            position: '50% 42%',
+            position: '0% 9%',
           },
         },
         {
@@ -70,16 +70,16 @@ export default {
           name: 'Galeria',
           path: '/galeria',
           image: {
-            path: require('~/assets/images/white_red_shirt_kids_football_players.jpg'),
-            position: '50% 62%',
+            path: require('~/assets/images/galeria.jpg'),
+            position: '50% 38%',
           },
         },
         {
           name: 'Kontakt',
           path: '/kontakt',
           image: {
-            path: require('~/assets/images/white_red_shirt_kids_football_players.jpg'),
-            position: '50% 62%',
+            path: require('~/assets/images/kontakt.jpg'),
+            position: '50% 40%',
           },
         },
       ],
