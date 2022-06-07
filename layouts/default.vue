@@ -96,6 +96,7 @@ export default {
   },
   mounted() {
     window.addEventListener('load', this.disableLoading);
+    setTimeout(this.disableLoading, 1500);
   },
   destroyed() {
     window.removeEventListener('load', this.disableLoading);
