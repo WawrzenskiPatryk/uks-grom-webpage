@@ -2,7 +2,7 @@
   <main class="news">
     <NoteRibbon
       v-show="!hasChildPage"
-      :text="articleNoteText"
+      :texts="articleNoteTexts"
       class="news__note-ribbon"
     />
 
@@ -42,8 +42,10 @@ export default {
   data() {
     return {
       lastActiveArticleIndex: 0,
-      articleNoteText:
+      articleNoteTexts: [
         'Za rok planowany wyjazd do Czarnogóry, nad Polskie Morze lub do Zakopanego!',
+        'Lorem ipsum, dolor sit amet consectetur adipisicing elit laboriosam eaque, consectetur adipisicing elit laboriosam eaque.',
+      ],
       articles: [
         {
           title: 'Grecja 2022',
