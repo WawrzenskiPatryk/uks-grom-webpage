@@ -35,7 +35,7 @@ export default {
       isBlinking: false,
       chosenTextIndex: 0,
       animationTime: 4000,
-      blinkingTime: 1000,
+      blinkingTime: 1100,
     };
   },
   computed: {
@@ -153,7 +153,10 @@ export default {
   15% {
     opacity: 1;
   }
-  25% {
+  23% {
+    opacity: 0;
+  }
+  27% {
     opacity: 0;
   }
   35% {
