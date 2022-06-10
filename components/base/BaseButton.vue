@@ -1,5 +1,5 @@
 <template>
-  <button class="base-button" :class="buttonType" @click="animateClick">
+  <button class="base-button" :class="buttonType" @mousedown="animateClick">
     {{ label }}
   </button>
 </template>
@@ -15,11 +15,9 @@ export default {
     buttonType() {
       if (this.type === 'hollow-white' || this.type === 'hollow')
         return 'base-button--hollow-white';
-
       if (this.type === 'hollow-color') return 'base-button--hollow-color';
       if (this.type === 'hollow-dark') return 'base-button--hollow-dark';
-
-      return 'base-button--filled';
+      else return 'base-button--filled';
     },
   },
   methods: {
