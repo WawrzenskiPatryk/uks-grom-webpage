@@ -34,8 +34,8 @@ export default {
     return {
       isBlinking: false,
       chosenTextIndex: 0,
-      animationTime: 6000,
-      blinkingTime: 1150,
+      animationTime: 4000,
+      blinkingTime: 1000,
     };
   },
   computed: {
@@ -51,11 +51,11 @@ export default {
       const textsArrayLength = this.texts.length;
 
       if (textsArrayLength > 1) {
-        setTimeout(() => {
-          this.isBlinking = true;
-        }, this.animationTime);
+        this.isBlinking = true;
 
         setTimeout(() => {
+          this.chosenTextIndex++;
+
           setInterval(() => {
             if (this.chosenTextIndex + 1 < textsArrayLength)
               this.chosenTextIndex++;
@@ -135,16 +135,16 @@ export default {
   15% {
     transform: translateX(0);
   }
-  18% {
+  20% {
     transform: translateX(-1rem);
   }
-  21% {
+  25% {
     transform: translateX(1rem);
   }
-  24% {
+  30% {
     transform: translateX(-0.5rem);
   }
-  27% {
+  35% {
     transform: translateX(0);
   }
 }
@@ -153,10 +153,10 @@ export default {
   15% {
     opacity: 1;
   }
-  21% {
+  25% {
     opacity: 0;
   }
-  27% {
+  35% {
     opacity: 1;
   }
 }

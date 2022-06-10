@@ -43,8 +43,8 @@ export default {
     return {
       lastActiveArticleIndex: 0,
       articleNoteTexts: [
+        'W ferie planujemy wyjazd na narty - więcej informacji w maju!',
         'Za rok planowany wyjazd do Czarnogóry, nad Polskie Morze lub do Zakopanego!',
-        'Lorem ipsum, dolor sit amet consectetur adipisicing elit laboriosam eaque, consectetur adipisicing elit laboriosam eaque.',
       ],
       articles: [
         {
