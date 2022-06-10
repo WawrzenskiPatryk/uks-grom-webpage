@@ -1,7 +1,7 @@
 <template>
   <main class="news">
     <NoteRibbon
-      v-show="!hasChildPage"
+      v-if="!hasChildPage"
       :texts="articleNoteTexts"
       class="news__note-ribbon"
     />

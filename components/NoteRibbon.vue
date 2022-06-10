@@ -32,9 +32,10 @@ export default {
   },
   data() {
     return {
+      isBlinking: false,
       chosenTextIndex: 0,
       animationTime: 6000,
-      isBlinking: false,
+      blinkingTime: 1150,
     };
   },
   computed: {
@@ -42,13 +43,12 @@ export default {
       return { animationDuration: this.animationTime + 'ms' };
     },
   },
-  created() {
+  mounted() {
     this.switchText();
   },
   methods: {
     switchText() {
       const textsArrayLength = this.texts.length;
-      const blinkingTime = 1150;
 
       if (textsArrayLength > 1) {
         setTimeout(() => {
@@ -61,7 +61,7 @@ export default {
               this.chosenTextIndex++;
             else this.chosenTextIndex = 0;
           }, this.animationTime);
-        }, blinkingTime);
+        }, this.blinkingTime);
       }
     },
   },
