@@ -1,18 +1,14 @@
 <template>
-  <div class="note-ribbon" :style="animationDurationStyle">
-    <p class="note-ribbon__text-container">
-      <fa-icon
-        class="note-ribbon__icon"
-        icon="fa-solid fa-circle-exclamation"
-      />
-      <span
-        class="note-ribbon__text"
-        :class="{ 'note-ribbon__text--blinking': isBlinking }"
-        :style="animationDurationStyle"
-      >
+  <div class="note-ribbon">
+    <div class="note-ribbon__content" :style="animationDurationStyle">
+      <p class="note-ribbon__text">
+        <fa-icon
+          class="note-ribbon__icon"
+          icon="fa-solid fa-circle-exclamation"
+        />
         {{ texts[chosenTextIndex] }}
-      </span>
-    </p>
+      </p>
+    </div>
   </div>
 </template>
 
@@ -34,8 +30,7 @@ export default {
     return {
       isBlinking: false,
       chosenTextIndex: 0,
-      animationTime: 4000,
-      blinkingTime: 1100,
+      animationTime: 4500,
     };
   },
   computed: {
@@ -53,15 +48,11 @@ export default {
       if (textsArrayLength > 1) {
         this.isBlinking = true;
 
-        setTimeout(() => {
-          this.chosenTextIndex++;
-
-          setInterval(() => {
-            if (this.chosenTextIndex + 1 < textsArrayLength)
-              this.chosenTextIndex++;
-            else this.chosenTextIndex = 0;
-          }, this.animationTime);
-        }, this.blinkingTime);
+        setInterval(() => {
+          if (this.chosenTextIndex + 1 < textsArrayLength)
+            this.chosenTextIndex++;
+          else this.chosenTextIndex = 0;
+        }, this.animationTime);
       }
     },
   },
@@ -70,20 +61,28 @@ export default {
 
 <style lang="scss" scoped>
 .note-ribbon {
-  border-radius: 1rem;
-  box-shadow: $secondary-shadow 0 0 1rem;
-  animation: bounce infinite ease-out;
+  // border: 1px solid red;
+  // height: 5rem;
 
-  @media screen and (min-width: $tablet-min-screen-width) {
-    align-self: flex-start;
-    box-shadow: $secondary-shadow -1rem 0 1rem;
-  }
-  @media screen and (min-width: $desktop-min-screen-width) {
-    align-self: flex-start;
-    box-shadow: $secondary-shadow -3rem 0 1rem;
+  &__content {
+    // position: absolute;
+    border-radius: 1rem;
+    box-shadow: $secondary-shadow 0 0 1rem;
+    animation: switch-down infinite ease;
+
+    @media screen and (min-width: $tablet-min-screen-width) {
+      animation: switch-left infinite ease;
+      align-self: flex-start;
+      box-shadow: $secondary-shadow -1rem 0 1rem;
+      width: fit-content;
+    }
+    @media screen and (min-width: $desktop-min-screen-width) {
+      align-self: flex-start;
+      box-shadow: $secondary-shadow -3rem 0 1rem;
+    }
   }
 
-  &__text-container {
+  &__text {
     position: relative;
     background-color: $secondary-color;
     font-weight: 600;
@@ -111,12 +110,6 @@ export default {
     }
   }
 
-  &__text {
-    &--blinking {
-      animation: text-blinking infinite ease-out;
-    }
-  }
-
   &__icon {
     display: inline-block;
     position: absolute;
@@ -131,36 +124,43 @@ export default {
   }
 }
 
-@keyframes bounce {
-  15% {
-    transform: translateX(0);
+$switch-left-value: 2rem;
+$switch-down-value: 1rem;
+
+@keyframes switch-left {
+  0% {
+    opacity: 0;
+    transform: translateX($switch-left-value);
   }
-  20% {
-    transform: translateX(-1rem);
+  10% {
+    opacity: 1;
+    transform: translateX(0rem);
   }
-  25% {
-    transform: translateX(1rem);
+  90% {
+    opacity: 1;
+    transform: translateX(0rem);
   }
-  30% {
-    transform: translateX(-0.5rem);
-  }
-  35% {
-    transform: translateX(0);
+  100% {
+    opacity: 0;
+    transform: translateX(-$switch-left-value);
   }
 }
-
-@keyframes text-blinking {
-  15% {
-    opacity: 1;
-  }
-  23% {
+@keyframes switch-down {
+  0% {
     opacity: 0;
+    transform: translateY(-$switch-down-value);
   }
-  27% {
-    opacity: 0;
-  }
-  35% {
+  10% {
     opacity: 1;
+    transform: translateY(0rem);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY($switch-down-value);
   }
 }
 </style>
