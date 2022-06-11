@@ -24,7 +24,9 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~assets/scss/main.scss',
+    '~/assets/scss/reset.scss',
+    '~/assets/scss/typography.scss',
+    '~/assets/scss/variables.scss',
     '@fortawesome/fontawesome-svg-core/styles.css',
   ],
 
@@ -47,7 +49,7 @@ export default {
   build: {},
 
   styleResources: {
-    scss: ['./assets/scss/main.scss'],
+    scss: ['./assets/scss/variables.scss'],
   },
 
   loading: {
