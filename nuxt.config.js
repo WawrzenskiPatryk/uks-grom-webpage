@@ -26,7 +26,6 @@ export default {
   css: [
     '~/assets/scss/reset.scss',
     '~/assets/scss/typography.scss',
-    '~/assets/scss/variables.scss',
     '@fortawesome/fontawesome-svg-core/styles.css',
   ],
 
@@ -49,7 +48,7 @@ export default {
   build: {},
 
   styleResources: {
-    scss: ['./assets/scss/variables.scss'],
+    scss: ['~/assets/scss/variables.scss'],
   },
 
   loading: {
