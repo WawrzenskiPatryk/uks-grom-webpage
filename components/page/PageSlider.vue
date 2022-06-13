@@ -49,7 +49,8 @@ export default {
 .slider {
   text-shadow: 0 0 4rem $secondary-dark;
   background-size: cover;
-  height: calc(100vh - $header-height);
+  // height: calc(100vh - $header-height);
+  height: 100vh;
   color: $primary-light;
 
   &__content-wrapper {

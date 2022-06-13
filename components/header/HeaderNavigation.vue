@@ -8,6 +8,7 @@
         :path="item.path"
         :submenu="item.submenu"
         :is-nav-visible="isNavVisible"
+        :is-transparent="isTransparent"
       />
     </ul>
   </nav>
@@ -19,6 +20,7 @@ export default {
   props: {
     navItems: { type: Array, required: true },
     isNavVisible: { type: Boolean, required: true },
+    isTransparent: { type: Boolean, required: true },
   },
 };
 </script>
@@ -43,6 +45,7 @@ export default {
     box-shadow: none;
     padding: 0 1rem;
     border-radius: none;
+    background-color: transparent;
   }
 
   &__list {

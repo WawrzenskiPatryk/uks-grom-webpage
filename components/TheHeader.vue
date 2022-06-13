@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" :class="{ 'header--transparent': isTransparent }">
     <LogoPlaceholder class="header__logo" first-word="UKS" second-word="GROM" />
     <HeaderHamburger
       class="header__hamburger"
@@ -14,6 +14,7 @@
       }"
       :nav-items="navigationItems"
       :is-nav-visible="isNavVisible"
+      :is-transparent="isTransparent"
     />
   </header>
 </template>
@@ -22,6 +23,7 @@
 export default {
   name: 'TheHeader',
   props: {
+    isIndex: { type: Boolean, required: true },
     navigationItems: {
       type: Array,
       required: true,
@@ -63,7 +65,19 @@ export default {
     return {
       isNavDisplayed: false,
       isNavVisible: false,
+      isScrolled: false,
     };
+  },
+  computed: {
+    isTransparent() {
+      return !this.isScrolled && this.isIndex;
+    },
+  },
+  mounted() {
+    window.addEventListener('scroll', this.changeScrollState);
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.changeScrollState);
   },
   methods: {
     toggleMenu(isButtonActive) {
@@ -85,6 +99,10 @@ export default {
         this.isNavDisplayed = false;
       }, 300);
     },
+    changeScrollState() {
+      if (window.scrollY > 0) this.isScrolled = true;
+      else this.isScrolled = false;
+    },
   },
 };
 </script>
@@ -95,13 +113,21 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: $primary-light;
   width: 100%;
   height: $header-height;
-  box-shadow: $primary-shadow 0 0 1rem;
   padding: 0 3rem;
   user-select: none;
   z-index: 100;
+  background-color: $primary-light;
+  box-shadow: $primary-shadow 0 0 1rem;
+  transition: background-color 200ms ease;
+
+  @media screen and (min-width: $desktop-min-screen-width) {
+    &--transparent {
+      background-color: transparent;
+      box-shadow: none;
+    }
+  }
 
   &__hamburger {
     @media screen and (min-width: $desktop-min-screen-width) {

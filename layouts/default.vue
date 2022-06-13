@@ -7,8 +7,12 @@
     </div>
   </div>
 
-  <div v-else class="layout">
-    <TheHeader :navigation-items="pages" class="layout__header" />
+  <div v-else class="layout" :class="{ 'layout--not-index': !isIndex }">
+    <TheHeader
+      :navigation-items="pages"
+      :is-index="isIndex"
+      class="layout__header"
+    />
 
     <PageSlider
       v-show="!isLoading"
@@ -117,7 +121,10 @@ export default {
   color: $primary-dark;
   background-color: $primary-light;
   max-width: 100vw;
-  padding-top: $header-height;
+
+  &--not-index {
+    padding-top: $header-height;
+  }
 
   &__header {
     position: fixed;
