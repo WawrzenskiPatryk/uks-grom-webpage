@@ -8,8 +8,8 @@
         <h3 class="article-card__heading--title">
           {{ title }}
         </h3>
-        <span v-if="isFull" class="article-card__heading--full upper">
-          Brak wolnych miejsc
+        <span v-if="hasCaution" class="article-card__heading--full upper">
+          {{ cautionMessage }}
         </span>
       </div>
     </div>
@@ -41,9 +41,13 @@ export default {
       default:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima iusto ratione molestiae harum laboriosam sed maxime, ducimus explicabo...',
     },
-    isFull: {
+    hasCaution: {
       type: Boolean,
       default: false,
+    },
+    cautionMessage: {
+      type: String,
+      default: 'Caution message!',
     },
   },
   methods: {

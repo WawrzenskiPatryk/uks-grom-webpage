@@ -16,9 +16,9 @@
       >
         <span
           v-if="tripIsFull"
-          class="article-section__article-illustration--full-background"
+          class="article-section__article-illustration--full-background upper"
         >
-          BRAK WOLNYCH MIEJSC
+          {{ illustrationMessage }}
         </span>
       </div>
 
@@ -51,7 +51,7 @@
 <script>
 export default {
   name: 'ArticleTripSection',
-  inject: ['articleImage', 'articleIsFull'],
+  inject: ['articleImage', 'articleIsFull', 'cautionMessage'],
   computed: {
     parentPath() {
       const routeName = this.$route.name;
@@ -63,6 +63,9 @@ export default {
     },
     tripIsFull() {
       return this.articleIsFull();
+    },
+    illustrationMessage() {
+      return this.cautionMessage();
     },
   },
 };
