@@ -8,7 +8,7 @@
 
     <NuxtChild
       :image="articles[lastActiveArticleIndex].image"
-      :is-full="articles[lastActiveArticleIndex].isFull"
+      :is-full="articles[lastActiveArticleIndex].hasCaution"
       class="news__content"
     />
 
@@ -22,7 +22,8 @@
           :image-url="article.image"
           :title="article.title"
           :subtitle="article.subtitle"
-          :is-full="article.isFull"
+          :has-caution="article.hasCaution"
+          :caution-message="article.cautionMessage"
           @clicked="setActiveArticleIndex(index)"
         />
       </NuxtLink>
@@ -36,7 +37,10 @@ export default {
   provide() {
     return {
       articleImage: () => this.articles[this.lastActiveArticleIndex].image,
-      articleIsFull: () => this.articles[this.lastActiveArticleIndex].isFull,
+      articleIsFull: () =>
+        this.articles[this.lastActiveArticleIndex].hasCaution,
+      cautionMessage: () =>
+        this.articles[this.lastActiveArticleIndex].cautionMessage,
     };
   },
   data() {
@@ -53,7 +57,8 @@ export default {
             'Przedstawiamy ofertę wypoczynku dla aktywnych dzieci i młodzieży w Grecji, nad morzem Egejskim. Opiekę szkoleniowo - wychowawczą pełnić będą czynni nauczyciele posiadający wszystkie niezbędne kwalifikacje do prowadzenia zajęć.',
           image: require('~/assets/images/grecja.jpg'),
           path: '/aktualnosci/grecja2022',
-          isFull: false,
+          hasCaution: true,
+          cautionMessage: 'Pozostałe miejsca: 2',
         },
         {
           title: 'Jarosławiec 2022',
@@ -61,7 +66,8 @@ export default {
             'Ośrodek Barka z dostępnym podgrzewanym basenem. Zakwaterowanie w domkach 6-osobowych z tarasem i pełnym węzłem sanitarnym + TV, wi-fi na stołówce, bilard , pingpong.',
           image: require('~/assets/images/jaroslawiec.jpg'),
           path: '/aktualnosci/jarosławiec2022',
-          isFull: true,
+          hasCaution: true,
+          cautionMessage: 'Brak wolnych miejsc!',
         },
       ],
     };

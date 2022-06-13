@@ -1,5 +1,5 @@
 <template>
-  <ArticleTripSection :illustration-url="image" :is-full="isFull">
+  <ArticleTripSection>
     <template #back-link>Aktualności</template>
 
     <template #article-heading>
@@ -96,7 +96,7 @@
       </ArticleParagraph>
 
       <ArticleParagraph type="important centered">
-        <strong class="upper text-colored"> Ilość miejsc ograniczona! </strong>
+        <strong class="upper text-colored"> Pozostały 2 wolne miejsca! </strong>
       </ArticleParagraph>
 
       <ArticleParagraph type="centered">
