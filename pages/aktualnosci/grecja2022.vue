@@ -32,7 +32,7 @@
       <ArticleParagraph type="titled">
         <template #title>Miejsce zakwaterowania</template>
         <strong class="text-colored">
-          Olimpic Beach - Resort Demopoulos Palace Platon Beach.
+          Olimpic Beach - Resort Platon Beach.
         </strong>
         Hotel z basenem, znajduje się 30 metrów od zorganizowanej plaży i jej
         boisk sportowych. Wysoki standard zakwaterowania w pokojach 4-osobowych

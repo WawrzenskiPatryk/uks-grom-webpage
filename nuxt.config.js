@@ -17,13 +17,15 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
+      { name: 'color-scheme', content: 'light' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/uksgrom-icon.ico' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~assets/scss/main.scss',
+    '~/assets/scss/reset.scss',
+    '~/assets/scss/typography.scss',
     '@fortawesome/fontawesome-svg-core/styles.css',
   ],
 
@@ -46,7 +48,7 @@ export default {
   build: {},
 
   styleResources: {
-    scss: ['./assets/scss/main.scss'],
+    scss: ['~/assets/scss/variables.scss'],
   },
 
   loading: {

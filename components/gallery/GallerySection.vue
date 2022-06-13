@@ -1,11 +1,11 @@
 <template>
-  <main class="gallery-section">
+  <section class="gallery-section">
     <h3 class="gallery-section__title">
       <span class="gallery-section__title--heading">
         {{ gallery.title }}
       </span>
     </h3>
-    <section class="gallery-section__images-wrapper">
+    <div class="gallery-section__images-wrapper">
       <div
         v-for="(image, index) in loadedImages"
         :key="index"
@@ -14,7 +14,7 @@
       >
         <img :src="image" class="gallery-section__image" />
       </div>
-    </section>
+    </div>
 
     <GalleryLightbox
       v-if="isLightBoxOpen"
@@ -23,7 +23,7 @@
       :initial-index="initialImageIndex"
       @close-lightbox="closeLightBox"
     />
-  </main>
+  </section>
 </template>
 
 <script>

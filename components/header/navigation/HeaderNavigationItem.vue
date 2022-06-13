@@ -1,5 +1,8 @@
 <template>
-  <li class="navigation-item">
+  <li
+    class="navigation-item"
+    :class="{ 'navigation-item--transparent': isTransparent }"
+  >
     <span
       v-if="submenu && submenu.length"
       class="navigation-item__link navigation-item__link--submenu"
@@ -11,9 +14,9 @@
       <span v-else class="navigation-item__dropdown-icon">&#9662;</span>
       {{ name }}
     </span>
-    <NuxtLink v-else :to="path" class="navigation-item__link">{{
-      name
-    }}</NuxtLink>
+    <NuxtLink v-else :to="path" class="navigation-item__link">
+      {{ name }}
+    </NuxtLink>
     <HeaderNavigationSubmenu
       v-if="submenu && submenu.length !== 0"
       :submenu="submenu"
@@ -31,6 +34,7 @@ export default {
     path: { type: String, required: true },
     submenu: { type: Array, default: null },
     isNavVisible: { type: Boolean, required: true },
+    isTransparent: { type: Boolean, required: true },
   },
   data() {
     return {
@@ -64,6 +68,23 @@ export default {
     &:hover {
       * {
         color: $primary-color;
+      }
+    }
+  }
+
+  @media screen and (min-width: $desktop-min-screen-width) {
+    &--transparent {
+      * {
+        color: $primary-light;
+        transition: color 0.2s ease;
+        text-shadow: 0 0 1rem $secondary-dark;
+      }
+      @media (hover: hover) {
+        &:hover {
+          * {
+            color: $secondary-color;
+          }
+        }
       }
     }
   }
@@ -111,6 +132,28 @@ export default {
         cursor: default;
         &::after {
           content: none;
+        }
+      }
+    }
+  }
+  @media screen and (min-width: $desktop-min-screen-width) {
+    &--transparent &__link {
+      &:hover {
+        &::after {
+          width: 80%;
+        }
+      }
+      &::after {
+        background-color: $primary-light;
+        bottom: 0.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 100%;
+      }
+
+      &.nuxt-link {
+        &-exact-active {
+          color: $secondary-color;
         }
       }
     }
