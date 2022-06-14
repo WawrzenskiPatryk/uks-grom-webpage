@@ -65,11 +65,11 @@
 
       <ArticleParagraph>
         <strong> Cena obejmuje: </strong>
-        przejazd autokarem, 7 noclegów w pokojach 4-osobowych, wyżywieniem, 6
-        śniadań, 7 razy lunch, 7 razy obiadokolacja, pierwszym świadczeniem
-        będzie obiadokolacja w dniu przyjazdu, ostatnim obiadokolacja w dniu
+        przejazd autokarem, 7 noclegów w pokojach 4-osobowych, wyżywieniem, 7
+        śniadań, 8 razy lunch, 7 razy obiadokolacja, pierwszym świadczeniem
+        będzie lunch w dniu przyjazdu, ostatnim obiadokolacja w dniu
         wyjazdu. Opłatę klimatyczną, klimatyzacja w pokojach, 2 wycieczki
-        fakultetywne, ubezpieczenie, opiekę kadry.
+        fakultatywne, ubezpieczenie, opiekę kadry.
       </ArticleParagraph>
     </template>
 
