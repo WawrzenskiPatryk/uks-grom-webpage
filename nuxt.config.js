@@ -19,7 +19,18 @@ export default {
       { name: 'format-detection', content: 'telephone=no' },
       { name: 'color-scheme', content: 'light' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/uksgrom-icon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/uksgrom-icon.ico' },
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800;900&display=swap',
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap',
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
