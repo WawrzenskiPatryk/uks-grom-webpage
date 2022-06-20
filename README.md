@@ -41,7 +41,7 @@ $ npm run dev
 
 ```
 
-For more information, check [official Nuxt documentation](https://nuxtjs.org/docs/get-started/installation)
+For more information, check [official Nuxt documentation](https://nuxtjs.org/docs/get-started/installation).
 
 ## Styling 
 The page has been styled with SCSS with BEM methodology. You can check the **global styles**, including base reset, variables and typography in `assets/scss` directory. Components' styling have been **scoped** to its' content.
