@@ -43,7 +43,7 @@ export default {
     return {
       lastActiveArticleIndex: 0,
       articleNoteTexts: [
-        'W ferie planujemy wyjazd na narty - więcej informacji w maju!',
+        'W ferie planujemy wyjazd na narty - więcej informacji na przełomie pażdziernika i listopada!',
         'Za rok planowany wyjazd do Czarnogóry, nad Polskie Morze lub do Zakopanego!',
       ],
       articles: [
