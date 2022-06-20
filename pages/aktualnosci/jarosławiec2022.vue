@@ -1,9 +1,5 @@
 <template>
-  <ArticleTripSection
-    :illustration-url="image"
-    :is-full="isFull"
-    illustration-message="Brak wolnych miejsc!"
-  >
+  <ArticleTripSection illustration-message="Brak wolnych miejsc!">
     <template #back-link>Aktualności</template>
 
     <template #article-heading>

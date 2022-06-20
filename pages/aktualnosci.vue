@@ -6,11 +6,7 @@
       class="news__note-ribbon"
     />
 
-    <NuxtChild
-      :image="articles[lastActiveArticleIndex].image"
-      :is-full="articles[lastActiveArticleIndex].hasCaution"
-      class="news__content"
-    />
+    <NuxtChild class="news__content" />
 
     <nav v-if="!hasChildPage" class="news__navigation">
       <NuxtLink
