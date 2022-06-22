@@ -89,6 +89,13 @@ export default {
         });
       });
     },
+    createGalleryObject(galleryTitle) {
+      const gallery = {
+        title: galleryTitle,
+        images: [],
+      };
+      return gallery;
+    },
     async getGalleriesFromStorage() {
       const preparedGalleries = [];
       const storage = getStorage();
@@ -100,12 +107,10 @@ export default {
       );
 
       galleriesReferences.forEach(async galleryReference => {
-        const preparedGallery = {
-          title: this.setGalleryName(galleryReference.name),
-          images: [],
-        };
+        const galleryTitle = this.setGalleryName(galleryReference.name);
+        const galleryObject = this.createGalleryObject(galleryTitle);
+        preparedGalleries.unshift(galleryObject);
 
-        preparedGalleries.unshift(preparedGallery);
         const imagesReferences = await this.getReferenceItems(galleryReference);
         this.addImagesToMatchingGallery(preparedGalleries, imagesReferences);
       });
