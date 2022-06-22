@@ -73,11 +73,16 @@ export default {
       return !this.isScrolled && this.isIndex;
     },
   },
+  watch: {
+    isIndex() {
+      this.listenToScrollIfIndex();
+    },
+  },
   mounted() {
-    window.addEventListener('scroll', this.changeScrollState);
+    this.listenToScrollIfIndex();
   },
   destroyed() {
-    window.removeEventListener('scroll', this.changeScrollState);
+    this.removeListenToScroll();
   },
   methods: {
     toggleMenu(isButtonActive) {
@@ -98,6 +103,16 @@ export default {
       setTimeout(() => {
         this.isNavDisplayed = false;
       }, 300);
+    },
+    listenToScrollIfIndex() {
+      if (this.isIndex) this.addListenToScroll();
+      else this.removeListenToScroll();
+    },
+    addListenToScroll() {
+      window.addEventListener('scroll', this.changeScrollState);
+    },
+    removeListenToScroll() {
+      window.removeEventListener('scroll', this.changeScrollState);
     },
     changeScrollState() {
       if (window.scrollY > 0) this.isScrolled = true;
