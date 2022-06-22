@@ -59,21 +59,38 @@ export default {
     setGalleryName(name) {
       return name.slice(3).replace(/-/g, ' ');
     },
-    getReferenceItems(reference) {
-      return listAll(reference).then(result => result.items);
-    },
-    getReferencePrefixes(reference) {
-      return listAll(reference).then(result => result.prefixes);
-    },
     setItemInSessionStorage(itemKey, itemValue) {
       sessionStorage.setItem(itemKey, JSON.stringify(itemValue));
     },
     getItemFromSessionStorage(itemKey) {
       return JSON.parse(sessionStorage.getItem(itemKey));
     },
-    async getGalleriesFromStorage() {
-      const downloadedGalleries = [];
+    async getReferenceItems(reference) {
+      const result = await listAll(reference);
+      return result.items;
+    },
+    async getReferencePrefixes(reference) {
+      const result = await listAll(reference);
+      return result.prefixes;
+    },
+    addImagesToMatchingGallery(preparedGalleries, imagesReferences) {
+      imagesReferences.forEach((imageReference, index) => {
+        preparedGalleries.forEach(async gallery => {
+          const imagePath = imageReference.fullPath;
+          const galleryHyphenatedTitle = gallery.title.replace(/ /g, '-');
 
+          const titlesAreMatching = imagePath.includes(galleryHyphenatedTitle);
+
+          if (titlesAreMatching) {
+            const imageUrl = await getDownloadURL(imageReference);
+            this.$set(gallery.images, index, imageUrl);
+            this.setItemInSessionStorage('gallery', preparedGalleries);
+          }
+        });
+      });
+    },
+    async getGalleriesFromStorage() {
+      const preparedGalleries = [];
       const storage = getStorage();
       const mainFolderName = 'gallery';
       const mainFolderRef = firebaseRef(storage, mainFolderName);
@@ -83,29 +100,17 @@ export default {
       );
 
       galleriesReferences.forEach(async galleryReference => {
-        downloadedGalleries.unshift({
+        const preparedGallery = {
           title: this.setGalleryName(galleryReference.name),
           images: [],
-        });
+        };
 
+        preparedGalleries.unshift(preparedGallery);
         const imagesReferences = await this.getReferenceItems(galleryReference);
-
-        imagesReferences.forEach((imageReference, index) => {
-          this.galleries.forEach(async gallery => {
-            const areTitlesMatching = imageReference.fullPath.includes(
-              gallery.title.replace(/ /g, '-')
-            );
-
-            if (areTitlesMatching) {
-              const imageUrl = await getDownloadURL(imageReference);
-              this.$set(gallery.images, index, imageUrl);
-              this.setItemInSessionStorage('gallery', downloadedGalleries);
-            }
-          });
-        });
+        this.addImagesToMatchingGallery(preparedGalleries, imagesReferences);
       });
 
-      return downloadedGalleries;
+      return preparedGalleries;
     },
   },
 };
