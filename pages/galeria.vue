@@ -22,12 +22,8 @@
 </template>
 
 <script>
-import {
-  getStorage as firebaseGetStorage,
-  ref as firebaseRef,
-  listAll as firebaseListAll,
-  getDownloadURL as firebaseGetDownloadURL,
-} from 'firebase/storage';
+import StorageService from '../plugins/services/storage.js';
+import FirebaseService from '../plugins/services/firebase.js';
 
 export default {
   name: 'GalleryPage',
@@ -54,48 +50,28 @@ export default {
         this.isLoading = false;
       }
     } else {
-      this.galleries = this.getItemFromSessionStorage(mainFolderName);
+      this.galleries = StorageService.getSessionItem(mainFolderName);
       this.isLoading = false;
     }
   },
   methods: {
-    // firebase methods
-    async getReferenceItems(reference) {
-      const result = await firebaseListAll(reference);
-      return result.items;
-    },
-    async getReferencePrefixes(reference) {
-      const result = await firebaseListAll(reference);
-      return result.prefixes;
-    },
-
-    // session methods
-    setItemInSessionStorage(itemKey, itemValue) {
-      sessionStorage.setItem(itemKey, JSON.stringify(itemValue));
-    },
-    getItemFromSessionStorage(itemKey) {
-      return JSON.parse(sessionStorage.getItem(itemKey));
-    },
-
-    // main methods
     createGalleryTitle(galleryReference) {
       return galleryReference.name.slice(3).replace(/-/g, ' ');
     },
     createGalleryObject(galleryTitle) {
-      const galleryObject = {
+      return {
         title: galleryTitle,
         images: [],
       };
-      return galleryObject;
     },
     addImageToGalleryObject(galleryObj, imgIndex, imageURL) {
       const imagesArray = galleryObj.images;
       this.$set(imagesArray, imgIndex, imageURL);
     },
     async galleryMatchHandler(galleryObj, imgIndex, imgRef, mainFolderName) {
-      const imageURL = await firebaseGetDownloadURL(imgRef);
+      const imageURL = await FirebaseService.getFileURL(imgRef);
       this.addImageToGalleryObject(galleryObj, imgIndex, imageURL);
-      this.setItemInSessionStorage(mainFolderName, this.galleries);
+      StorageService.setSessionItem(mainFolderName, this.galleries);
     },
     matchImagesToGalleries(galleries, imagesRefs, mainFolderName, callbackFn) {
       imagesRefs.forEach((imageReference, index) => {
@@ -111,10 +87,10 @@ export default {
     },
     async getGalleriesFromFirebase(mainFolderName) {
       const galleries = [];
-      const storage = firebaseGetStorage();
-      const mainFolderReference = firebaseRef(storage, mainFolderName);
+      const mainFolderReference =
+        FirebaseService.getMainReference(mainFolderName);
 
-      const galleriesReferences = await this.getReferencePrefixes(
+      const galleriesReferences = await FirebaseService.getReferencePrefixes(
         mainFolderReference
       );
 
@@ -122,7 +98,9 @@ export default {
         const galleryTitle = this.createGalleryTitle(galleryReference);
         const galleryObject = this.createGalleryObject(galleryTitle);
         galleries.unshift(galleryObject);
-        const imagesReferences = await this.getReferenceItems(galleryReference);
+        const imagesReferences = await FirebaseService.getReferenceItems(
+          galleryReference
+        );
 
         this.matchImagesToGalleries(
           galleries,
