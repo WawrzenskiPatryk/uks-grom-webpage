@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import StorageService from '../plugins/services/storage.js';
-import FirebaseService from '../plugins/services/firebase.js';
+import StorageService from '../service/storage.js';
+import FirebaseService from '../service/firebase.js';
 
 export default {
   name: 'GalleryPage',
