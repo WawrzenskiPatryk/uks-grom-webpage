@@ -54,7 +54,7 @@ export default {
           image: require('~/assets/images/grecja.jpg'),
           path: '/aktualnosci/grecja2022',
           hasCaution: true,
-          cautionMessage: 'Pozostałe miejsca: 2',
+          cautionMessage: 'Pozostałe miejsca: 1',
         },
         {
           title: 'Jarosławiec 2022',
