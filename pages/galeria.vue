@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import StorageService from '../plugins/services/storage.js';
-import FirebaseService from '../plugins/services/firebase.js';
+import StorageService from '../plugins/storage.js';
+import FirebaseService from '../plugins/firebase.js';
 
 export default {
   name: 'GalleryPage',
@@ -37,14 +37,14 @@ export default {
   async mounted() {
     this.isLoading = true;
     const mainFolderName = 'gallery';
+    const quotaErrorKeyword = 'quota';
     const sessionStorageIsEmpty = !sessionStorage.getItem(mainFolderName);
+
     if (sessionStorageIsEmpty) {
       try {
         this.galleries = await this.getGalleriesFromFirebase(mainFolderName);
       } catch (error) {
-        const quotaErrorKeyword = 'quota';
-        const errorCode = error.code;
-        if (errorCode.includes(quotaErrorKeyword)) this.quotaError = true;
+        if (error.code.includes(quotaErrorKeyword)) this.quotaError = true;
         else throw new Error(error);
       } finally {
         this.isLoading = false;
@@ -58,21 +58,25 @@ export default {
     createGalleryTitle(galleryReference) {
       return galleryReference.name.slice(3).replace(/-/g, ' ');
     },
+
     createGalleryObject(galleryTitle) {
       return {
         title: galleryTitle,
         images: [],
       };
     },
+
     addImageToGalleryObject(galleryObj, imgIndex, imageURL) {
       const imagesArray = galleryObj.images;
       this.$set(imagesArray, imgIndex, imageURL);
     },
+
     async galleryMatchHandler(galleryObj, imgIndex, imgRef, mainFolderName) {
       const imageURL = await FirebaseService.getFileURL(imgRef);
       this.addImageToGalleryObject(galleryObj, imgIndex, imageURL);
       StorageService.setSessionItem(mainFolderName, this.galleries);
     },
+
     matchImagesToGalleries(galleries, imagesRefs, mainFolderName, callbackFn) {
       imagesRefs.forEach((imageReference, index) => {
         galleries.forEach(galleryObject => {
@@ -85,10 +89,11 @@ export default {
         });
       });
     },
+
     async getGalleriesFromFirebase(mainFolderName) {
       const galleries = [];
       const mainFolderReference =
-        FirebaseService.getMainReference(mainFolderName);
+        FirebaseService.createMainReference(mainFolderName);
 
       const galleriesReferences = await FirebaseService.getReferencePrefixes(
         mainFolderReference
