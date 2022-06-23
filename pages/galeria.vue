@@ -40,20 +40,21 @@ export default {
   },
   async mounted() {
     this.isLoading = true;
-    const galleryItemName = 'gallery';
-    const sessionStorageIsEmpty = !sessionStorage.getItem(galleryItemName);
+    const mainFolderName = 'gallery';
+    const sessionStorageIsEmpty = !sessionStorage.getItem(mainFolderName);
     if (sessionStorageIsEmpty) {
       try {
-        this.galleries = await this.getGalleriesFromStorage(galleryItemName);
+        this.galleries = await this.getGalleriesFromFirebase(mainFolderName);
       } catch (error) {
         const quotaErrorKeyword = 'quota';
-        if (error.code.includes(quotaErrorKeyword)) this.quotaError = true;
+        const errorCode = error.code;
+        if (errorCode.includes(quotaErrorKeyword)) this.quotaError = true;
         else throw new Error(error);
       } finally {
         this.isLoading = false;
       }
     } else {
-      this.galleries = this.getItemFromSessionStorage(galleryItemName);
+      this.galleries = this.getItemFromSessionStorage(mainFolderName);
       this.isLoading = false;
     }
   },
@@ -108,7 +109,7 @@ export default {
         });
       });
     },
-    async getGalleriesFromStorage(mainFolderName) {
+    async getGalleriesFromFirebase(mainFolderName) {
       const galleries = [];
       const storage = firebaseGetStorage();
       const mainFolderReference = firebaseRef(storage, mainFolderName);
