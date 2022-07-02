@@ -12,7 +12,8 @@
         class="gallery-section__image-container"
         @click="openLightBox(index)"
       >
-        <img :src="image" class="gallery-section__image" />
+        <BaseSpinner size="small" class="gallery-section__image-spinner" />
+        <img width="250" :src="image" class="gallery-section__image" />
       </div>
     </div>
 
@@ -97,6 +98,7 @@ export default {
     position: relative;
     margin: 1rem;
     border-radius: 1rem;
+    background-color: $secondary-shadow;
 
     width: 25rem;
     height: 15rem;
@@ -125,14 +127,21 @@ export default {
     }
   }
 
+  &__image-spinner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
   &__image {
-    min-height: 100%;
-    max-width: 100%;
+    // min-height: 100%;
     overflow: hidden;
     position: absolute;
     pointer-events: none;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 </style>
