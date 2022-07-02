@@ -22,12 +22,8 @@
 </template>
 
 <script>
-import {
-  getStorage,
-  ref as firebaseRef,
-  listAll,
-  getDownloadURL,
-} from 'firebase/storage';
+import StorageService from '../service/storage.js';
+import FirebaseService from '../service/firebase.js';
 
 export default {
   name: 'GalleryPage',
@@ -40,72 +36,86 @@ export default {
   },
   async mounted() {
     this.isLoading = true;
-    const sessionStorageIsEmpty = !sessionStorage.getItem('gallery');
+    const mainFolderName = 'gallery';
+    const quotaErrorKeyword = 'quota';
+    const sessionStorageIsEmpty = !sessionStorage.getItem(mainFolderName);
+
     if (sessionStorageIsEmpty) {
       try {
-        this.galleries = await this.getGalleriesFromStorage();
+        this.galleries = await this.getGalleriesFromFirebase(mainFolderName);
       } catch (error) {
-        if (error.code.includes('quota')) this.quotaError = true;
+        if (error.code.includes(quotaErrorKeyword)) this.quotaError = true;
         else throw new Error(error);
       } finally {
         this.isLoading = false;
       }
     } else {
-      this.galleries = this.getItemFromSessionStorage('gallery');
+      this.galleries = StorageService.getSessionItem(mainFolderName);
       this.isLoading = false;
     }
   },
   methods: {
-    setGalleryName(name) {
-      return name.slice(3).replace(/-/g, ' ');
+    createGalleryTitle(galleryReference) {
+      return galleryReference.name.slice(3).replace(/-/g, ' ');
     },
-    getReferenceItems(reference) {
-      return listAll(reference).then(result => result.items);
-    },
-    getReferencePrefixes(reference) {
-      return listAll(reference).then(result => result.prefixes);
-    },
-    setItemInSessionStorage(itemKey, itemValue) {
-      sessionStorage.setItem(itemKey, JSON.stringify(itemValue));
-    },
-    getItemFromSessionStorage(itemKey) {
-      return JSON.parse(sessionStorage.getItem(itemKey));
-    },
-    async getGalleriesFromStorage() {
-      const downloadedGalleries = [];
 
-      const storage = getStorage();
-      const mainFolderName = 'gallery';
-      const mainFolderRef = firebaseRef(storage, mainFolderName);
+    createGalleryObject(galleryTitle) {
+      return {
+        title: galleryTitle,
+        images: [],
+      };
+    },
 
-      const galleriesReferences = await this.getReferencePrefixes(
-        mainFolderRef
+    addImageToGalleryObject(galleryObj, imgIndex, imageURL) {
+      const imagesArray = galleryObj.images;
+      this.$set(imagesArray, imgIndex, imageURL);
+    },
+
+    async galleryMatchHandler(galleryObj, imgIndex, imgRef, mainFolderName) {
+      const imageURL = await FirebaseService.getFileURL(imgRef);
+      this.addImageToGalleryObject(galleryObj, imgIndex, imageURL);
+      StorageService.setSessionItem(mainFolderName, this.galleries);
+    },
+
+    matchImagesToGalleries(galleries, imagesRefs, mainFolderName, callbackFn) {
+      imagesRefs.forEach((imageReference, index) => {
+        galleries.forEach(galleryObject => {
+          const imagePath = imageReference.fullPath;
+          const galleryHyphenatedTitle = galleryObject.title.replace(/ /g, '-');
+          const titlesAreMatching = imagePath.includes(galleryHyphenatedTitle);
+          if (titlesAreMatching) {
+            callbackFn(galleryObject, index, imageReference, mainFolderName);
+          }
+        });
+      });
+    },
+
+    async getGalleriesFromFirebase(mainFolderName) {
+      const galleries = [];
+      const mainFolderReference =
+        FirebaseService.createMainReference(mainFolderName);
+
+      const galleriesReferences = await FirebaseService.getReferencePrefixes(
+        mainFolderReference
       );
 
       galleriesReferences.forEach(async galleryReference => {
-        downloadedGalleries.unshift({
-          title: this.setGalleryName(galleryReference.name),
-          images: [],
-        });
+        const galleryTitle = this.createGalleryTitle(galleryReference);
+        const galleryObject = this.createGalleryObject(galleryTitle);
+        galleries.unshift(galleryObject);
+        const imagesReferences = await FirebaseService.getReferenceItems(
+          galleryReference
+        );
 
-        const imagesReferences = await this.getReferenceItems(galleryReference);
-
-        imagesReferences.forEach((imageReference, index) => {
-          this.galleries.forEach(async gallery => {
-            const areTitlesMatching = imageReference.fullPath.includes(
-              gallery.title.replace(/ /g, '-')
-            );
-
-            if (areTitlesMatching) {
-              const imageUrl = await getDownloadURL(imageReference);
-              this.$set(gallery.images, index, imageUrl);
-              this.setItemInSessionStorage('gallery', downloadedGalleries);
-            }
-          });
-        });
+        this.matchImagesToGalleries(
+          galleries,
+          imagesReferences,
+          mainFolderName,
+          this.galleryMatchHandler
+        );
       });
 
-      return downloadedGalleries;
+      return galleries;
     },
   },
 };
