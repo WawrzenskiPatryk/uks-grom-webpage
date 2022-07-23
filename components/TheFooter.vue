@@ -8,20 +8,22 @@
             first-word="UKS"
             second-word="GROM"
           />
-          <span class="footer__details-element">Uczniowski Klub Sportowy</span>
-          <span class="footer__details-element">GROM SP 2 Lublin</span>
+          <span class="footer__details-element">
+            Uczniowski Klub Sportowy
+          </span>
+          <span class="footer__details-element"> GROM SP 2 Lublin </span>
         </div>
       </div>
 
       <div class="footer__section">
         <div class="footer__details">
           <span class="footer__details-element">
-            <strong>Dane do przelewu</strong>
+            <strong> Dane do przelewu </strong>
           </span>
           <span class="footer__details-element">
             12 1240 2470 1111 0010 6881 3209
           </span>
-          <span class="footer__details-element">Bank Pekao S.A.</span>
+          <span class="footer__details-element"> Bank Pekao S.A. </span>
         </div>
       </div>
 
@@ -36,8 +38,13 @@
           <span class="footer__details-element">
             <fa-icon class="footer__icon" icon="fa-solid fa-phone" />
             <br class="footer__icon-line-break" />
-            <strong>Piotr Łuszczew </strong> <br />
+            <strong> Piotr Łuszczew </strong> <br />
             609-006-576
+          </span>
+          <span class="footer__details-element">
+            <fa-icon class="footer__icon" icon="fa-solid fa-envelope" />
+            <br class="footer__icon-line-break" />
+            uksgromsp2lublin@o2.pl
           </span>
         </div>
       </div>
@@ -134,7 +141,9 @@ export default {
     @media screen and (min-width: $desktop-min-screen-width) {
       position: absolute;
       left: -4rem;
-      top: 2rem;
+      top: 50%;
+      padding: 0;
+      transform: translateY(-50%);
       &-line-break {
         display: none;
       }

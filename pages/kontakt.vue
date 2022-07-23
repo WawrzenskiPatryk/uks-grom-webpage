@@ -13,6 +13,13 @@
         </BaseHeading>
 
         <BaseHeading title subtitle aside deco class="contact__address-info">
+          <template #title>Email</template>
+          <template #subtitle>
+            <BaseParagraph> uksgromsp2lublin@o2.pl </BaseParagraph>
+          </template>
+        </BaseHeading>
+
+        <BaseHeading title subtitle aside deco class="contact__address-info">
           <template #title>Telefon</template>
           <template #subtitle>
             <BaseParagraph>
