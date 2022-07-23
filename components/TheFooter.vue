@@ -45,13 +45,14 @@
 
     <div class="footer__copyrights">
       <span>
-        2022 &copy; Powered by
+        {{ todaysYear }} &copy; Designed & Powered by
         <a
           class="footer__author-link"
           href="https://www.linkedin.com/in/patryk-wawrze%C5%84ski-41303a233/"
           target="_blank"
-          >Patryk Wawrzeński</a
         >
+          Patryk Wawrzeński
+        </a>
       </span>
     </div>
   </footer>
@@ -60,6 +61,12 @@
 <script>
 export default {
   name: 'TheFooter',
+  computed: {
+    todaysYear() {
+      const today = new Date();
+      return today.getFullYear();
+    },
+  },
 };
 </script>
 
